@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  show_id: MyString
+  season_no: 1
+  episode_no: 1
+  showep_no: 1
+  title: MyString
+  air_date: 2018-02-22
+  season: one
+
+two:
+  show_id: MyString
+  season_no: 1
+  episode_no: 1
+  showep_no: 1
+  title: MyString
+  air_date: 2018-02-22
+  season: two
