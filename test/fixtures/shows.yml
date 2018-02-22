@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  show_id: MyString
+  name: MyString
+  network: MyString
+  start_year: MyString
+  end_year: MyString
+
+two:
+  show_id: MyString
+  name: MyString
+  network: MyString
+  start_year: MyString
+  end_year: MyString
