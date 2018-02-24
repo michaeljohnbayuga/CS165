@@ -10,11 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180222122536) do
+ActiveRecord::Schema.define(version: 20180224090051) do
 
   create_table "episodes", force: :cascade do |t|
-    t.string "show_id"
-    t.integer "season_no"
     t.integer "episode_no"
     t.integer "showep_no"
     t.string "title"
@@ -37,7 +35,7 @@ ActiveRecord::Schema.define(version: 20180222122536) do
   end
 
   create_table "shows", force: :cascade do |t|
-    t.string "show_id"
+    t.string "code"
     t.string "name"
     t.string "network"
     t.string "start_year"
@@ -47,14 +45,12 @@ ActiveRecord::Schema.define(version: 20180222122536) do
   end
 
   create_table "trackers", force: :cascade do |t|
-    t.string "username"
-    t.string "show_id"
-    t.integer "season_no"
-    t.integer "episode_no"
     t.integer "episode_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
     t.index ["episode_id"], name: "index_trackers_on_episode_id"
+    t.index ["user_id"], name: "index_trackers_on_user_id"
   end
 
 end
