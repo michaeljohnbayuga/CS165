@@ -1,1 +1,41 @@
 <h1>Show Page...How do we rewrite the stars??? </h1>
+
+<br><br><br>
+
+<div class="ui stackable internally celled four column grid container">
+  <% @shows.each do |show|
+    @id = show.show_id
+  %>
+    <div class="column">
+      <%= link_to image_tag("logos/#{@id}.jpg", class: "ui medium image"), show_path(show) %><br>
+      <%= @id %>
+      <%= show.name %>
+      <%= show.network %>
+      <%= show.start_year %>
+      <%= show.end_year %>
+    </div>
+  <% end %>
+</div>
+
+<br><br><br>
+
+<table>
+  <tr>
+    <th>Show ID</th>
+    <th>Name</th>
+    <th>Network</th>
+    <th>Premiere Year</th>
+    <th>Finale Year</th>
+  </tr>
+
+  <% @shows.each do |show| %>
+    <tr>
+      <td><%= show.show_id %></td>
+      <td><%= show.name %></td>
+      <td><%= show.network %></td>
+      <td><%= show.start_year %></td>
+      <td><%= show.end_year %></td>
+      <td><%= link_to 'Show', show_path(show) %></td>
+    </tr>
+  <% end %>
+</table>
