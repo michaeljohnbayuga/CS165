@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180222052940) do
+ActiveRecord::Schema.define(version: 20180222104326) do
 
   create_table "shows", force: :cascade do |t|
     t.string "show_id"
@@ -18,6 +18,16 @@ ActiveRecord::Schema.define(version: 20180222052940) do
     t.string "network"
     t.string "start_year"
     t.string "end_year"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "name"
+    t.boolean "is_admin", default: false
+    t.string "password"
+    t.string "salt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
