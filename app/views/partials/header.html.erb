@@ -2,12 +2,12 @@
     <div class="item"><a id="header_text" href="/shows">TV Tracker</a></div>
         <div class="right menu">
             <div class="ui item">
-                <div class="ui test button">Sign up</div>
+                <div class="ui login button">Sign up</div>
             </div>
         </div>
 </div>
 
-<div class="ui test modal">
+<div class="ui login modal">
   <i class="close icon"></i>
   <div class="header">
     Log In
@@ -15,10 +15,10 @@
   <div class="content">
     <%= form_for(:user, :url => {:controller => 'users', :action => 'create'}) do |f| %>
       <p> Username:</br> <%= f.text_field :username%> </p>
-      <p> Email:</br> <%= f.text_field :email%> </p>
+      <p> Email:</br> <%= f.text_field :name%> </p>
       <p> Password:</br> <%= f.password_field :password%></p>
       <p> Password Confirmation:</br> <%= f.password_field :password_confirmation%> </p>
-      <%= f.submit :Signup %>
+      <%= f.submit %>
     <% end %>
   </div>
 </div>

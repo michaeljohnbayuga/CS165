@@ -3,4 +3,4 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  $('.test.modal').modal('attach events', '.test.button', 'show')
+  $('.login.modal').modal('attach events', '.login.button', 'show')

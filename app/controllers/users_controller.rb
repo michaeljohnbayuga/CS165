@@ -3,14 +3,26 @@ class UsersController < ApplicationController
     @user = User.new
   end
   def create
-    @user = User.new(params[:user])
-    if @user.save
+    @user = User.new(user_params)
+    if @user.valid?
+      salt = BCrypt::Engine.generate_salt
+      @user.salt = salt
+      @user.password = BCrypt::Engine.hash_secret(:password, salt)
+      @user.save
       flash[:notice] = "You signed up successfully"
       flash[:color]= "valid"
+      redirect_to '/'
+    # else
+    #   flash[:notice] = "Form is invalid"
+    #   flash[:color]= "invalid"
     else
-      flash[:notice] = "Form is invalid"
-      flash[:color]= "invalid"
+      render "new"
     end
-    render "new"
   end
+
+  private
+    def user_params
+      params.require(:user).permit(:username, :name, :password)
+    end
+
 end
