@@ -6,6 +6,20 @@
   color: #FFF;
 }
 
-.hand {
+.pointer {
   cursor: pointer;
+}
+
+.ui.small.image {
+	float: left;
+	margin-right: 20px;
+}
+
+.float-right {
+	float: right;
+}
+
+#season-details {
+	margin-left: 15px;
+	margin-right: 15px;
 }

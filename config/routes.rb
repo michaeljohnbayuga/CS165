@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :shows
   resources :users
   resources :trackers
+  resources :seasons
 
   root to: "home#show"
 end
