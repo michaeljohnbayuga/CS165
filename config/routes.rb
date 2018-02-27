@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'users/new'
-
   get 'sessions/create'
 
   get 'sessions/destroy'
@@ -13,5 +11,6 @@ Rails.application.routes.draw do
   resources :trackers
   resources :seasons
 
+  post 'sessions/create', to: 'sessions#create'
   root to: "home#show"
 end

@@ -1,10 +1,14 @@
 <div class="ui top fixed borderless menu" id="header_menu">
-    <div class="item"><a id="header_text" href="/shows">TV Tracker</a></div>
-        <div class="right menu">
-            <div class="ui item">
-                <div class="ui login button">Sign up</div>
-            </div>
-        </div>
+  <div class="item"><a id="header_text" href="/shows">TV Tracker </a></div>
+  <div class="right menu">
+    <div class="ui item">
+      <% if current_user.present? %>
+        <div id="header_text"> Hi, <%= current_user.name %>! </div>
+      <% else %>
+        <div class="ui login button">Log In</div>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 <div class="ui login modal">
@@ -13,11 +17,25 @@
     Log In
   </div>
   <div class="content">
+    <%= form_tag(:controller => 'sessions', :action => 'create') do %>
+      <p> Username:</br> <%= text_field_tag(:username) %> </p>
+      <p> Password:</br> <%= password_field_tag(:password) %></p>
+      <%= submit_tag("Log In") %>
+    <% end %>
+  </div>
+</div>
+
+<div class="ui signup modal">
+  <i class="close icon"></i>
+  <div class="header">
+    Log In
+  </div>
+  <div class="content">
     <%= form_for(:user, :url => {:controller => 'users', :action => 'create'}) do |f| %>
       <p> Username:</br> <%= f.text_field :username%> </p>
-      <p> Email:</br> <%= f.text_field :name%> </p>
+      <p> Name:</br> <%= f.text_field :name%> </p>
       <p> Password:</br> <%= f.password_field :password%></p>
-      <p> Password Confirmation:</br> <%= f.password_field :password_confirmation%> </p>
+      <p> Verify Password:</br> <%= f.password_field :password_confirmation%> </p>
       <%= f.submit %>
     <% end %>
   </div>

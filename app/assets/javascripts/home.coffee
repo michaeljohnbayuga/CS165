@@ -4,3 +4,6 @@
 
 $ ->
   $('.login.modal').modal('attach events', '.login.button', 'show')
+
+$ ->
+  $('.signup.modal').modal('attach events', '.signup.button', 'show')
