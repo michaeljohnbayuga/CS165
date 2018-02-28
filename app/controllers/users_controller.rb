@@ -6,14 +6,12 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.valid?
       @user.save
-      flash[:success_header] = "You signed up successfully."
-      flash[:success_body]= "Please log in to your account to start tracking your shows."
+      flash[:success_header]="You signed up successfully."
+      flash[:success_body]="Please log in to your account to start tracking your shows."
       redirect_to '/'
-    # else
-    #   flash[:notice] = "Form is invalid"
-    #   flash[:color]= "invalid"
     else
-      render "new"
+      flash[:error_header]="Error sigining in."
+      redirect_back(fallback_location: root_path)
     end
   end
 

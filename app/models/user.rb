@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_many :trackers, :dependent => :destroy
 
+  validates :username, presence: :true
+
   before_save :encrypt_password
   after_save :clear_password
 
