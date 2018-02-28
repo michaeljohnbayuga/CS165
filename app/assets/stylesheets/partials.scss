@@ -14,6 +14,25 @@
 	margin-right: 130px;
 }
 
+#login_button {
+	background-color: #8ad8c7;
+	border-radius:50px;
+	border-color: #fff;
+	color: #fff;
+	margin-top: 15px;
+	margin-bottom: 10px;
+}
+
+#create_link {
+	font-size:12.5px;
+	color:#7e8a94;
+	font-weight: 100;
+}
+
+#create_link:hover {
+    color:#f25f70;
+}
+
 .pointer {
   cursor: pointer;
 }

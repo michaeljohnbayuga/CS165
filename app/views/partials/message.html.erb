@@ -1,0 +1,21 @@
+<% if not @messages_rendered -%>
+  <% if flash[:error_header] and flash[:error_body] -%>
+  <div class="ui error message closeable">
+    <i class="close icon"></i>
+    <div class="header">
+      <%=h flash[:error_header] %>
+    </div>
+    <p><%=h flash[:error_body] %></p>
+  </div>
+  <% end %>
+  <% if flash[:success_header] and flash[:success_body] -%>
+  <div class="ui success message closeable">
+    <i class="close icon"></i>
+    <div class="header">
+      <%=h flash[:success_header] %>
+    </div>
+    <p><%=h flash[:success_body] %></p>
+  </div>
+  <% end -%>
+<% end -%>
+<% @messages_rendered = true -%>

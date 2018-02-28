@@ -1,10 +1,16 @@
 <%= render :file=> 'app/views/partials/header.html.erb' %>
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br>
+
+<div class="ui container">
+  <%= render :file=> 'app/views/partials/message.html.erb' %>
+</div>
+<br><br><br><br><br><br><br><br><br><br>
 <div class="ui fixed center aligned container" id="home_no_shows">
-    <div id="welcome_text">Welcome.</div>
-    <div id="text_1">There are no shows airing today and for the rest of the week.</div>
-    <div>
-      <a href="/" id="text_2">Start tracking!</a>
-    </div>
+
+  <div id="welcome_text">Welcome.</div>
+  <div id="text_1">There are no shows airing today and for the rest of the week.</div>
+  <div>
+    <a href="/" id="text_2">Start tracking!</a>
+  </div>
 </div>
