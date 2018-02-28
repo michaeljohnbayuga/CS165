@@ -1,3 +1,28 @@
-// Place all the styles related to the Home controller here.
+ // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#home_no_shows {
+  color: #7e8a94;
+  font-weight: 300;
+}
+
+#welcome_text {
+  font-size: 75px;
+}
+
+#text_1 {
+  margin-top: 35px;
+  margin-bottom: 3px;
+}
+
+#text_2 {
+  text-decoration: underline;
+  font-size: 16px;
+  color: #7e8a94;
+}
+
+#modal_text {
+  color:#7e8a94;
+  font-weight:600;
+}

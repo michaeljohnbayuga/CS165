@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  $('.login.modal').modal('attach events', '.login.button', 'show')
+  $('.login.mini.modal').modal('attach events', '.login.button', 'show')
 
 $ ->
   $('.signup.modal').modal('attach events', '.signup.button', 'show')
