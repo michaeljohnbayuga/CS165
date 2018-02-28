@@ -1,6 +1,6 @@
 class ShowsController < ApplicationController
   def index
-    @shows = Show.all
+    @shows = Show.all.order(start_year: :desc, name: :asc)
     @codes = params[:codes]
     # @code = Show.find(params[:id])
   end
