@@ -1,27 +1,103 @@
-<p> Hey, I'm here! </p>
+<%= render :file=> 'app/views/partials/header.html.erb' %>
 
-
-<p>
-  <strong>Show ID:</strong>
-  <%= @show.show_id %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @show.name %>
-</p>
-
-<p>
-  <strong>Network:</strong>
-  <%= @show.network %>
-</p>
-
-<p>
-  <strong>Premiere Year:</strong>
+<div class="ui container" style="margin-top:80px;">
+  <img src="/logos/<%= @show.code %>.jpg" class="ui small image" id="show-logo">
+  <h1><%= @show.name %></h1>
+  <%= @show.network %>&emsp;&#8226;&emsp;
   <%= @show.start_year %>
-</p>
+  <% if @show.end_year.present? & (@show.start_year != @show.end_year)%>
+        - <%= @show.end_year %>
+  <% end %>&emsp;&#8226;&emsp;
+  <%= @seasons.count %>
+  <% if @seasons.count == 1 %>
+        Season
+  <% else %>
+        Seasons
+  <% end %>
+  <br><br><br>
 
-<p>
-  <strong>Finale Year:</strong>
-  <%= @show.end_year %>
-</p>
+  <div class="ui stackable internally celled four column grid container">
+    <% @seasons.each do |season|
+      @episodes = season.episodes
+      @trackers = current_user.trackers
+    %>
+      <div class="ui styled fluid accordion">
+        <div class="title">
+          SEASON <%= season.season_no %>
+          <span class="float-right">
+            <%= season.episodes.count %>
+            <% if @episodes.count == 1 %>
+                  EPISODE
+            <% else %>
+                  EPISODES
+            <% end %>
+          </span>
+        </div>
+
+        <div class="content" id="season-details">
+          <% if !season.start_date.nil? %>
+            <strong>PREMIERE DATE: </strong><%= season.try(:start_date).try(:strftime, ("%b %d, %Y")) %><br>
+            <strong>FINALE DATE: </strong><%= season.try(:end_date).try(:strftime, ("%b %d, %Y")) %><br><br>
+          <% end %>
+
+          <% @episodes.each do |episode| %>
+            <div class="row" style="padding:8px 0px;">
+              <span class="float-right"><%= episode.try(:air_date).try(:strftime, ("%b %d, %Y")) %></span>
+
+              <% if current_user.valid? %>
+                <% if current_user.trackers.where(episode_id: episode.id).exists? %>
+                  <i class="red minus circle large icon"></i>&nbsp;&nbsp;
+                <% else %>
+                  <i class="green plus circle large icon"></i>&nbsp;&nbsp;
+                <% end %>
+
+              <!-- <%= link_to '/trackers/create', :ep_id => episode.id do %> -->
+              <!-- <% end %> -->
+
+                <!-- <a href="/trackers/create"><i class="green plus circle large icon"></i></a>&nbsp;&nbsp; -->
+
+              <% else %>
+                <i class="green plus circle large icon"></i></a>&nbsp;&nbsp;
+                <!-- <a href="/trackers"><i class="green plus circle large icon"></i></a>&nbsp;&nbsp; -->
+              <% end %>
+
+              <%= episode.showep_no %>&emsp;
+              <%= episode.episode_no %>&emsp;
+              <%= episode.title %><br>
+
+            </div>
+            <% end %>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+
+  <!-- <br><br><br>
+  <p>
+    <strong>Show ID:</strong>
+    <%= @show.code %>
+  </p>
+
+  <p>
+    <strong>Name:</strong>
+    <%= @show.name %>
+  </p>
+
+  <p>
+    <strong>Network:</strong>
+    <%= @show.network %>
+  </p>
+
+  <p>
+    <strong>Premiere Year:</strong>
+    <%= @show.start_year %>
+  </p>
+
+  <p>
+    <strong>Finale Year:</strong>
+    <%= @show.end_year %>
+  </p> -->
+
+
+</div>

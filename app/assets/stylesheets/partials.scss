@@ -10,13 +10,24 @@
   cursor: pointer;
 }
 
-.ui.small.image {
+.float-right {
+	float: right;
+}
+
+#show-logo {
 	float: left;
 	margin-right: 20px;
 }
 
-.float-right {
-	float: right;
+#show-name {
+	color: #565a5f;
+}
+
+#show-name:hover {
+    text-transform: uppercase;
+    // color:#8ad8c7;
+    color:#f25f70;
+    font-weight:600;
 }
 
 #season-details {

@@ -1,23 +1,18 @@
-<h1>Show Page...How do we rewrite the stars??? </h1>
+<%= render :file=> 'app/views/partials/header.html.erb' %>
 
-<br><br><br>
-
-<div class="ui stackable internally celled four column grid container">
+<div class="ui stackable internally four column grid container" style="margin-top:50px;">
   <% @shows.each do |show|
-    @id = show.show_id
+    @id = show.id
+    @code = show.code
   %>
-    <div class="column">
-      <%= link_to image_tag("logos/#{@id}.jpg", class: "ui medium image"), show_path(show) %><br>
-      <%= @id %>
-      <%= show.name %>
-      <%= show.network %>
-      <%= show.start_year %>
-      <%= show.end_year %>
+    <div class="column center aligned">
+      <a href="/shows/<%= @id %>"><img src="/logos/<%= @code %>.jpg" class="ui medium image"></a><br>
+      <a href="/shows/<%= @id %>" id="show-name"><%= show.name %></a>
     </div>
   <% end %>
 </div>
 
-<br><br><br>
+<!-- <br><br><br>
 
 <table>
   <tr>
@@ -30,7 +25,7 @@
 
   <% @shows.each do |show| %>
     <tr>
-      <td><%= show.show_id %></td>
+      <td><%= show.code %></td>
       <td><%= show.name %></td>
       <td><%= show.network %></td>
       <td><%= show.start_year %></td>
@@ -38,4 +33,4 @@
       <td><%= link_to 'Show', show_path(show) %></td>
     </tr>
   <% end %>
-</table>
+</table> -->

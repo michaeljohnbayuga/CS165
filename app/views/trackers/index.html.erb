@@ -1,1 +1,35 @@
-<h1>Tracker Page</h1>
+<%= render :file=> 'app/views/partials/header.html.erb' %>
+
+<div class="ui one column grid container" style="margin-top:50px;">
+  <!-- <% @trackers.each do |tracker|
+      @episode = Episode.find(tracker.episode_id)
+      @season = Season.find(@episode.season_id)
+      @show = Show.find(@season.show_id)
+  %>
+    User: <%= tracker.user_id %><br>
+    Show: <%= @show.name %><br>
+    Season: <%= @season.season_no %><br>
+    Episode: <%= tracker.episode_id %><br><br>
+  <% end %> -->
+  <% @tracked.each do |show|
+    @id = show.id
+    @code = show.code
+    @seasons = show.seasons
+  %>
+    <div class="column">
+      <a href="/shows/<%= @id %>"><img src="/logos/<%= @code %>.jpg" class="ui medium image" id="show-logo"></a>
+      <a href="/shows/<%= @id %>" id="show-name"><h1><%= show.name %></h1></a>
+      <%= show.network %>&emsp;&#8226;&emsp;
+      <%= show.start_year %>
+      <% if show.end_year.present? & (show.start_year != show.end_year)%>
+            - <%= show.end_year %>
+      <% end %>&emsp;&#8226;&emsp;
+      <%= @seasons.count %>
+      <% if @seasons.count == 1 %>
+            Season
+      <% else %>
+            Seasons
+      <% end %>
+    </div>
+  <% end %>
+</div>

@@ -1,10 +1,13 @@
 class ShowsController < ApplicationController
   def index
     @shows = Show.all
+    @codes = params[:codes]
+    # @code = Show.find(params[:id])
   end
 
   def show
     @show = Show.find(params[:id])
+    @seasons = @show.seasons
   end
 
   def new
@@ -28,6 +31,6 @@ class ShowsController < ApplicationController
 
   private
     def show_params
-      params.require(:show).permit(:show_id, :name, :network, :start_year, :end_year)
+      params.require(:show).permit(:code, :name, :network, :start_year, :end_year)
     end
 end
