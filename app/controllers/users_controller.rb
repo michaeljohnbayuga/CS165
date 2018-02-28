@@ -6,8 +6,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.valid?
       @user.save
-      flash[:notice] = "You signed up successfully"
-      flash[:color]= "valid"
+      flash[:success_header] = "You signed up successfully."
+      flash[:success_body]= "Please log in to your account to start tracking your shows."
       redirect_to '/'
     # else
     #   flash[:notice] = "Form is invalid"

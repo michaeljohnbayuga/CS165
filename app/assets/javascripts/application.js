@@ -16,3 +16,9 @@
 //= require_tree .
 //= require semantic-ui
 //= require semantic-ui/accordion
+
+$(document).on('ready page:load', function () {
+  $('.close.icon').on('click', function () {
+    $(this).parent().transition('fade');
+  });
+});
