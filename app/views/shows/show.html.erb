@@ -16,12 +16,12 @@
   <% end %>
   <br><br><br>
 
-  <div class="ui stackable internally celled four column grid container">
-    <% @seasons.each do |season|
-      @episodes = season.episodes
-      @trackers = current_user.trackers
-    %>
+
       <div class="ui styled fluid accordion">
+        <% @seasons.each do |season|
+          @episodes = season.episodes
+          @trackers = current_user.trackers
+        %>
         <div class="title">
           SEASON <%= season.season_no %>
           <span class="float-right">
@@ -45,10 +45,11 @@
               <span class="float-right"><%= episode.try(:air_date).try(:strftime, ("%b %d, %Y")) %></span>
 
               <% if current_user.valid? %>
-                <% if current_user.trackers.where(episode_id: episode.id).exists? %>
-                  <i class="red minus circle large icon"></i>&nbsp;&nbsp;
+                <% @track = current_user.trackers.where(episode_id: episode.id) %>
+                <% if @track.present? %>
+                  <%= link_to "<i class='red minus circle large icon'></i>&nbsp;&nbsp;".html_safe, {action: "unwatch", id: @track.first.id}, method: :POST, class: "green plus circle large icon" %>
                 <% else %>
-                  <i class="green plus circle large icon"></i>&nbsp;&nbsp;
+                  <%= link_to "<i class='green plus circle large icon'></i>&nbsp;&nbsp;".html_safe, {action: "watch", id: episode.id}, method: :POST, class: "green plus circle large icon" %>
                 <% end %>
 
               <!-- <%= link_to '/trackers/create', :ep_id => episode.id do %> -->
@@ -67,11 +68,11 @@
 
             </div>
             <% end %>
-        </div>
-      </div>
-    <% end %>
 
-  </div>
+        </div>
+        <% end %>
+      </div>
+
 
   <!-- <br><br><br>
   <p>

@@ -36,6 +36,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-turbolinks'
 
 gem 'bcrypt'
 

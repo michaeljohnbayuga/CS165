@@ -29,6 +29,20 @@ class ShowsController < ApplicationController
   def destroy
   end
 
+  def watch
+    @tracker = Tracker.new
+    @tracker.user_id = current_user.id
+    @tracker.episode_id = params[:id]
+    @tracker.save
+    redirect_back(fallback_location: root_path)
+  end
+
+  def unwatch
+    @tracker = Tracker.find(params[:id])
+    @tracker.destroy
+    redirect_back(fallback_location: root_path)
+  end
+
   private
     def show_params
       params.require(:show).permit(:code, :name, :network, :start_year, :end_year)

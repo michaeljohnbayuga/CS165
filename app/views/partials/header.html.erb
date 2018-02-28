@@ -1,14 +1,14 @@
 <div class="ui top fixed borderless menu" id="header_menu">
   <div class="item" id="header_left">
-    <a id="header_text" href="/shows"><strong>TV GUIDE + TRACKER</strong></a>
+    <a id="header_text" href="/"><strong>TV GUIDE + TRACKER</strong></a>
   </div>
   <div class="right menu">
     <div class="ui item">
-      <a id="header_text" href="/">BROWSE</a>
+      <a href="/shows" id="header_text">BROWSE</a>
     </div>
     <div class="ui item" id="header_right">
       <%if current_user.present? %>
-        <a id="header_text" href="/">TRACKER</a>
+        <a id="header_text" href="/trackers">TRACKER</a>
       <% end %>
     </div>
     <div class="ui item" id="header_right">
