@@ -14,6 +14,10 @@
 	margin-right: 130px;
 }
 
+#bold {
+	font-weight: 600;
+}
+
 #login_button {
 	background-color: #8ad8c7;
 	border-radius:50px;
@@ -37,6 +41,10 @@
   cursor: pointer;
 }
 
+.float-left {
+	float: left;
+}
+
 .float-right {
 	float: right;
 }
@@ -48,6 +56,7 @@
 
 #show-name {
 	color: #565a5f;
+	font-weight: 600;
 }
 
 #show-name:hover {
