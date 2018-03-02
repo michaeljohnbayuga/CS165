@@ -1,9 +1,8 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
-  test "should get new" do
-    get users_new_url
-    assert_response :success
+  test "visit profile page" do
+  	assert_routing '/profile', {controller: 'users', action: 'index'}
   end
 
 end

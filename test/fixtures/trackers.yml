@@ -1,15 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  username: MyString
-  show_id: MyString
-  season_no: 1
-  episode_no: 1
   episode: one
+  user: one
 
 two:
-  username: MyString
-  show_id: MyString
-  season_no: 1
-  episode_no: 1
   episode: two
+  user: two
