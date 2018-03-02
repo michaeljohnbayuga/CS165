@@ -4,7 +4,9 @@
   </div>
   <div class="right menu">
     <div class="ui item">
-      <a href="/shows" id="header_text">BROWSE</a>
+      <%if current_user.present? %>
+        <a href="/shows" id="header_text">BROWSE</a>
+      <% end %>
     </div>
     <div class="ui item" id="header_right">
       <%if current_user.present? %>

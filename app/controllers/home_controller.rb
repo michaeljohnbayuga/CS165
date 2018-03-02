@@ -1,5 +1,8 @@
 class HomeController < ApplicationController
   def show
+    if !current_user.present?
+      redirect_to '/shows'
+    end
     @today = Episode.where(:air_date => Date.today.strftime("%Y-%m-%d"))
 
     @upcoming = []
