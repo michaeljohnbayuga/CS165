@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  def index
+    @user = User.find(current_user.id)
+  end
   def new
     @user = User.new
   end
@@ -12,6 +15,19 @@ class UsersController < ApplicationController
     else
       flash[:error_header]="Error sigining in."
       redirect_back(fallback_location: root_path)
+    end
+  end
+  def edit
+    @user = User.find(current_user.id)
+  end
+  def update
+    @user = User.find(current_user.id)
+    if @user.update(user_params)
+      flash[:success_header] = "Your profile has been updated!"
+      flash[:success_body] = "The changes have been saved to the database."
+      redirect_back(fallback_location: root_path)
+    else
+      render 'edit'
     end
   end
 

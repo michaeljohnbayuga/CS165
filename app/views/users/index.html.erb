@@ -1,0 +1,39 @@
+<div class="ui container">
+  <%= render :file=> 'app/views/partials/header.html.erb' %>
+</div>
+
+<div class="ui basic segment" style="margin-top: 90px;">
+  <%= render :file=> 'app/views/partials/message.html.erb' %>
+  <div class="ui basic segment" style="margin: auto; width: 70%;">
+    <h1 class="ui header">
+      <div>Edit Profile</div>
+    </h1>
+  <%= form_for @user do |f| %>
+    <div class="ui grid">
+      <div class="eight wide column">
+        <div class="ui form">
+          <div class="field">
+            <label>NAME</label>
+            <%= f.text_field :name, placeholder: "Full Name", style: "height:38px"%>
+            <% if @user.errors[:name].any? %>
+              <div class="ui basic red pointing prompt label transition visible">
+                <%= "Name " << @user.errors[:name].join(", ") %>
+              </div>
+            <% end %>
+            <br>
+          </div>
+          <div class="ui form">
+            <div class="field">
+              <label>USERNAME</label>
+              <%= f.text_field :username, :placeholder => "Unit", style: "height:38px" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      <br>
+      <button type="submit" class="ui red button submit-button">Submit</button>
+      <a href="/profile"><div class="ui black button">Cancel</div></a>
+  <% end %>
+</div>
+</div>

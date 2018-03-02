@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
-  get 'sessions/create'
-
-  get 'sessions/destroy'
-
   get 'home/show'
 
+  get 'logout', to: 'sessions#destroy', as: 'logout'
+  get 'profile', to: 'users#index', as: 'profile'
+
   resources :sessions, only: [:create, :destroy]
-  resources :shows
   resources :users
+  resources :shows
   resources :trackers
   resources :seasons
 

@@ -7,3 +7,6 @@ $ ->
 
 $ ->
   $('.signup.modal').modal('attach events', '.signup.link', 'show')
+
+$ ->
+  $('.ui.dropdown').dropdown()
