@@ -14,64 +14,56 @@
   <% else %>
         Seasons
   <% end %>
+
   <br><br><br>
 
+  <div class="ui styled fluid accordion">
+    <% @seasons.each do |season|
+      @episodes = season.episodes
+    %>
+    <div class="title">
+      SEASON <%= season.season_no %>
+      <span class="float-right">
+        <%= season.episodes.count %>
+        <% if @episodes.count == 1 %>
+              EPISODE
+        <% else %>
+              EPISODES
+        <% end %>
+      </span>
+    </div>
 
-      <div class="ui styled fluid accordion">
-        <% @seasons.each do |season|
-          @episodes = season.episodes
-          @trackers = current_user.trackers
-        %>
-        <div class="title">
-          SEASON <%= season.season_no %>
-          <span class="float-right">
-            <%= season.episodes.count %>
-            <% if @episodes.count == 1 %>
-                  EPISODE
+    <div class="content" id="season-details">
+      <% if !season.start_date.nil? %>
+        <strong>PREMIERE DATE: </strong><%= season.try(:start_date).try(:strftime, ("%b %d, %Y")) %><br>
+        <strong>FINALE DATE: </strong><%= season.try(:end_date).try(:strftime, ("%b %d, %Y")) %><br><br>
+      <% end %>
+
+      <% @episodes.each do |episode| %>
+        <div class="row" style="padding:8px 0px;">
+          <span class="float-right"><%= episode.try(:air_date).try(:strftime, ("%b %d, %Y")) %></span>
+
+          <% if current_user.present? %>
+            <% @track = current_user.trackers.where(episode_id: episode.id) %>
+            <% if @track.present? %>
+              <%= link_to "<i class='red minus circle large icon'></i>&nbsp;&nbsp;".html_safe, {action: "unwatch", id: @track.first.id}, method: :POST, class: "green plus circle large icon" %>
             <% else %>
-                  EPISODES
+              <%= link_to "<i class='green plus circle large icon'></i>&nbsp;&nbsp;".html_safe, {action: "watch", id: episode.id}, method: :POST, class: "green plus circle large icon" %>
             <% end %>
-          </span>
-        </div>
-
-        <div class="content" id="season-details">
-          <% if !season.start_date.nil? %>
-            <strong>PREMIERE DATE: </strong><%= season.try(:start_date).try(:strftime, ("%b %d, %Y")) %><br>
-            <strong>FINALE DATE: </strong><%= season.try(:end_date).try(:strftime, ("%b %d, %Y")) %><br><br>
+          <% else %>
+            <i class="green plus circle large icon login button pointer"></i></a>&nbsp;&nbsp;
           <% end %>
 
-          <% @episodes.each do |episode| %>
-            <div class="row" style="padding:8px 0px;">
-              <span class="float-right"><%= episode.try(:air_date).try(:strftime, ("%b %d, %Y")) %></span>
-
-              <% if current_user.valid? %>
-                <% @track = current_user.trackers.where(episode_id: episode.id) %>
-                <% if @track.present? %>
-                  <%= link_to "<i class='red minus circle large icon'></i>&nbsp;&nbsp;".html_safe, {action: "unwatch", id: @track.first.id}, method: :POST, class: "green plus circle large icon" %>
-                <% else %>
-                  <%= link_to "<i class='green plus circle large icon'></i>&nbsp;&nbsp;".html_safe, {action: "watch", id: episode.id}, method: :POST, class: "green plus circle large icon" %>
-                <% end %>
-
-              <!-- <%= link_to '/trackers/create', :ep_id => episode.id do %> -->
-              <!-- <% end %> -->
-
-                <!-- <a href="/trackers/create"><i class="green plus circle large icon"></i></a>&nbsp;&nbsp; -->
-
-              <% else %>
-                <i class="green plus circle large icon"></i></a>&nbsp;&nbsp;
-                <!-- <a href="/trackers"><i class="green plus circle large icon"></i></a>&nbsp;&nbsp; -->
-              <% end %>
-
-              <%= episode.showep_no %>&emsp;
-              <%= episode.episode_no %>&emsp;
-              <%= episode.title %><br>
-
-            </div>
-            <% end %>
+          <%= episode.showep_no %>&emsp;
+          <%= episode.episode_no %>&emsp;
+          <%= episode.title %><br>
 
         </div>
         <% end %>
-      </div>
+
+    </div>
+    <% end %>
+  </div>
 
 
   <!-- <br><br><br>
