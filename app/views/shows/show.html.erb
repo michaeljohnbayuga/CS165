@@ -17,7 +17,7 @@
 
   <br><br><br>
 
-  <% if @seasons.count > 1 %>
+  <% if @seasons.count > 0 %>
     <div class="ui styled fluid accordion">
       <% @seasons.each do |season|
         @episodes = season.episodes
