@@ -12,7 +12,7 @@
 
   <% if !@today.exists? & @upcoming.empty? %>
     <div id="home_no_shows">
-      <%if current_user.present? %>
+      <% if current_user.present? %>
         <div id="welcome_text">Welcome, <%= current_user.name %>!</div>
       <% else %>
         <div id="welcome_text">Welcome.</div>

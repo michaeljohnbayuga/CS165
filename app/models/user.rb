@@ -2,9 +2,10 @@ class User < ApplicationRecord
   has_many :trackers, :dependent => :destroy
 
   validates :username, presence: :true
+  # validates :
 
   before_save :encrypt_password
-  after_save :clear_password
+  # after_save :clear_password
 
   def encrypt_password
     if password.present?
