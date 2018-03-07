@@ -44,6 +44,7 @@
   background-size: 253px;
   background-position: center;
   background-repeat: no-repeat;
+  margin-bottom: 50px;
 }
 
 #overlay-today {
@@ -65,9 +66,9 @@
 }
 
 #overlay-name-today:hover {
-    text-transform: uppercase;
-    color:#f25f70;
-    font-weight:600;
+  text-transform: uppercase;
+  color:#f25f70;
+  font-weight:600;
 }
 
 #show-upcoming {
@@ -75,6 +76,7 @@
   background-size: 200px;
   background-position: center;
   background-repeat: no-repeat;
+  margin-bottom: 50px;
 }
 
 #overlay-upcoming {

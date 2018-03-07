@@ -37,6 +37,8 @@
       <div class="content" id="season-details">
         <% if !season.start_date.nil? %>
           <strong>PREMIERE DATE: </strong><%= season.try(:start_date).try(:strftime, ("%b %d, %Y")) %><br>
+        <% end %>
+        <% if !season.end_date.nil? %>
           <strong>FINALE DATE: </strong><%= season.try(:end_date).try(:strftime, ("%b %d, %Y")) %><br><br>
         <% end %>
 
@@ -58,41 +60,10 @@
             <%= episode.showep_no %>&emsp;
             <%= episode.episode_no %>&emsp;
             <%= episode.title %><br>
-
           </div>
-          <% end %>
-
+        <% end %>
       </div>
       <% end %>
     </div>
   <% end %>
-
-
-  <!-- <br><br><br>
-  <p>
-    <strong>Show ID:</strong>
-    <%= @show.code %>
-  </p>
-
-  <p>
-    <strong>Name:</strong>
-    <%= @show.name %>
-  </p>
-
-  <p>
-    <strong>Network:</strong>
-    <%= @show.network %>
-  </p>
-
-  <p>
-    <strong>Premiere Year:</strong>
-    <%= @show.start_year %>
-  </p>
-
-  <p>
-    <strong>Finale Year:</strong>
-    <%= @show.end_year %>
-  </p> -->
-
-
 </div>
