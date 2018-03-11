@@ -1,6 +1,10 @@
 <%= render :file=> 'app/views/partials/header.html.erb' %>
 
 <div class="ui container" style="margin-top:80px;">
+  <div class="ui compact button float-right ">
+    <%= link_to "<i class='edit large icon'></i> Edit".html_safe, {action: "edit", id: @show.id}, style: 'color:#000;' %>
+  </div>
+
   <img src="/logos/<%= @show.code %>.jpg" class="ui small image" id="show-logo">
   <h1><%= @show.name %></h1>
   <%= @show.network %>&emsp;&#8226;&emsp;

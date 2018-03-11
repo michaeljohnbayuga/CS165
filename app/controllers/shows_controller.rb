@@ -14,6 +14,7 @@ class ShowsController < ApplicationController
   end
 
   def edit
+    @show = Show.find(params[:id])
   end
 
   def create
@@ -24,9 +25,18 @@ class ShowsController < ApplicationController
   end
 
   def update
+    @show = Show.find(params[:id])
+
+    if @show.update(show_params)
+      redirect_to @show
+    else
+      render 'edit'
+    end
   end
 
   def destroy
+    @show = Show.find(params[:id])
+    redirect_to '/shows'
   end
 
   def watch
