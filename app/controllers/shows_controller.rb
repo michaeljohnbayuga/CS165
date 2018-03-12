@@ -7,7 +7,7 @@ class ShowsController < ApplicationController
 
   def show
     @show = Show.find(params[:id])
-    @seasons = @show.seasons
+    @seasons = @show.seasons.order(season_no: :asc)
   end
 
   def new
@@ -37,20 +37,6 @@ class ShowsController < ApplicationController
   def destroy
     @show = Show.find(params[:id])
     redirect_to '/shows'
-  end
-
-  def watch
-    @tracker = Tracker.new
-    @tracker.user_id = current_user.id
-    @tracker.episode_id = params[:id]
-    @tracker.save
-    redirect_back(fallback_location: root_path)
-  end
-
-  def unwatch
-    @tracker = Tracker.find(params[:id])
-    @tracker.destroy
-    redirect_back(fallback_location: root_path)
   end
 
   private

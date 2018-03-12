@@ -1,38 +1,10 @@
 <%= render :file=> 'app/views/partials/header.html.erb' %>
 
 <div class="ui stackable internally four column grid container" style="margin-top:50px;">
-  <% @shows.each do |show|
-    @id = show.id
-    @code = show.code
-  %>
+  <% @shows.each do |show| %>
     <div class="column center aligned">
-      <a href="/shows/<%= @id %>"><img src="/logos/<%= @code %>.jpg" class="ui medium image"></a><br>
-      <a href="/shows/<%= @id %>" id="show-name"><%= show.name %></a>
+      <a href="/shows/<%= show.id %>"><img src="/logos/<%= show.code %>.jpg" class="ui medium image"></a><br>
+      <a href="/shows/<%= show.id %>" id="show-name"><%= show.name %></a>
     </div>
   <% end %>
 </div>
-
-
-
-<!-- <br><br><br>
-
-<table>
-  <tr>
-    <th>Show ID</th>
-    <th>Name</th>
-    <th>Network</th>
-    <th>Premiere Year</th>
-    <th>Finale Year</th>
-  </tr>
-
-  <% @shows.each do |show| %>
-    <tr>
-      <td><%= show.code %></td>
-      <td><%= show.name %></td>
-      <td><%= show.network %></td>
-      <td><%= show.start_year %></td>
-      <td><%= show.end_year %></td>
-      <td><%= link_to 'Show', show_path(show) %></td>
-    </tr>
-  <% end %>
-</table> -->
