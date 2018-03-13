@@ -5,11 +5,7 @@
 <div class="ui container">
   <%= render :file=> 'app/views/partials/message.html.erb' %>
 </div>
-<% if current_user.present? %>
-  <% if current_user.is_admin? %>
-    <button class="ui button"><i class="plus icon"></i></button>
-  <% end %>
-<% end %>
+
 <div class="ui stackable internally four column grid container" style="margin-top:50px;">
   <% @shows.each do |show|
     @id = show.id

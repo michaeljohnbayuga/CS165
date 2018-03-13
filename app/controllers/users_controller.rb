@@ -11,9 +11,10 @@ class UsersController < ApplicationController
       @user.save
       flash[:success_header]="You signed up successfully."
       flash[:success_body]="Please log in to your account to start tracking your shows."
-      redirect_to '/'
+      redirect_to '/shows'
     else
       flash[:error_header]="Error sigining in."
+      flash[:error_body]=@user.errors.full_messages[0]+"."
       redirect_back(fallback_location: root_path)
     end
   end
@@ -33,7 +34,7 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:username, :name, :password)
+      params.require(:user).permit(:username, :name, :password, :password_confirmation)
     end
 
 end

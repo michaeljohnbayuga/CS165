@@ -2,16 +2,16 @@
 	background-color: #F25F6F;
 }
 
-#header_text {
+#white-text {
   color: #FFF;
 }
 
 #header_left {
-	margin-left: 130px;
+	margin-left: 100px;
 }
 
 #header_right {
-	margin-right: 130px;
+	margin-right: 35px;
 }
 
 #bold {
@@ -43,6 +43,14 @@
 
 .pointer {
   cursor: pointer;
+}
+
+.white-text  {
+	color: #FFF;
+}
+
+.white-text:hover {
+	color: #117867;
 }
 
 .float-left {
