@@ -24,7 +24,12 @@
             </div>
           <% end %>
 
+        <% if File.file? "#{Rails.public_path}/logos/#{@show.code}.jpg" %>
           <div class="column" id="show-upcoming" style="background-image: url('/posters/<%= @show.code %>.jpg');">
+        <% else %>
+          <div class="column" id="show-upcoming" style="background-image: url('/posters/SAMPLE.jpg');">
+        <% end %>
+
             <div id="overlay-upcoming">
               <div id="overlay-text-upcoming">
                 <a href="/shows/<%= @show.id %>" id="overlay-name-upcoming"><%= @show.name %></a><br>
@@ -34,6 +39,7 @@
                 <%= @show.network %>
               </div>
             </div>
+            
           </div>
         <% end %>
       <% end %>

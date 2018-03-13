@@ -15,7 +15,13 @@
         if @show_ids.include?(@season.show_id)
           @show = Show.find(@season.show_id)
       %>
+
+        <% if File.file? "#{Rails.public_path}/logos/#{@show.code}.jpg" %>
           <div class="column" id="show-today" style="background-image: url('/posters/<%= @show.code %>.jpg');">
+        <% else %>
+          <div class="column" id="show-today" style="background-image: url('/posters/SAMPLE.jpg');">
+        <% end %>
+
             <div id="overlay-today">
               <div id="overlay-text-today">
                 <a href="/shows/<%= @show.id %>" id="overlay-name-today"><%= @show.name %></a><br>
@@ -25,6 +31,7 @@
                 <%= @show.network %>
               </div>
             </div>
+            
           </div>
         <% end %>
       <% end %>

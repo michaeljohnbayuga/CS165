@@ -9,7 +9,12 @@
 <div class="ui stackable internally four column grid container" style="margin-top:50px;">
   <% @shows.each do |show| %>
     <div class="column center aligned">
-      <a href="/shows/<%= show.id %>"><img src="/logos/<%= show.code %>.jpg" class="ui medium image"></a><br>
+      <% if File.file? "#{Rails.public_path}/logos/#{show.code}.jpg" %>
+        <a href="/shows/<%= show.id %>"><img src="/logos/<%= show.code %>.jpg" class="ui medium image"></a><br>
+      <% else %>
+        <a href="/shows/<%= show.id %>"><img src="/logos/SAMPLE.jpg" class="ui medium image"></a><br>
+      <% end %>
+
       <a href="/shows/<%= show.id %>" id="show-name"><%= show.name %></a>
     </div>
   <% end %>

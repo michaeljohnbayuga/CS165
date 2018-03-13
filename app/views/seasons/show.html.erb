@@ -2,7 +2,13 @@
 
 <div class="ui container" style="margin-top:80px;">
   <%= render :file=> 'app/views/partials/message.html.erb' %>
-  <img src="/logos/<%= @show.code %>.jpg" class="ui small image" id="show-logo">
+
+  <% if File.file? "#{Rails.public_path}/logos/#{@show.code}.jpg" %>
+    <img src="/logos/<%= @show.code %>.jpg" class="ui small image" id="show-logo">
+  <% else %>
+    <img src="/logos/SAMPLE.jpg" class="ui small image" id="show-logo">
+  <% end %>
+
   <h1><a href="/shows/<%= @show.id %>" id="show-name"><%= @show.name %></a></h1>
 
   <div class="ui buttons">

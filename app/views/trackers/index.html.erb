@@ -14,7 +14,12 @@
   <% else
     @tracked.each do |show| %>
       <div class="column">
-        <a href="/shows/<%= show.id %>"><img src="/logos/<%= show.code %>.jpg" class="ui medium image" id="show-logo"></a>
+        <% if File.file? "#{Rails.public_path}/logos/#{show.code}.jpg" %>
+          <a href="/shows/<%= show.id %>"><img src="/logos/<%= show.code %>.jpg" class="ui medium image" id="show-logo"></a>
+        <% else %>
+          <a href="/shows/<%= show.id %>"><img src="/logos/SAMPLE.jpg" class="ui medium image" id="show-logo"></a>
+        <% end %>
+
         <a href="/shows/<%= show.id %>" id="show-name"><h1><%= show.name %></h1></a>
 
         <% if show.network.present? %>
