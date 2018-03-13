@@ -26,9 +26,9 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       flash[:success_header] = "Your profile has been updated!"
       flash[:success_body] = "The changes have been saved to the database."
-      redirect_back(fallback_location: root_path)
+      redirect_to '/profile'
     else
-      render 'edit'
+      render 'index'
     end
   end
 

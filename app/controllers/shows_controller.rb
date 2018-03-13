@@ -11,16 +11,23 @@ class ShowsController < ApplicationController
   end
 
   def new
+    @show = Show.new
   end
 
   def edit
+    @show = Show.new
   end
 
   def create
     @show = Show.new(show_params)
-
-    @show.save
-    redirect_to @show
+    if @show.valid?
+      @show.save
+      flash[:success_header] = @show.name + " has been created!"
+      flash[:success_body] = "The show has been saved to the database."
+      redirect_to show_path(@show)
+    else
+      render 'new'
+    end
   end
 
   def update

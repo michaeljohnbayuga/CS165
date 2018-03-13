@@ -1,0 +1,35 @@
+<div class="ui container">
+  <%= form_for @show do |f| %>
+    <div class="ui segment" style="margin: auto; width:70%">
+      <h1 class="ui header">
+        <div>New Show</div>
+      </h1>
+      <div class="ui form">
+        <div class="field">
+          <label>CODE</label>
+          <%= f.text_field :code, placeholder: "Show Code", style: "height:38px"%>
+          <% if @show.errors[:code].any? %>
+            <div class="ui basic red pointing prompt label transition visible">
+              <%= "Show code " << @show.errors[:code].join(", ") %>
+            </div>
+          <% end %>
+          <br>
+        </div>
+        <div class="field">
+          <label>NAME</label>
+          <%= f.text_field :name, placeholder: "Show Name", style: "height:38px"%>
+          <% if @show.errors[:name].any? %>
+            <div class="ui basic red pointing prompt label transition visible">
+              <%= "Show name " << @show.errors[:name].join(", ") %>
+            </div>
+          <% end %>
+          <br>
+        </div>
+      </div>
+      <br>
+      <center>
+        <button type="submit" class="ui green button submit-button">Submit</button>
+      </center>
+    </div>
+  <% end %>
+</div>
