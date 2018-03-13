@@ -65,8 +65,8 @@
 
             <div class="right aligned three wide column">
               <span id="details"><%= episode.try(:air_date).try(:strftime, ("%b %d, %Y")) %>&emsp;</span>
-              <i class="green edit large icon"></i>
-              <i class="red delete large icon"></i>
+              <%= link_to "<i class='green edit large icon'></i>".html_safe, {controller: "episodes", action: "edit", id: episode.id} %>
+              <%= link_to "<i class='red delete large icon'></i>".html_safe, {controller: "episodes", action: "destroy", id: episode.id}, method: :delete %>
             </div>
           </div>
         </div>

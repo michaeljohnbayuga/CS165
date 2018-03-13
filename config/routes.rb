@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :shows
   resources :trackers
   resources :seasons
+  resources :episodes
 
   post 'sessions/create', to: 'sessions#create'
   post 'seasons/watch/', to: 'seasons#watch'

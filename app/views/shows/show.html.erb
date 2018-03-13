@@ -65,7 +65,9 @@
                   <%= link_to "<i class='eye large icon'></i> View".html_safe, {controller: "seasons", action: "show", id: season.id}, style: 'color:#fff;' %>
                 </div>
                 &emsp;&emsp;&emsp;
-                <div class="ui inverted button"><i class="edit large icon"></i>Edit</div>
+                <div class="ui inverted button">
+                  <%= link_to "<i class='edit large icon'></i> Edit".html_safe, {controller: "seasons", action: "edit", id: season.id}, style: 'color:#fff;' %>
+                </div>
               </div>
             </div>
           </div>
