@@ -1,9 +1,12 @@
 <%= render :file=> 'app/views/partials/header.html.erb' %>
 
 <div class="ui container" style="margin-top:80px;">
-  <div class="ui compact green button float-right ">
-    <%= link_to "<i class='edit large icon'></i> Edit".html_safe, {action: "edit", id: @show.id}, style: 'color:#fff;' %>
-  </div>
+  <%= render :file=> 'app/views/partials/message.html.erb' %>
+  <% if current_user.present? && current_user.is_admin? %>
+    <div class="ui compact green button float-right ">
+      <%= link_to "<i class='edit large icon'></i> Edit".html_safe, {action: "edit", id: @show.id}, style: 'color:#fff;' %>
+    </div>
+  <% end %>
 
   <img src="/logos/<%= @show.code %>.jpg" class="ui small image" id="show-logo">
   <h1><%= @show.name %></h1>
@@ -64,10 +67,12 @@
                 <div class="ui inverted button">
                   <%= link_to "<i class='eye large icon'></i> View".html_safe, {controller: "seasons", action: "show", id: season.id}, style: 'color:#fff;' %>
                 </div>
-                &emsp;&emsp;&emsp;
-                <div class="ui inverted button">
-                  <%= link_to "<i class='edit large icon'></i> Edit".html_safe, {controller: "seasons", action: "edit", id: season.id}, style: 'color:#fff;' %>
-                </div>
+                <% if current_user.present? && current_user.is_admin? %>
+                  &emsp;&emsp;&emsp;
+                  <div class="ui inverted button">
+                    <%= link_to "<i class='edit large icon'></i> Edit".html_safe, {controller: "seasons", action: "edit", id: season.id}, style: 'color:#fff;' %>
+                  </div>
+                <% end %>
               </div>
             </div>
           </div>

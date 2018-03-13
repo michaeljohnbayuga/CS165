@@ -34,6 +34,8 @@ class ShowsController < ApplicationController
     @show = Show.find(params[:id])
 
     if @show.update(show_params)
+      flash[:success_header] = @show.name + " has been updated!"
+      flash[:success_body] = "The changes have been saved to the database."
       redirect_to @show
     else
       render 'edit'
@@ -42,6 +44,10 @@ class ShowsController < ApplicationController
 
   def destroy
     @show = Show.find(params[:id])
+    @show.destroy
+
+    flash[:success_header] = @show.name + " has been deleted."
+    flash[:success_body] = "The changes have been saved to the database."
     redirect_to '/shows'
   end
 

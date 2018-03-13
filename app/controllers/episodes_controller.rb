@@ -13,8 +13,12 @@ class EpisodesController < ApplicationController
   def update
     @episode = Episode.find(params[:id])
     @season = Season.find(@episode.season_id)
+    @show = Show.find(@season.show_id)
+
 
     if @episode.update(episode_params)
+      flash[:success_header] = "Season " + @season.season_no.to_s + ", Episode " + @episode.episode_no.to_s + " of " + @show.name + " has been updated!"
+      flash[:success_body] = "The changes have been saved to the database."
       redirect_to @season
     else
       render 'edit'
@@ -24,6 +28,12 @@ class EpisodesController < ApplicationController
   def destroy
     @episode = Episode.find(params[:id])
     @season = Season.find(@episode.season_id)
+    @show = Show.find(@season.show_id)
+    @episode.destroy
+
+    flash[:success_header] = "Season " + @season.season_no.to_s + ", Episode " + @episode.episode_no.to_s + " of " + @show.name + " has been deleted."
+    flash[:success_body] = "The changes have been saved to the database."
+
     redirect_to season_path(@season)
   end
 

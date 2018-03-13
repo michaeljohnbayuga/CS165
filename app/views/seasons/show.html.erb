@@ -1,6 +1,7 @@
 <%= render :file=> 'app/views/partials/header.html.erb' %>
 
 <div class="ui container" style="margin-top:80px;">
+  <%= render :file=> 'app/views/partials/message.html.erb' %>
   <img src="/logos/<%= @show.code %>.jpg" class="ui small image" id="show-logo">
   <h1><a href="/shows/<%= @show.id %>" id="show-name"><%= @show.name %></a></h1>
 
@@ -65,8 +66,10 @@
 
             <div class="right aligned three wide column">
               <span id="details"><%= episode.try(:air_date).try(:strftime, ("%b %d, %Y")) %>&emsp;</span>
-              <%= link_to "<i class='green edit large icon'></i>".html_safe, {controller: "episodes", action: "edit", id: episode.id} %>
-              <%= link_to "<i class='red delete large icon'></i>".html_safe, {controller: "episodes", action: "destroy", id: episode.id}, method: :delete %>
+              <% if current_user.present? && current_user.is_admin? %>
+                <%= link_to "<i class='green edit large icon'></i>".html_safe, {controller: "episodes", action: "edit", id: episode.id} %>
+                <%= link_to "<i class='red delete large icon'></i>".html_safe, {controller: "episodes", action: "destroy", id: episode.id}, method: :delete %>
+              <% end %>
             </div>
           </div>
         </div>

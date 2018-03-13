@@ -4,7 +4,7 @@
   <%= render :file=> 'app/views/partials/message.html.erb' %>
   <div class="ui basic segment" style="margin: auto; width: 70%;">
     <h1 class="ui header">
-      <div><i class="edit icon"></i>Edit Season of <em><%= @show.name %></em></div>
+      <div><i class="edit icon"></i>Edit Season <%= @season.season_no %> of <em><%= @show.name %></em></div>
     </h1>
 
     <%= form_for @season do |f| %>

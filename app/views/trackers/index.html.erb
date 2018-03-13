@@ -16,11 +16,21 @@
       <div class="column">
         <a href="/shows/<%= show.id %>"><img src="/logos/<%= show.code %>.jpg" class="ui medium image" id="show-logo"></a>
         <a href="/shows/<%= show.id %>" id="show-name"><h1><%= show.name %></h1></a>
-        <%= show.network %>&emsp;&#8226;&emsp;
-        <%= show.start_year %>
-        <% if show.end_year.present? & (show.start_year != show.end_year)%>
-              - <%= show.end_year %>
-        <% end %>&emsp;&#8226;&emsp;
+
+        <% if show.network.present? %>
+          <%= show.network %>&emsp;&#8226;&emsp;
+        <% end %>
+
+        <% if show.start_year.present? %>
+          <%= show.start_year %>
+
+          <% if show.end_year.present? && (show.start_year != show.end_year) %>
+          - <%= show.end_year %>
+          <% end %>
+
+          &emsp;&#8226;&emsp;
+        <% end %>
+
         <%= show.seasons.count %>
         <% if show.seasons.count == 1 %>
               Season
