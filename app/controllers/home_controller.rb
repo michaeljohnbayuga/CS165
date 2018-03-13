@@ -13,10 +13,10 @@ class HomeController < ApplicationController
     @soon = 0
 
     if current_user.present?
-      @tracked = Show.joins(seasons: {episodes: :trackers}).where(trackers: {user_id: current_user.id}).distinct.order(start_year: :desc, name: :asc)
+      @tracked = Show.joins(seasons: {episodes: :trackers}).where(trackers: {user_id: current_user.id}).distinct.order(start_year: :asc, name: :asc)
       @week = Date.today.at_beginning_of_week..Date.today.at_end_of_week
       # @today = Episode.where(:air_date => Date.today.strftime("%Y-%m-%d"))
-      @today = Episode.joins(season: :show).where(episodes: {air_date: Date.today.strftime("%Y-%m-%d")}).order("shows.start_year desc, shows.name asc, seasons.season_no asc, episodes.episode_no asc")
+      @today = Episode.joins(season: :show).where(episodes: {air_date: Date.today.strftime("%Y-%m-%d")}).order("shows.start_year asc, shows.name asc, seasons.season_no asc, episodes.episode_no asc")
 
       @tracked.each do |show|
         @show_ids.append(show.id)
@@ -26,7 +26,7 @@ class HomeController < ApplicationController
         if day > Date.today
           # @dates.append(day.strftime("%Y-%m-%d"))
           # @eps = Episode.where(:air_date => day.strftime("%Y-%m-%d"))
-          @eps = Episode.joins(season: :show).where(episodes: {air_date: day.strftime("%Y-%m-%d")}).order("shows.start_year desc, shows.name asc, seasons.season_no asc, episodes.episode_no asc")
+          @eps = Episode.joins(season: :show).where(episodes: {air_date: day.strftime("%Y-%m-%d")}).order("shows.start_year asc, shows.name asc, seasons.season_no asc, episodes.episode_no asc")
           if @eps.exists?
             @eps.each do |ep|
               @upcoming.append(ep)
