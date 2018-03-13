@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :seasons
 
   post 'sessions/create', to: 'sessions#create'
-  post 'shows/watch/', to: 'shows#watch'
-  post 'shows/unwatch/', to: 'shows#unwatch'
+  post 'seasons/watch/', to: 'seasons#watch'
+  post 'seasons/unwatch/', to: 'seasons#unwatch'
   root to: "home#show"
 end

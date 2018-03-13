@@ -7,10 +7,7 @@
 </div>
 
 <div class="ui fixed center aligned container">
-  <!-- Today exists? <%= @today.exists? %><br>
-  Upcoming empty? <%= @upcoming.empty? %><br><br> -->
-
-  <% if !@today.exists? & @upcoming.empty? %>
+  <% if @airing == 0 && @soon == 0 %>
     <div id="home_no_shows">
       <% if current_user.present? %>
         <div id="welcome_text">Welcome, <%= current_user.name %>!</div>
@@ -26,6 +23,4 @@
     <%= render :file=> 'app/views/partials/airing.html.erb' %>
     <%= render :file=> 'app/views/partials/upcoming.html.erb' %>
   <% end %>
-
-
 </div>

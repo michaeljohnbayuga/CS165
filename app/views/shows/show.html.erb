@@ -1,13 +1,27 @@
 <%= render :file=> 'app/views/partials/header.html.erb' %>
 
 <div class="ui container" style="margin-top:80px;">
+  <div class="ui compact green button float-right ">
+    <%= link_to "<i class='edit large icon'></i> Edit".html_safe, {action: "edit", id: @show.id}, style: 'color:#fff;' %>
+  </div>
+
   <img src="/logos/<%= @show.code %>.jpg" class="ui small image" id="show-logo">
   <h1><%= @show.name %></h1>
-  <%= @show.network %>&emsp;&#8226;&emsp;
-  <%= @show.start_year %>
-  <% if @show.end_year.present? & (@show.start_year != @show.end_year)%>
-        - <%= @show.end_year %>
-  <% end %>&emsp;&#8226;&emsp;
+
+  <% if @show.network.present? %>
+    <%= @show.network %>&emsp;&#8226;&emsp;
+  <% end %>
+
+  <% if @show.start_year.present? %>
+    <%= @show.start_year %>
+
+    <% if @show.end_year.present? && (@show.start_year != @show.end_year) %>
+    - <%= @show.end_year %>
+    <% end %>
+
+    &emsp;&#8226;&emsp;
+  <% end %>
+
   <%= @seasons.count %>
   <% if @seasons.count == 1 %>
         Season
@@ -17,80 +31,46 @@
 
   <br><br><br>
 
-  <div class="ui styled fluid accordion">
-    <% @seasons.each do |season|
-      @episodes = season.episodes
-    %>
-    <div class="title">
-      SEASON <%= season.season_no %>
-      <span class="float-right">
-        <%= season.episodes.count %>
-        <% if @episodes.count == 1 %>
-              EPISODE
-        <% else %>
-              EPISODES
-        <% end %>
-      </span>
-    </div>
+  <% if @seasons.count > 0 %>
+    <div class="ui three stackable special cards">
+      <% @seasons.each do |season| %>
+        <div class="card blurring dimmable">
+          <div class="content">
+            <div class="header float-right">SEASON <%= season.season_no %></div>
+          </div>
 
-    <div class="content" id="season-details">
-      <% if !season.start_date.nil? %>
-        <strong>PREMIERE DATE: </strong><%= season.try(:start_date).try(:strftime, ("%b %d, %Y")) %><br>
-        <strong>FINALE DATE: </strong><%= season.try(:end_date).try(:strftime, ("%b %d, %Y")) %><br><br>
-      <% end %>
+          <div class="content">
+            <div class="meta"><strong>
+              <%= season.episodes.count %>
+              <% if season.episodes.count == 1 %>
+                    EPISODE
+              <% else %>
+                    EPISODES
+              <% end %>
+            </strong></div>
 
-      <% @episodes.each do |episode| %>
-        <div class="row" style="padding:8px 0px;">
-          <span class="float-right"><%= episode.try(:air_date).try(:strftime, ("%b %d, %Y")) %></span>
+            <% if !season.start_date.nil? %>
+              <strong>PREMIERE DATE: </strong><%= season.try(:start_date).try(:strftime, ("%b %d, %Y")) %>
+            <% end %><br>
 
-          <% if current_user.present? %>
-            <% @track = current_user.trackers.where(episode_id: episode.id) %>
-            <% if @track.present? %>
-              <%= link_to "<i class='red minus circle large icon'></i>&nbsp;&nbsp;".html_safe, {action: "unwatch", id: @track.first.id}, method: :POST, class: "green plus circle large icon" %>
-            <% else %>
-              <%= link_to "<i class='green plus circle large icon'></i>&nbsp;&nbsp;".html_safe, {action: "watch", id: episode.id}, method: :POST, class: "green plus circle large icon" %>
-            <% end %>
-          <% else %>
-            <i class="green plus circle large icon login button pointer"></i></a>&nbsp;&nbsp;
-          <% end %>
+            <% if !season.end_date.nil? %>
+              <strong>FINALE DATE: </strong><%= season.try(:end_date).try(:strftime, ("%b %d, %Y")) %>
+            <% end %><br>
+          </div>
 
-          <%= episode.showep_no %>&emsp;
-          <%= episode.episode_no %>&emsp;
-          <%= episode.title %><br>
-
+          <div class="ui dimmer">
+            <div class="content">
+              <div class="center">
+                <div class="ui inverted button">
+                  <%= link_to "<i class='eye large icon'></i> View".html_safe, {controller: "seasons", action: "show", id: season.id}, style: 'color:#fff;' %>
+                </div>
+                &emsp;&emsp;&emsp;
+                <div class="ui inverted button"><i class="edit large icon"></i>Edit</div>
+              </div>
+            </div>
+          </div>
         </div>
-        <% end %>
-
+      <% end %>
     </div>
-    <% end %>
-  </div>
-
-
-  <!-- <br><br><br>
-  <p>
-    <strong>Show ID:</strong>
-    <%= @show.code %>
-  </p>
-
-  <p>
-    <strong>Name:</strong>
-    <%= @show.name %>
-  </p>
-
-  <p>
-    <strong>Network:</strong>
-    <%= @show.network %>
-  </p>
-
-  <p>
-    <strong>Premiere Year:</strong>
-    <%= @show.start_year %>
-  </p>
-
-  <p>
-    <strong>Finale Year:</strong>
-    <%= @show.end_year %>
-  </p> -->
-
-
+  <% end %>
 </div>

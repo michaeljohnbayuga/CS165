@@ -1,3 +1,25 @@
 // Place all the styles related to the Trackers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#tracker-text {
+  font-size: 50px;
+}
+
+#tracker-margin {
+  margin-top: 20px;
+  margin-bottom: 3px;
+}
+
+#start-tracking {
+  text-decoration: underline;
+  font-size: 16px;
+  color: #7e8a94;
+}
+
+#start-tracking:hover {
+  text-transform: uppercase;
+  text-decoration: none;
+  color:#f25f70;
+  font-weight:600;
+}
