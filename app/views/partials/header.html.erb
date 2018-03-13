@@ -1,23 +1,28 @@
 <div class="ui top fixed borderless menu" id="header_menu">
   <div class="item" id="header_left">
-    <a id="header_text" href="/"><strong>TV GUIDE + TRACKER</strong></a>
+    <a id="white-text" href="/"><strong>TV GUIDE + TRACKER</strong></a>
   </div>
   <div class="right menu">
-    <div class="ui item">
-      <%if current_user.present? %>
-        <a href="/shows" id="header_text">BROWSE</a>
+    <%if current_user.present? %>
+      <div class="ui item">
+        <a class="white-text" href="/shows">SHOWS</a>
+      </div>
+      <% if current_user.is_admin? %>
+        <div class="ui item">
+          <a class="white-text" href="/shows/new">ADD A SHOW</a>
+        </div>
       <% end %>
-    </div>
-    <div class="ui item" id="header_right">
-      <%if current_user.present? %>
-        <a id="header_text" href="/trackers">TRACKER</a>
-      <% end %>
-    </div>
+      <div class="ui item">
+        <a class="white-text" href="/trackers">TRACKER</a>
+      </div>
+    <% end %>
     <div class="ui item" id="header_right">
       <% if current_user.present? %>
-        <div class="ui dropdown" id="header_text">
-          <div class="text">Hi, <%= current_user.name %>!</div>
-          <i class="dropdown icon"></i>
+        <div class="ui dropdown" id="white-text">
+            <div class="text">
+              Hi, <%= current_user.name %>!
+              <i class="dropdown icon"></i>
+            </div>
           <div class="menu" id="dropdown_menu">
             <a class="item" href="/profile">Edit Profile</a>
             <a class="item" href="/logout">Log Out</a>

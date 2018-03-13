@@ -11,9 +11,10 @@ class UsersController < ApplicationController
       @user.save
       flash[:success_header]="You signed up successfully."
       flash[:success_body]="Please log in to your account to start tracking your shows."
-      redirect_to '/'
+      redirect_to '/shows'
     else
       flash[:error_header]="Error sigining in."
+      flash[:error_body]=@user.errors.full_messages[0]+"."
       redirect_back(fallback_location: root_path)
     end
   end
@@ -25,15 +26,15 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       flash[:success_header] = "Your profile has been updated!"
       flash[:success_body] = "The changes have been saved to the database."
-      redirect_back(fallback_location: root_path)
+      redirect_to '/profile'
     else
-      render 'edit'
+      render 'index'
     end
   end
 
   private
     def user_params
-      params.require(:user).permit(:username, :name, :password)
+      params.require(:user).permit(:username, :name, :password, :password_confirmation)
     end
 
 end

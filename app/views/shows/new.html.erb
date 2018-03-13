@@ -1,33 +1,11 @@
-<h1>Add Show</h1>
+<%= render :file=> 'app/views/partials/header.html.erb' %>
 
+<br><br><br><br><br>
 
-<%= form_with scope: :show, url: shows_path, local: true do |form| %>
-  <p>
-    <%= form.label :show_id %><br>
-    <%= form.text_field :show_id %>
-  </p>
+<div class="ui container">
+  <%= render :file=> 'app/views/partials/message.html.erb' %>
+</div>
 
-  <p>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
-  </p>
+<br>
 
-  <p>
-    <%= form.label :network %><br>
-    <%= form.text_field :network %>
-  </p>
-
-  <p>
-    <%= form.label :start_year %><br>
-    <%= form.text_field :start_year %>
-  </p>
-
-  <p>
-    <%= form.label :end_year %><br>
-    <%= form.text_field :end_year %>
-  </p>
-
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+<%= render 'show', form: @show %>

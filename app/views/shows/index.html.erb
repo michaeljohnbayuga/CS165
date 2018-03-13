@@ -1,5 +1,11 @@
 <%= render :file=> 'app/views/partials/header.html.erb' %>
 
+<br><br><br><br><br><br>
+
+<div class="ui container">
+  <%= render :file=> 'app/views/partials/message.html.erb' %>
+</div>
+
 <div class="ui stackable internally four column grid container" style="margin-top:50px;">
   <% @shows.each do |show| %>
     <div class="column center aligned">
