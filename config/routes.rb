@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :episodes
 
   post 'sessions/create', to: 'sessions#create'
+  post 'shows/new_season/', to: 'shows#new_season'
   post 'seasons/watch/', to: 'seasons#watch'
   post 'seasons/unwatch/', to: 'seasons#unwatch'
   root to: "home#show"

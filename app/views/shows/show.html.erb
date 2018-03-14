@@ -1,10 +1,16 @@
 <%= render :file=> 'app/views/partials/header.html.erb' %>
 
-<div class="ui container" style="margin-top:80px;">
+<div class="ui container" style="margin-top:100px;">
   <%= render :file=> 'app/views/partials/message.html.erb' %>
+</div>
+
+<div class="ui container">
   <% if current_user.present? && current_user.is_admin? %>
     <div class="ui compact green button float-right ">
       <%= link_to "<i class='edit large icon'></i> Edit".html_safe, {action: "edit", id: @show.id}, style: 'color:#fff;' %>
+    </div>
+    <div class="ui compact blue button float-right ">
+      <%= link_to "<i class='add large icon'></i> Add Season".html_safe, {action: "edit", id: @show.id}, style: 'color:#fff;' %>
     </div>
   <% end %>
 
