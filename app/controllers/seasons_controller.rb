@@ -1,7 +1,24 @@
 class SeasonsController < ApplicationController
   def create
+    @show = Show.find(params[:show_id])
     @season = Season.new(season_params)
-    @season.save
+    @season.show_id = @show.id
+    if @season.valid?
+      @season.save
+      flash[:success_header] = "Success!"
+      flash[:success_body] = "The season has been saved to the database."
+      redirect_to show_path(@show)
+    else
+      render 'new'
+    end
+  end
+
+  def new
+    @season = Season.new
+    @show = Show.find(params[:show_id])
+
+    @controller = "seasons"
+    @action = "create"
   end
 
   def show
@@ -14,6 +31,8 @@ class SeasonsController < ApplicationController
   def edit
     @season = Season.find(params[:id])
     @show = Show.find(@season.show_id)
+    @controller = "seasons"
+    @action = "update"
   end
 
   def update

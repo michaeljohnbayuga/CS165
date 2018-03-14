@@ -1,6 +1,6 @@
 <%= render :file=> 'app/views/partials/header.html.erb' %>
 
-<div class="ui container" style="margin-top:80px;">
+<div class="ui container" style="margin-top:100px;">
   <%= render :file=> 'app/views/partials/message.html.erb' %>
 
   <% if File.file? "#{Rails.public_path}/logos/#{@show.code}.jpg" %>
@@ -15,11 +15,9 @@
     <% if @seasons.first == @season %>
       <div class="ui disabled icon button"><i class="left chevron icon"></i></div>
     <% else
-      @prev_id = @seasons[@seasons.index(@season)-1].id
+        @prev_id = @seasons[@seasons.index(@season)-1].id
     %>
-      <div class="ui icon button">
-        <a href="/seasons/<%= @prev_id %>" style="color:#676868;"><i class="left chevron icon"></i></a>
-      </div>
+        <a href="/seasons/<%= @prev_id %>" style="color:#676868;" class="ui icon button"><i class="left chevron icon"></i></a>
     <% end %>
 
     <div class="ui floating dropdown icon button">
@@ -35,11 +33,9 @@
     <% if @seasons.last == @season %>
       <div class="ui disabled icon button"><i class="right chevron icon"></i></div>
     <% else
-      @next_id = @seasons[@seasons.index(@season)+1].id
+        @next_id = @seasons[@seasons.index(@season)+1].id
     %>
-      <div class="ui icon button">
-        <a href="/seasons/<%= @next_id %>" style="color:#676868;"><i class="right chevron icon"></i></a>
-      </div>
+        <a href="/seasons/<%= @next_id %>" style="color:#676868;" class="ui icon button"><i class="right chevron icon"></i></a>
     <% end %>
   </div>
 
@@ -57,7 +53,7 @@
                   <%= link_to "<i class='green plus circle large icon'></i>".html_safe, {action: "watch", id: episode.id}, method: :POST, class: "green plus circle large icon" %>
                 <% end %>
               <% else %>
-                <i class="green plus circle large icon login button pointer"></i></a>
+                  <i class="green plus circle large icon login button pointer"></i></a>
               <% end %>
 
               <span id="details">&emsp;

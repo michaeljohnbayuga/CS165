@@ -6,9 +6,7 @@
 
 <div class="ui basic segment" style="margin: auto; width: 70%;">
   <h1 class="ui header">
-    <div><i class="edit icon"></i>Edit Show</div>
+    <div><i class="edit icon"></i> <em><%= @show.name %></em></div>
   </h1>
-  <%= render 'show', form: @show %>
-  <br>
-  <%= link_to "Delete".html_safe, {action: "destroy", id: @show.id}, method: :delete, style: 'color:#fff;', class: 'ui red button' %>
+  <%= render 'season', form: @season %>
 </div>
