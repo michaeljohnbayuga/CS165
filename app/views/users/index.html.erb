@@ -1,0 +1,14 @@
+<%= render :file=> 'app/views/partials/header.html.erb' %>
+
+<div class="ui container" style="margin-top:100px;">
+  <%= render :file=> 'app/views/partials/message.html.erb' %>
+</div>
+
+<div class="ui basic segment" style="margin: auto; width: 70%;">
+  <h1 class="ui header">
+    <div><i class="edit icon"></i>Edit Profile</div>
+  </h1>
+  <%= render 'user', form: @user %>
+  <br>
+  <%= link_to "Delete Account".html_safe, {action: "destroy", id: @user.id}, method: :delete, style: 'color:#fff;', class: 'ui red button' %>
+</div>

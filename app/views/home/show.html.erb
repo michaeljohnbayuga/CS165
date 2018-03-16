@@ -1,0 +1,26 @@
+<%= render :file=> 'app/views/partials/header.html.erb' %>
+
+<br><br><br>
+
+<div class="ui container">
+  <%= render :file=> 'app/views/partials/message.html.erb' %>
+</div>
+
+<div class="ui fixed center aligned container">
+  <% if @airing == 0 && @soon == 0 %>
+    <div id="home_no_shows">
+      <% if current_user.present? %>
+        <div id="welcome_text">Welcome, <%= current_user.name %>!</div>
+      <% else %>
+        <div id="welcome_text">Welcome.</div>
+      <% end %>
+      <div id="text_1">There are no shows airing today and for the rest of the week.</div>
+      <div>
+        <a href="/shows" id="text_2">Start tracking!</a>
+      </div>
+    </div>
+  <% else %>
+    <%= render :file=> 'app/views/partials/airing.html.erb' %>
+    <%= render :file=> 'app/views/partials/upcoming.html.erb' %>
+  <% end %>
+</div>

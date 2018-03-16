@@ -1,0 +1,31 @@
+<%= form_for(:season, :url => {:controller => @controller, :action => @action, :show_id => @show.id}) do |f| %>
+  <div class="ui grid">
+    <div class="eight wide column">
+      <div class="ui form">
+        <div class="field">
+          <label>SEASON NO.</label>
+          <%= f.text_field :season_no, placeholder: "Season No", style: "height:38px"%>
+          <br>
+        </div>
+      </div><br>
+
+      <div class="ui form">
+        <div class="field">
+          <label>START DATE</label>
+          <%= f.text_field :start_date, :placeholder => "Start Date", style: "height:38px" %>
+        </div>
+      </div><br>
+
+      <div class="ui form">
+        <div class="field">
+          <label>END DATE</label>
+          <%= f.text_field :end_date, :placeholder => "End Date", style: "height:38px" %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <br>
+  <button type="submit" class="ui green button submit-button">Submit</button>
+  <%= link_to "Back", show_path(@show), style: 'color:#fff;', class: 'ui grey button' %>
+<% end %>

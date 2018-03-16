@@ -1,0 +1,42 @@
+<div>
+  <div class="ui center aligned basic segment">
+    <div class="ui horizontal divider">
+      <h3>AIRING TODAY</h3>
+    </div>
+  </div>
+</div>
+
+<% if @airing == 1 %>
+  <div class="ui container">
+    <div class="ui stackable internally four column grid container">
+      <% @today.each do |episode|
+        @season = Season.find(episode.season_id)
+
+        if @show_ids.include?(@season.show_id)
+          @show = Show.find(@season.show_id)
+      %>
+
+        <% if File.file? "#{Rails.public_path}/logos/#{@show.code}.jpg" %>
+          <div class="column" id="show-today" style="background-image: url('/posters/<%= @show.code %>.jpg');">
+        <% else %>
+          <div class="column" id="show-today" style="background-image: url('/posters/SAMPLE.jpg');">
+        <% end %>
+
+            <div id="overlay-today">
+              <div id="overlay-text-today">
+                <a href="/shows/<%= @show.id %>" id="overlay-name-today"><%= @show.name %></a><br>
+                S<% if @season.season_no < 10 %>0<% end %><%= @season.season_no %>
+                E<% if episode.episode_no < 10 %>0<% end %><%= episode.episode_no %>
+                | <%= episode.title %><br>
+                <%= @show.network %>
+              </div>
+            </div>
+            
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<% else %>
+  <div id="no-shows">There are currently no shows on air today.</div>
+<% end %>

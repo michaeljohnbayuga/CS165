@@ -1,0 +1,84 @@
+#header_menu {
+	background-color: #F25F6F;
+}
+
+#white-text {
+  color: #FFF;
+}
+
+#header_left {
+	margin-left: 100px;
+}
+
+#header_right {
+	margin-right: 35px;
+}
+
+#bold {
+	font-weight: 600;
+}
+
+#login_button {
+	background-color: #8ad8c7;
+	border-radius:50px;
+	border-color: #fff;
+	color: #fff;
+	margin-top: 15px;
+	margin-bottom: 10px;
+}
+
+#create_link {
+	font-size:12.5px;
+	color:#7e8a94;
+	font-weight: 100;
+}
+
+#create_link:hover {
+    color:#f25f70;
+}
+
+#dropdown_menu {
+	margin-top: 10px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.white-text  {
+	color: #FFF;
+}
+
+.white-text:hover {
+	color: #117867;
+}
+
+.float-left {
+	float: left;
+}
+
+.float-right {
+	float: right;
+}
+
+#show-logo {
+	float: left;
+	margin-right: 20px;
+}
+
+#show-name {
+	color: #565a5f;
+	font-weight: 600;
+}
+
+#show-name:hover {
+    text-transform: uppercase;
+    // color:#8ad8c7;
+    color:#f25f70;
+    font-weight:600;
+}
+
+#season-details {
+	margin-left: 15px;
+	margin-right: 15px;
+}

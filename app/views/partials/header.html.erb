@@ -1,0 +1,89 @@
+<div class="ui top fixed borderless menu" id="header_menu">
+  <div class="item" id="header_left">
+    <a id="white-text" href="/"><strong>TV GUIDE + TRACKER</strong></a>
+  </div>
+  <div class="right menu">
+    <%if current_user.present? %>
+      <div class="ui item">
+        <a class="white-text" href="/shows">SHOWS</a>
+      </div>
+      <% if current_user.is_admin? %>
+        <div class="ui item">
+          <a class="white-text" href="/shows/new">ADD A SHOW</a>
+        </div>
+      <% end %>
+      <div class="ui item">
+        <a class="white-text" href="/trackers">TRACKER</a>
+      </div>
+    <% end %>
+    <div class="ui item" id="header_right">
+      <% if current_user.present? %>
+        <div class="ui dropdown" id="white-text">
+            <div class="text">
+              Hi, <%= current_user.name %>!
+              <i class="dropdown icon"></i>
+            </div>
+          <div class="menu" id="dropdown_menu">
+            <a class="item" href="/profile">Edit Profile</a>
+            <a class="item" href="/logout">Log Out</a>
+          </div>
+        </div>
+      <% else %>
+        <div class="ui inverted login button">Log In</div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="ui login mini modal" style="width: 300px;">
+  <i class="close icon"></i>
+  <div class="header">
+    <center>LOG IN</center>
+  </div>
+  <div class="content">
+    <%= form_tag(:controller => 'sessions', :action => 'create') do %>
+      <div class="ui form">
+        <div class="field">
+          <label id="modal_text">USERNAME</label>
+          <%= text_field_tag :username, nil, placeholder: "Enter username" %>
+        </div>
+        <div class="field">
+          <label id="modal_text">PASSWORD</label>
+          <%= password_field_tag :password, nil, placeholder: "Enter password" %>
+        </div>
+      </div>
+      <center><button type="submit" class="ui button" id = "login_button">LOG IN</button></center>
+    <% end %>
+    <a class="ui pointer signup link" id="show_name"><center>Create an account</center></a>
+  </div>
+</div>
+
+<div class="ui signup mini modal" style="width: 300px;">
+  <i class="close icon"></i>
+  <div class="header">
+    <center>CREATE AN ACCOUNT</center>
+  </div>
+  <div class="content">
+    <%= form_for(:user, :url => {:controller => 'users', :action => 'create'}) do |f| %>
+      <div class="ui form">
+        <div class="field">
+          <label id="modal_text">NAME</label>
+          <%= f.text_field :name, placeholder: "Enter name" %>
+        </div>
+        <div class="field">
+          <label id="modal_text">USERNAME</label>
+          <%= f.text_field :username, placeholder: "Enter username" %>
+        </div>
+        <div class="field">
+          <label id="modal_text">PASSWORD</label>
+          <%= f.password_field :password, placeholder: "Enter password" %>
+        </div>
+        <div class="field">
+          <label id="modal_text">PASSWORD</label>
+          <%= f.password_field :password_confirmation, placeholder: "Confirm password" %>
+        </div>
+      </div>
+      <center><button type="submit" class="ui button" id = "login_button">SIGN UP</button></center>
+    <% end %>
+  </div>
+</div>

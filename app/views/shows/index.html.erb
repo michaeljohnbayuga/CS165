@@ -1,0 +1,19 @@
+<%= render :file=> 'app/views/partials/header.html.erb' %>
+
+<div class="ui container" style="margin-top:100px;">
+  <%= render :file=> 'app/views/partials/message.html.erb' %>
+</div>
+
+<div class="ui stackable internally four column grid container" style="margin-top:50px;">
+  <% @shows.each do |show| %>
+    <div class="column center aligned">
+      <% if File.file? "#{Rails.public_path}/logos/#{show.code}.jpg" %>
+        <a href="/shows/<%= show.id %>"><img src="/logos/<%= show.code %>.jpg" class="ui medium image"></a><br>
+      <% else %>
+        <a href="/shows/<%= show.id %>"><img src="/logos/SAMPLE.jpg" class="ui medium image"></a><br>
+      <% end %>
+
+      <a href="/shows/<%= show.id %>" id="show-name"><%= show.name %></a>
+    </div>
+  <% end %>
+</div>
