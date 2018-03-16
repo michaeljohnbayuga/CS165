@@ -1,35 +1,14 @@
 <%= render :file=> 'app/views/partials/header.html.erb' %>
 
-<br><br><br><br><br>
-
-<div class="ui container">
+<div class="ui container" style="margin-top:100px;">
   <%= render :file=> 'app/views/partials/message.html.erb' %>
 </div>
 
-<br>
-
-<div class="ui container">
-  <%= form_for @user do |f| %>
-    <div class="ui segment" style="margin: auto; width:70%">
-      <h1 class="ui header">
-        <div>Edit Profile</div>
-      </h1>
-      <div class="ui form">
-        <div class="field">
-          <label>NAME</label>
-          <%= f.text_field :name, placeholder: "Full Name", style: "height:38px"%>
-          <% if @user.errors[:name].any? %>
-            <div class="ui basic red pointing prompt label transition visible">
-              <%= "Name " << @user.errors[:name].join(", ") %>
-            </div>
-          <% end %>
-          <br>
-        </div>
-      </div>
-      <br>
-      <center>
-        <button type="submit" class="ui green button submit-button">Submit</button>
-      </center>
-    </div>
-  <% end %>
+<div class="ui basic segment" style="margin: auto; width: 70%;">
+  <h1 class="ui header">
+    <div><i class="edit icon"></i>Edit Profile</div>
+  </h1>
+  <%= render 'user', form: @user %>
+  <br>
+  <%= link_to "Delete Account".html_safe, {action: "destroy", id: @user.id}, method: :delete, style: 'color:#fff;', class: 'ui red button' %>
 </div>

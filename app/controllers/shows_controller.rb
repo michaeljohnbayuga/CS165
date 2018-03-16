@@ -50,25 +50,6 @@ class ShowsController < ApplicationController
     redirect_to '/shows'
   end
 
-  def new_season
-    @show = Show.find(params[:id])
-    @season = @show.seasons.new
-  end
-
-  def create_season
-    @show = Show.find(params[:id])
-    @season = @show.seasons.new
-    @season = Season.new(season_params)
-    if @season.valid?
-      @season.save
-      flash[:success_header] = "Success!"
-      flash[:success_body] = "The season has been saved to the database."
-      redirect_to season_path(@season)
-    else
-      render 'new'
-    end
-  end
-
   private
     def show_params
       params.require(:show).permit(:code, :name, :network, :start_year, :end_year)

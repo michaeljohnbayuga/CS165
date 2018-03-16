@@ -39,7 +39,6 @@ class SeasonsController < ApplicationController
     @season = Season.find(params[:id])
     @show = Show.find(@season.show_id)
 
-
     if @season.update(season_params)
       flash[:success_header] = "Season " + @season.season_no.to_s + " of " + @show.name + " has been updated!"
       flash[:success_body] = "The changes have been saved to the database."
