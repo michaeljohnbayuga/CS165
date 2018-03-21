@@ -1,0 +1,11 @@
+<% @shows.each do |show| %>
+  <div class="column center aligned" style="margin-bottom: 25px">
+    <% if File.file? "#{Rails.public_path}/logos/#{show.code}.jpg" %>
+      <a href="/shows/<%= show.id %>"><img src="/logos/<%= show.code %>.jpg" class="ui medium image" style="width:100%"></a>
+    <% else %>
+      <a href="/shows/<%= show.id %>"><img src="/logos/SAMPLE.jpg" class="ui medium image" style="width:100%"></a>
+    <% end %>
+    <br>
+    <a href="/shows/<%= show.id %>" id="show-name"><%= show.name %></a>
+  </div>
+<% end %>

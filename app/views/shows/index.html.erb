@@ -4,16 +4,17 @@
   <%= render :file=> 'app/views/partials/message.html.erb' %>
 </div>
 
-<div class="ui stackable internally four column grid container" style="margin-top:50px;">
-  <% @shows.each do |show| %>
-    <div class="column center aligned">
-      <% if File.file? "#{Rails.public_path}/logos/#{show.code}.jpg" %>
-        <a href="/shows/<%= show.id %>"><img src="/logos/<%= show.code %>.jpg" class="ui medium image"></a><br>
-      <% else %>
-        <a href="/shows/<%= show.id %>"><img src="/logos/SAMPLE.jpg" class="ui medium image"></a><br>
-      <% end %>
+<div class="ui computer tablet only stackable grid" style="margin-top:50px; margin:auto; width:90%">
+  <div class="ui four column computer only row">
+    <%= render 'show-index' %>
+  </div>
+  <div class="ui three column tablet only row">
+    <%= render 'show-index' %>
+  </div>
+</div>
 
-      <a href="/shows/<%= show.id %>" id="show-name"><%= show.name %></a>
-    </div>
-  <% end %>
+<div class="ui mobile only stackable grid" style="margin-top:50px;">
+  <div class="ui row">
+    <%= render 'show-index' %>
+  </div>
 </div>
