@@ -25,27 +25,27 @@
           <% end %>
 
         <% if File.file? "#{Rails.public_path}/logos/#{@show.code}.jpg" %>
-          <div class="column" id="show-upcoming" style="background-image: url('/posters/<%= @show.code %>.jpg');">
+          <div class="column" id="show_upcoming" style="background-image: url('/posters/<%= @show.code %>.jpg');">
         <% else %>
-          <div class="column" id="show-upcoming" style="background-image: url('/posters/SAMPLE.jpg');">
+          <div class="column" id="show_upcoming" style="background-image: url('/posters/SAMPLE.jpg');">
         <% end %>
 
-            <div id="overlay-upcoming">
-              <div id="overlay-text-upcoming">
-                <a href="/shows/<%= @show.id %>" id="overlay-name-upcoming"><%= @show.name %></a><br>
+            <div id="overlay_upcoming">
+              <div id="overlay_text_upcoming">
+                <a href="/shows/<%= @show.id %>" id="overlay_name_upcoming"><%= @show.name %></a><br>
                 S<% if @season.season_no < 10 %>0<% end %><%= @season.season_no %>
                 E<% if episode.episode_no < 10 %>0<% end %><%= episode.episode_no %>
                 | <%= episode.title %><br>
                 <%= @show.network %>
               </div>
             </div>
-            
+
           </div>
         <% end %>
       <% end %>
     </div>
   </div>
 <% else %>
-  <div id="no-shows">There are no shows airing for the rest of the week.</div>
+  <div id="no_shows">There are no shows airing for the rest of the week.</div>
 <% end %>
 <br><br><br>

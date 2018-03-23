@@ -1,11 +1,11 @@
- // Place all the styles related to the Home controller here.
+// Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #home_no_shows {
   color: #7e8a94;
   font-weight: 300;
-  margin-top: 200px;
+  margin-top: 300px;
 }
 
 #welcome_text {
@@ -35,11 +35,11 @@
   font-weight:600;
 }
 
-#no-shows {
+#no_shows {
   color: #7e8a94;
 }
 
-#show-today {
+#show_today {
   height: 370px;
   background-size: 253px;
   background-position: center;
@@ -47,31 +47,31 @@
   margin-bottom: 50px;
 }
 
-#overlay-today {
+#overlay_today {
   background: rgba(0,0,0,0.9);
   height: 75px;
   margin-top: 281px;
 }
 
-#overlay-text-today {
+#overlay_text_today {
   text-align: left;
   color: #fff;
   padding: 10px;
 }
 
-#overlay-name-today {
+#overlay_name_today {
   color: #fff;
   font-size: 20px;
 	font-weight: 600;
 }
 
-#overlay-name-today:hover {
+#overlay_name_today:hover {
   text-transform: uppercase;
   color:#f25f70;
   font-weight:600;
 }
 
-#show-upcoming {
+#show_upcoming {
   height: 300px;
   background-size: 200px;
   background-position: center;
@@ -79,7 +79,7 @@
   margin-bottom: 50px;
 }
 
-#overlay-upcoming {
+#overlay_upcoming {
   background: rgba(0,0,0,0.9);
   height: 75px;
   width: 200px;
@@ -87,20 +87,20 @@
   margin-top: 212px;
 }
 
-#overlay-text-upcoming {
+#overlay_text_upcoming {
   text-align: left;
   color: #fff;
   font-size: 12px;
   padding: 10px;
 }
 
-#overlay-name-upcoming {
+#overlay_name_upcoming {
   color: #fff;
   font-size: 18px;
 	font-weight: 600;
 }
 
-#overlay-name-upcoming:hover {
+#overlay_name_upcoming:hover {
     text-transform: uppercase;
     color:#f25f70;
     font-weight:600;

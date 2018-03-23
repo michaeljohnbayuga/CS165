@@ -1,24 +1,24 @@
 <div class="ui top fixed borderless menu" id="header_menu">
   <div class="item" id="header_left">
-    <a id="white-text" href="/"><strong>TV GUIDE + TRACKER</strong></a>
+    <a id="white_text" href="/"><strong>TV GUIDE + TRACKER</strong></a>
   </div>
   <div class="right menu">
     <%if current_user.present? %>
       <div class="ui item">
-        <a class="white-text" href="/shows">SHOWS</a>
+        <a class="white_text" href="/shows">SHOWS</a>
       </div>
       <% if current_user.is_admin? %>
         <div class="ui item">
-          <a class="white-text" href="/shows/new">ADD A SHOW</a>
+          <a class="white_text" href="/shows/new">ADD A SHOW</a>
         </div>
       <% end %>
       <div class="ui item">
-        <a class="white-text" href="/trackers">TRACKER</a>
+        <a class="white_text" href="/trackers">TRACKER</a>
       </div>
     <% end %>
     <div class="ui item" id="header_right">
       <% if current_user.present? %>
-        <div class="ui dropdown" id="white-text">
+        <div class="ui dropdown" id="white_text">
             <div class="text">
               Hi, <%= current_user.name %>!
               <i class="dropdown icon"></i>
@@ -33,6 +33,10 @@
       <% end %>
     </div>
   </div>
+</div>
+
+<div class="ui container" style="margin-top:90px; margin-bottom:40px;">
+  <%= render :file=> 'app/views/partials/message.html.erb' %>
 </div>
 
 <div class="ui login mini modal" style="width: 300px;">

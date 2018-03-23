@@ -2,7 +2,7 @@
 	background-color: #F25F6F;
 }
 
-#white-text {
+#white_text {
   color: #FFF;
 }
 
@@ -45,11 +45,11 @@
   cursor: pointer;
 }
 
-.white-text  {
+.white_text  {
 	color: #FFF;
 }
 
-.white-text:hover {
+.white_text:hover {
 	color: #117867;
 }
 
@@ -61,24 +61,19 @@
 	float: right;
 }
 
-#show-logo {
+#show_logo {
 	float: left;
 	margin-right: 20px;
 }
 
-#show-name {
+#show_name {
 	color: #565a5f;
 	font-weight: 600;
 }
 
-#show-name:hover {
+#show_name:hover {
     text-transform: uppercase;
     // color:#8ad8c7;
     color:#f25f70;
     font-weight:600;
-}
-
-#season-details {
-	margin-left: 15px;
-	margin-right: 15px;
 }

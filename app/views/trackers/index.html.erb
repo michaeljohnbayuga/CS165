@@ -4,9 +4,9 @@
   <% if @tracked.empty? %>
     <div class="ui fixed center aligned container">
       <div id="home_no_shows">
-        <div id="tracker-text">No shows found.</div>
-        <div id="tracker-margin">
-          <a href="/shows" id="start-tracking">Start tracking!</a>
+        <div id="tracker_text">No shows found.</div>
+        <div id="tracker_margin">
+          <a href="/shows" id="start_tracking">Start tracking!</a>
         </div>
       </div>
     </div>
@@ -15,12 +15,12 @@
     @tracked.each do |show| %>
       <div class="column">
         <% if File.file? "#{Rails.public_path}/logos/#{show.code}.jpg" %>
-          <a href="/shows/<%= show.id %>"><img src="/logos/<%= show.code %>.jpg" class="ui medium image" id="show-logo"></a>
+          <a href="/shows/<%= show.id %>"><img src="/logos/<%= show.code %>.jpg" class="ui medium image" id="show_logo"></a>
         <% else %>
-          <a href="/shows/<%= show.id %>"><img src="/logos/SAMPLE.jpg" class="ui medium image" id="show-logo"></a>
+          <a href="/shows/<%= show.id %>"><img src="/logos/SAMPLE.jpg" class="ui medium image" id="show_logo"></a>
         <% end %>
 
-        <a href="/shows/<%= show.id %>" id="show-name"><h1><%= show.name %></h1></a>
+        <a href="/shows/<%= show.id %>" id="show_name"><h1><%= show.name %></h1></a>
 
         <% if show.network.present? %>
           <%= show.network %>&emsp;&#8226;&emsp;
