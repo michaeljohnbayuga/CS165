@@ -65,8 +65,16 @@ label.star:before {
 	<span class="fa fa-star"></span>
   	&emsp;3.0/5.0
   </h1> 
-  
+   
 	<% if current_user.present? %> 
+	
+	<%= @show.id %>
+  	<%= current_user.id %>
+
+	<%= @shows.joins(:ratings) %>
+
+
+	
 	<div class="stars">
 	Your rating:
 	  <form action="">
