@@ -8,7 +8,7 @@
 }
 
 div.stars {
-  width: 125px;
+  width: 250px;
   float: top;
   display: inline-block;
 }
@@ -42,6 +42,7 @@ label.star:before {
   content: '\f006';
   font-family: FontAwesome;
 }
+
 </style>
 
 
@@ -68,16 +69,21 @@ label.star:before {
    
 	<% if current_user.present? %> 
 	
-	<%= @show.id %>
-  	<%= current_user.id %>
-
-	<%= @shows.joins(:ratings) %>
-
-
-	
 	<div class="stars">
-	Your rating:
-	  <form action="">
+		
+	<br>SHOW ID: <%= @show.id %>
+  	<br>USER ID: <%= current_user.id %>
+	
+	<br>Your rating:
+	
+	<%= link_to "<i class='red minus circle large icon'></i>".html_safe, {controller: "ratings", action: "rate1", id: @show.id}, method: :POST, class: "green plus circle large icon" %>
+	<%= link_to "<i class='red minus circle large icon'></i>".html_safe, {controller: "ratings", action: "rate2", id: @show.id}, method: :POST, class: "green plus circle large icon" %>
+	<%= link_to "<i class='red minus circle large icon'></i>".html_safe, {controller: "ratings", action: "rate3", id: @show.id}, method: :POST, class: "green plus circle large icon" %>
+	<%= link_to "<i class='red minus circle large icon'></i>".html_safe, {controller: "ratings", action: "rate4", id: @show.id}, method: :POST, class: "green plus circle large icon" %>
+	<%= link_to "<i class='red minus circle large icon'></i>".html_safe, {controller: "ratings", action: "rate5", id: @show.id}, method: :POST, class: "green plus circle large icon" %>
+	
+	<!--
+	<form action="">
 		<input class="star star-5" id="star-5" type="radio" name="star"/>
 		<label class="star star-5" for="star-5"></label>
 		<input class="star star-4" id="star-4" type="radio" name="star"/>
@@ -89,9 +95,11 @@ label.star:before {
 		<input class="star star-1" id="star-1" type="radio" name="star"/>
 		<label class="star star-1" for="star-1"></label>
 	  </form>
+	-->
 	</div>	
 	<% end %>
 
+  <br>
   <% if @show.network.present? %>
     <%= @show.network %>&emsp;&#8226;&emsp;
   <% end %>
