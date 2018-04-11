@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :trackers
   resources :seasons
   resources :episodes
+  resources :favorite_shows, only: [:create, :destroy]
 
   post 'sessions/create', to: 'sessions#create'
   post 'seasons/watch/', to: 'seasons#watch'

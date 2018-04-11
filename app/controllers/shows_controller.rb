@@ -7,6 +7,7 @@ class ShowsController < ApplicationController
   def show
     @show = Show.find(params[:id])
     @seasons = @show.seasons.order(season_no: :asc)
+    @favorited = Favorite.find_by(user: current_user, show: @show).present?
   end
 
   def new
