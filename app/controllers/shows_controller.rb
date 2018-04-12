@@ -6,6 +6,15 @@ class ShowsController < ApplicationController
 
   def show
     @show = Show.find(params[:id])
+    @ave_rating = Rating.where(:show_id => params[:id]).average(:rtg)
+
+    if session[:user_id]
+      user_id = session[:user_id]
+      show_id = params[:id]
+      result = Rating.where(:user_id => user_id, :show_id => show_id).first(1)
+      @user_rating = result[0]["rtg"]
+    end
+
     @seasons = @show.seasons.order(season_no: :asc)
   end
 

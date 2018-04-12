@@ -58,23 +58,31 @@ label.star:before {
     <img src="/logos/SAMPLE.jpg" class="ui small image" id="show_logo">
   <% end %>
 
+
+  
+  
+  
   <h1><%= @show.name %>  &emsp;
 	<span class="fa fa-star checked"></span>
 	<span class="fa fa-star checked"></span>
 	<span class="fa fa-star checked"></span>
-	<span class="fa fa-star"></span>
-	<span class="fa fa-star"></span>
-  	&emsp;3.0/5.0
+	<span class="fa fa-star checked"></span>
+	<span class="fa fa-star checked"></span>
+  	&emsp;
+  	<h1>Community Average Rating: <%= @ave_rating %>  &emsp; </h1>
   </h1> 
    
 	<% if current_user.present? %> 
+	
+	
+	
 	
 	<div class="stars">
 		
 	<br>SHOW ID: <%= @show.id %>
   	<br>USER ID: <%= current_user.id %>
 	
-	<br>Your rating:
+	<br><h3>Your Rating: <%= @user_rating %>  &emsp; </h3>
 	
 	<%= link_to "<i class='red minus circle large icon'></i>".html_safe, {controller: "ratings", action: "rate1", id: @show.id}, method: :POST, class: "green plus circle large icon" %>
 	<%= link_to "<i class='red minus circle large icon'></i>".html_safe, {controller: "ratings", action: "rate2", id: @show.id}, method: :POST, class: "green plus circle large icon" %>
