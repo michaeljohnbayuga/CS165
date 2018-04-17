@@ -12,10 +12,17 @@ Rails.application.routes.draw do
   resources :episodes
   resources :favorite_shows, only: [:create, :destroy]
 
+  post 'ratings/rate1', to: 'ratings#rate1'
+  post 'ratings/rate2', to: 'ratings#rate2'
+  post 'ratings/rate3', to: 'ratings#rate3'
+  post 'ratings/rate4', to: 'ratings#rate4'
+  post 'ratings/rate5', to: 'ratings#rate5'
+
   post 'sessions/create', to: 'sessions#create'
   post 'seasons/watch/', to: 'seasons#watch'
   post 'seasons/unwatch/', to: 'seasons#unwatch'
   post 'seasons/:id', to: 'seasons#update'
   post 'episodes/:id', to: 'episodes#update'
+
   root to: "home#show"
 end

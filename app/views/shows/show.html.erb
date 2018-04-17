@@ -1,5 +1,51 @@
 <%= render :file=> 'app/views/partials/header.html.erb' %>
 
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+<style type="text/css">
+.checked {
+    color: orange;
+}
+
+div.stars {
+  width: 250px;
+  float: top;
+  display: inline-block;
+}
+
+input.star { display: none; }
+
+label.star {
+  float: right;
+  padding: 3px;
+  font-size: 20px;
+  color: #444;
+  transition: all .2s;
+}
+
+input.star:checked ~ label.star:before {
+  content: '\f005';
+  color: #FD4;
+  transition: all .25s;
+}
+
+input.star-5:checked ~ label.star:before {
+  color: #FE7;
+  text-shadow: 0 0 20px #952;
+}
+
+input.star-1:checked ~ label.star:before { color: #F62; }
+
+label.star:hover { transform: rotate(-15deg) scale(1.3); }
+
+label.star:before {
+  content: '\f006';
+  font-family: FontAwesome;
+}
+
+</style>
+
+
 <div class="ui container">
   <% if current_user.present? && current_user.is_admin? %>
     <%= link_to "<i class='edit large icon'></i> Edit".html_safe, {action: "edit", id: @show.id}, style: 'color:#fff;', class: 'ui compact green button float-right' %>
@@ -17,8 +63,57 @@
   <% else %>
     <img src="/logos/SAMPLE.jpg" class="ui small image" id="show_logo">
   <% end %>
-  <h1><%= @show.name %></h1>
 
+
+  
+  
+  
+  <h1><%= @show.name %>  &emsp;
+	<span class="fa fa-star checked"></span>
+	<span class="fa fa-star checked"></span>
+	<span class="fa fa-star checked"></span>
+	<span class="fa fa-star checked"></span>
+	<span class="fa fa-star checked"></span>
+  	&emsp;
+  	<h1>Community Average Rating: <%= @ave_rating %>  &emsp; </h1>
+  </h1> 
+   
+	<% if current_user.present? %> 
+	
+	
+	
+	
+	<div class="stars">
+		
+	<br>SHOW ID: <%= @show.id %>
+  	<br>USER ID: <%= current_user.id %>
+	
+	<br><h3>Your Rating: <%= @user_rating %>  &emsp; </h3>
+	
+	<%= link_to "<i class='red minus circle large icon'></i>".html_safe, {controller: "ratings", action: "rate1", id: @show.id}, method: :POST, class: "green plus circle large icon" %>
+	<%= link_to "<i class='red minus circle large icon'></i>".html_safe, {controller: "ratings", action: "rate2", id: @show.id}, method: :POST, class: "green plus circle large icon" %>
+	<%= link_to "<i class='red minus circle large icon'></i>".html_safe, {controller: "ratings", action: "rate3", id: @show.id}, method: :POST, class: "green plus circle large icon" %>
+	<%= link_to "<i class='red minus circle large icon'></i>".html_safe, {controller: "ratings", action: "rate4", id: @show.id}, method: :POST, class: "green plus circle large icon" %>
+	<%= link_to "<i class='red minus circle large icon'></i>".html_safe, {controller: "ratings", action: "rate5", id: @show.id}, method: :POST, class: "green plus circle large icon" %>
+	
+	<!--
+	<form action="">
+		<input class="star star-5" id="star-5" type="radio" name="star"/>
+		<label class="star star-5" for="star-5"></label>
+		<input class="star star-4" id="star-4" type="radio" name="star"/>
+		<label class="star star-4" for="star-4"></label>
+		<input class="star star-3" id="star-3" type="radio" name="star"/>
+		<label class="star star-3" for="star-3"></label>
+		<input class="star star-2" id="star-2" type="radio" name="star"/>
+		<label class="star star-2" for="star-2"></label>
+		<input class="star star-1" id="star-1" type="radio" name="star"/>
+		<label class="star star-1" for="star-1"></label>
+	  </form>
+	-->
+	</div>	
+	<% end %>
+
+  <br>
   <% if @show.network.present? %>
     <%= @show.network %>&emsp;&#8226;&emsp;
   <% end %>
