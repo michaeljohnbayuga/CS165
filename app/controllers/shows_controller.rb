@@ -12,7 +12,12 @@ class ShowsController < ApplicationController
       user_id = session[:user_id]
       show_id = params[:id]
       result = Rating.where(:user_id => user_id, :show_id => show_id).first(1)
-      @user_rating = result[0]["rtg"]
+      if result.blank?
+        @user_rating = "Not Available"
+      else
+        @user_rating = result[0]["rtg"]
+      end
+      
     end
 
     @seasons = @show.seasons.order(season_no: :asc)
