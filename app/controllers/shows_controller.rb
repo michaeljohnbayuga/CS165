@@ -2,6 +2,17 @@ class ShowsController < ApplicationController
   def index
     @shows = Show.all.order(start_year: :desc, name: :asc)
     @codes = params[:codes]
+    @keywords = $keywords
+    if $isSearched == 1
+      @shows = Show.where('name LIKE ?', "%#{@keywords}%")
+    end
+
+  end
+
+  def search
+    $keywords = params[:search_keys]
+    $isSearched = 1
+    redirect_back(fallback_location: root_path)
   end
 
   def show
