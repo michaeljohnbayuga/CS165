@@ -3,14 +3,52 @@ class ShowsController < ApplicationController
     @shows = Show.all.order(start_year: :desc, name: :asc)
     @codes = params[:codes]
     @keywords = $keywords
+    @filter = $filter
+    
     if $isSearched == 1
-      @shows = Show.where('name LIKE ?', "%#{@keywords}%")
+      #@shows = Show.where('name LIKE ?', "%#{@keywords}%")
+      if $isFiltered == 0 # IF NOT FILTERED
+        @shows = Show.where('name LIKE ? OR network LIKE ? OR start_year LIKE ?', "%#{@keywords}%", "%#{@keywords}%", "%#{@keywords}%")
+      end
+      if $isFiltered == 1 # IF FILTERED
+        @shows = Show.where('name LIKE ? OR network LIKE ? AND start_year LIKE ?', "%#{@keywords}%", "%#{@keywords}%", "%#{$year_input }%")
+      end
     end
+
+    $isFiltered = 0
+    $year_input = nil
+    $filter = nil
 
   end
 
   def search
+    $filter = Array.new
     $keywords = params[:search_keys]
+
+    if params[:title] == "1"
+      $filter.push("Title")
+      $isFiltered = 1
+    end
+    if params[:network] == "1"
+      $filter.push("TV Network")
+      $isFiltered = 1
+    end
+    #if params[:casts] == "1"
+     # $filter.push("Casts")
+    #end
+    #if params[:director] == "1"
+    #  $filter.push("Director")
+    #end
+    if params[:year] == "1"
+      $filter.push("Year")
+      $year_input = params[:year_input]
+      $isFiltered = 1
+    end
+    #if params[:rating] == "1"
+    #  $filter.push("Rating")
+    #  $isFiltered = 1
+    #end
+
     $isSearched = 1
     redirect_back(fallback_location: root_path)
   end
