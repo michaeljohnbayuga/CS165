@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180402142529) do
+ActiveRecord::Schema.define(version: 20180411115333) do
 
   create_table "episodes", force: :cascade do |t|
     t.integer "episode_no"
@@ -23,11 +23,21 @@ ActiveRecord::Schema.define(version: 20180402142529) do
     t.index ["season_id"], name: "index_episodes_on_season_id"
   end
 
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "show_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["show_id"], name: "index_favorites_on_show_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
   create_table "ratings", force: :cascade do |t|
     t.string "show_id"
     t.string "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "rtg"
   end
 
   create_table "seasons", force: :cascade do |t|
