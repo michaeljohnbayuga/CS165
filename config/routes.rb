@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   resources :seasons
   resources :episodes
 
-  post 'shows/search', to: 'shows#search'
+  post 'shows/regular_search', to: 'shows#regular_search'
+  post 'shows/filter_search', to: 'shows#filter_search'
 
   post 'ratings/rate1', to: 'ratings#rate1'
   post 'ratings/rate2', to: 'ratings#rate2'

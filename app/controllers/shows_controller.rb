@@ -2,53 +2,56 @@ class ShowsController < ApplicationController
   def index
     @shows = Show.all.order(start_year: :desc, name: :asc)
     @codes = params[:codes]
+
+    # regular search
     @keywords = $keywords
+
+    # filter search
     @filter = $filter
+    @title = $title
+    @network = $network
+    @year = $year
     
     if $isSearched == 1
-      #@shows = Show.where('name LIKE ?', "%#{@keywords}%")
       if $isFiltered == 0 # IF NOT FILTERED
         @shows = Show.where('name LIKE ? OR network LIKE ? OR start_year LIKE ?', "%#{@keywords}%", "%#{@keywords}%", "%#{@keywords}%")
       end
       if $isFiltered == 1 # IF FILTERED
-        @shows = Show.where('name LIKE ? OR network LIKE ? AND start_year LIKE ?', "%#{@keywords}%", "%#{@keywords}%", "%#{$year_input }%")
+        @shows = Show.where('name LIKE ? AND network LIKE ? AND start_year LIKE ?', "%#{@title}%", "%#{@network}%", "%#{@year}%")
       end
     end
 
+    # regular search
+    $isSearched = 0
+    $keywords = nil
+
+    # filter search
     $isFiltered = 0
-    $year_input = nil
     $filter = nil
+    $title = nil
+    $network = nil
+    $year = nil
 
   end
 
-  def search
+  def filter_search
     $filter = Array.new
+
+    $title = params[:title_input]
+    $network = params[:network_input] 
+    $year = params[:year_input]
+
+    $filter.push($title)
+    $filter.push($network)
+    $filter.push($year)
+
+    $isSearched = 1
+    $isFiltered = 1
+    redirect_back(fallback_location: root_path)
+  end
+
+  def regular_search
     $keywords = params[:search_keys]
-
-    if params[:title] == "1"
-      $filter.push("Title")
-      $isFiltered = 1
-    end
-    if params[:network] == "1"
-      $filter.push("TV Network")
-      $isFiltered = 1
-    end
-    #if params[:casts] == "1"
-     # $filter.push("Casts")
-    #end
-    #if params[:director] == "1"
-    #  $filter.push("Director")
-    #end
-    if params[:year] == "1"
-      $filter.push("Year")
-      $year_input = params[:year_input]
-      $isFiltered = 1
-    end
-    #if params[:rating] == "1"
-    #  $filter.push("Rating")
-    #  $isFiltered = 1
-    #end
-
     $isSearched = 1
     redirect_back(fallback_location: root_path)
   end
