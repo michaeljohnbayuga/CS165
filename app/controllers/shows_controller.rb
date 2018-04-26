@@ -2,10 +2,76 @@ class ShowsController < ApplicationController
   def index
     @shows = Show.all.order(start_year: :desc, name: :asc)
     @codes = params[:codes]
+
+    # regular search
+    @keywords = $keywords
+
+    # filter search
+    @filter = $filter
+    @title = $title
+    @network = $network
+    @year = $year
+    
+    if $isSearched == 1
+      if $isFiltered == 0 # IF NOT FILTERED
+        @shows = Show.where('name LIKE ? OR network LIKE ? OR start_year LIKE ?', "%#{@keywords}%", "%#{@keywords}%", "%#{@keywords}%")
+      end
+      if $isFiltered == 1 # IF FILTERED
+        @shows = Show.where('name LIKE ? AND network LIKE ? AND start_year LIKE ?', "%#{@title}%", "%#{@network}%", "%#{@year}%")
+      end
+    end
+
+    # regular search
+    $isSearched = 0
+    $keywords = nil
+
+    # filter search
+    $isFiltered = 0
+    $filter = nil
+    $title = nil
+    $network = nil
+    $year = nil
+
+  end
+
+  def filter_search
+    $filter = Array.new
+
+    $title = params[:title_input]
+    $network = params[:network_input] 
+    $year = params[:year_input]
+
+    $filter.push($title)
+    $filter.push($network)
+    $filter.push($year)
+
+    $isSearched = 1
+    $isFiltered = 1
+    redirect_back(fallback_location: root_path)
+  end
+
+  def regular_search
+    $keywords = params[:search_keys]
+    $isSearched = 1
+    redirect_back(fallback_location: root_path)
   end
 
   def show
     @show = Show.find(params[:id])
+    @ave_rating = Rating.where(:show_id => params[:id]).average(:rtg)
+
+    if session[:user_id]
+      user_id = session[:user_id]
+      show_id = params[:id]
+      result = Rating.where(:user_id => user_id, :show_id => show_id).first(1)
+      if result.blank?
+        @user_rating = "Not Available"
+      else
+        @user_rating = result[0]["rtg"]
+      end
+      
+    end
+
     @seasons = @show.seasons.order(season_no: :asc)
   end
 
