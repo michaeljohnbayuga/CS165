@@ -1,103 +1,19 @@
-<style type="text/css">
+<%= render :file=> 'app/views/partials/header.html.erb' %>
 
-@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
-
-fieldset, label { margin: 0; padding: 0; }
-body{ margin: 20px; }
-h1 { font-size: 1.5em; margin: 10px; }
-
-/****** Style Star Rating Widget *****/
-
-.rating { 
-  border: none;
-  float: left;
-}
-
-.rating > input { display: none; } 
-.rating > label:before { 
-  margin: 5px;
-  font-size: 1.25em;
-  font-family: FontAwesome;
-  display: inline-block;
-  content: "\f005";
-}
-
-.rating > .half:before { 
-  content: "\f089";
-  position: absolute;
-}
-
-.rating > label { 
-  color: #ddd; 
- float: right; 
-}
-
-/***** CSS Magic to Highlight Stars on Hover *****/
-
-.rating > input:checked ~ label, /* show gold star when clicked */
-.rating:not(:checked) > label:hover, /* hover current star */
-.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
-
-.rating > input:checked + label:hover, /* hover current star when changing rating */
-.rating > input:checked ~ label:hover,
-.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
-.rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 
-</style>
-
-<script>
-function myFunction() {
-    var x = document.getElementById("ad-search");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
-</script>
-
-<!-- REGULAR SEARCH -->
-<div>
-<%= form_tag({:controller=>"shows", :action=>"regular_search"}, method: :post) do %>
-  <%= search_field_tag :search_keys, nil, placeholder: 'Search..'%>
-  <%= submit_tag 'Search', name: nil %> 
-  <b>Keywords: </b> <%= @keywords %>
-<% end %>
-</div>
-
-<!-- FILTER SEARCH -->
-<div>
-<br><br><button type="button" style="height: 25px" onclick="myFunction()">Filter search</button>
-<div id="ad-search" style="margin: 10px">
-  
-
-<%= form_tag({:controller=>"shows", :action=>"filter_search"}, method: :post) do %>
-
-  <br><b>Filter: </b> <%= @filter %> 
-
-  <br>Title<%= search_field_tag :title_input, nil, placeholder: 'Goblin' %> 
-  <br>TV Network<%= search_field_tag :network_input, nil, placeholder: 'tvN' %> 
-  <br>Year<%= search_field_tag :year_input, nil, placeholder: 'YYYY'%>
-  <!-- 
-  <br>Casts<%= search_field_tag :casts, nil, placeholder: 'Gong Yoo'%>
-  <br>Director<%= search_field_tag :director, nil, placeholder: 'Steven Spielberg'%>
-  <br>Rating<%= search_field_tag :rating, nil, placeholder: '4.3'%>
-  -->
-  <br><%= submit_tag 'Search', name: nil %> 
-		
-<% end %>
-</div>
-
-
-</div>
-
-<% @shows.each do |show| %>
-  <div class="column center aligned" style="margin-bottom: 25px">
-    <% if File.file? "#{Rails.public_path}/logos/#{show.code}.jpg" %>
-      <a href="/shows/<%= show.id %>"><img src="/logos/<%= show.code %>.jpg" class="ui medium image" style="width:100%"></a>
-    <% else %>
-      <a href="/shows/<%= show.id %>"><img src="/logos/SAMPLE.jpg" class="ui medium image" style="width:100%"></a>
-    <% end %>
-    <br>
-    <a href="/shows/<%= show.id %>" id="show_name"><%= show.name %></a> <br> <%= show.network %> <br> <%= show.start_year %>
+<div class="ui fixed center aligned container" style="margin-top: -200px">
+  <div id="home_no_shows">
+    <div class="ui four column grid">
+      <% @shows.each do |show| %>
+      <div class="column center aligned" style="margin-bottom: 25px">
+        <% if File.file? "#{Rails.public_path}/logos/#{show.code}.jpg" %>
+          <a href="/shows/<%= show.id %>"><img src="/logos/<%= show.code %>.jpg" class="ui medium image" style="width:100%; border: 7px solid #B39DDB"></a>
+        <% else %>
+          <a href="/shows/<%= show.id %>"><img src="/logos/SAMPLE.jpg" class="ui medium image" style="width:100%; border: 7px solid #B39DDB"></a>
+        <% end %>
+        <br>
+        <a href="/shows/<%= show.id %>" id="show_name"><%= show.name %></a> <br> <%= show.network %> <br> <%= show.start_year %>
+      </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
+</div>
