@@ -3,9 +3,6 @@ class ShowsController < ApplicationController
     @shows = Show.all.order(start_year: :desc, name: :asc)
     @codes = params[:codes]
 
-    # regular search
-    @keywords = $keywords
-
     # filter search
     @filter = $filter
     @title = $title
@@ -20,10 +17,6 @@ class ShowsController < ApplicationController
         @shows = Show.where('name LIKE ? AND network LIKE ? AND start_year LIKE ?', "%#{@title}%", "%#{@network}%", "%#{@year}%")
       end
     end
-
-    # regular search
-    $isSearched = 0
-    $keywords = nil
 
     # filter search
     $isFiltered = 0
@@ -47,12 +40,6 @@ class ShowsController < ApplicationController
 
     $isSearched = 1
     $isFiltered = 1
-    redirect_back(fallback_location: root_path)
-  end
-
-  def regular_search
-    $keywords = params[:search_keys]
-    $isSearched = 1
     redirect_back(fallback_location: root_path)
   end
 
