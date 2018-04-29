@@ -1,8 +1,8 @@
 class HomeController < ApplicationController
   def show
-    if !current_user.present?
-      redirect_to '/shows'
-    end
+    #if !current_user.present?
+    #  redirect_to '/shows'
+    #end
 
     @shows = Show.all.order(start_year: :desc, name: :asc)
     @codes = params[:codes]
@@ -12,6 +12,7 @@ class HomeController < ApplicationController
     @title = $title
     @network = $network
     @year = $year
+    @result = $result
     
     if $isSearched == 1
       if $isFiltered == 0 # IF NOT FILTERED
@@ -37,6 +38,12 @@ class HomeController < ApplicationController
     $title = params[:title_input]
     $network = params[:network_input] 
     $year = params[:year_input]
+
+    if $title == "" and $network == "" and $year == "" then
+      $result = ""
+    else
+      $result = "Search results for: " + $title + " " + $network + " " + $year
+    end
 
     $filter.push($title)
     $filter.push($network)
