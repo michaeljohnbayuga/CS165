@@ -65,12 +65,12 @@ function myFunction() {
 <div class="ui fixed center aligned container" style="margin-top: 120px">
   <div id="home_no_shows">
     <div id="ad-search">
-    <%= form_tag({:controller=>"shows", :action=>"filter_search"}, method: :post, class: "ui form") do %>
-      <h2><%= @filter %></h2> 
+    <%= form_tag({:controller=>"home", :action=>"filter_search"}, method: :post, class: "ui form") do %>
+      
       <div class="three fields">
         <div class="field">
           <label>Title</label>
-          <%= search_field_tag :title_input, nil, placeholder: 'Goblin' %> 
+          <%= search_field_tag :title_input, nil, placeholder: 'Goblin', :autofocus => true%> 
         </div>
         <div class="field">
           <label>TV Network</label>
@@ -84,7 +84,11 @@ function myFunction() {
       <%= submit_tag 'Search', name: nil, class: "ui button"%> 
     <% end %>
     </div>
-    <% if !@filter.present? %>
+    
+    <% if @filter.present? %>
+    
+    <%= @result %>
+
     <div class="ui four column grid" style="margin-top: 100px">
       <% @shows.each do |show| %>
         <div class="column center aligned" style="margin-bottom: 25px">
@@ -98,6 +102,7 @@ function myFunction() {
         </div>
       <% end %>
     </div>
+    
     <% end %>
   </div>
 </div>
