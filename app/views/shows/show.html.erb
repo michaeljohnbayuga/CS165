@@ -51,12 +51,14 @@ label.star:before {
     <%= link_to "<i class='edit large icon'></i> Edit".html_safe, {action: "edit", id: @show.id}, style: 'color:#fff;', class: 'ui compact green button float-right' %>
     <%= link_to "<i class='add large icon'></i> Add Season".html_safe, {controller: "seasons", action: "new", show_id: @show.id}, style: 'color:#fff;', class: 'ui compact blue button float-right' %>
   <% end %>
-
-  <% if File.file? "#{Rails.public_path}/logos/#{@show.code}.jpg" %>
-    <img src="/logos/<%= @show.code %>.jpg" class="ui small image" id="show_logo">
+  
+  <% if @show.attachment.present? %>
+  	<img src="<%= @show.attachment %>" class="ui small image" id="show_logo">
   <% else %>
     <img src="/logos/SAMPLE.jpg" class="ui small image" id="show_logo">
   <% end %>
+  
+
   
   
   <h1><%= @show.name %>  &emsp;
@@ -106,20 +108,30 @@ label.star:before {
 
   <br>
   <% if @show.network.present? %>
-    <%= @show.network %>&emsp;&#8226;&emsp;
+    <br><br><b>TV Network:</b> <%= @show.network %>
   <% end %>
+  
+  <br><br><b>Casts:</b> <%= @show.casts %>
+  
+  <br><br><b>Director:</b> <%= @show.director %>
+  
+  <br><br><b>Synopsis:</b> <%= @show.synopsis %>
+  
+  <br><br><b>Runtime per episode:</b> <%= @show.runtime %>
+  
+  <br><br><b>Language:</b> <%= @show.language %>
 
   <% if @show.start_year.present? %>
-    <%= @show.start_year %>
+    <br><br><b>Years aired: </b><%= @show.start_year %>
 
     <% if @show.end_year.present? && (@show.start_year != @show.end_year) %>
     - <%= @show.end_year %>
     <% end %>
 
-    &emsp;&#8226;&emsp;
+  
   <% end %>
 
-  <%= @seasons.count %>
+  <br><br><b>Season count: </b><%= @seasons.count %>
   <% if @seasons.count == 1 %>
         Season
   <% else %>

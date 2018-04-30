@@ -1,10 +1,10 @@
-<%= form_for @show do |f| %>
+<%= form_for @show, html: { multipart: true } do |f| %>
   <div class="ui grid">
     <div class="eight wide column">
       <div class="ui form">
         <div class="field">
           <label>CODE</label>
-          <%= f.text_field :code, placeholder: "Show Code", style: "height:38px"%>
+          <%= f.text_field :code, placeholder: "Show Code", style: "height:38px", required: true %>
           <br>
         </div>
       </div><br>
@@ -12,7 +12,7 @@
       <div class="ui form">
         <div class="field">
           <label>NAME</label>
-          <%= f.text_field :name, placeholder: "Show Name", style: "height:38px"%>
+          <%= f.text_field :name, placeholder: "Show Name", style: "height:38px", required: true %>
           <br>
         </div>
       </div><br>
@@ -20,23 +20,62 @@
       <div class="ui form">
         <div class="field">
           <label>NETWORK</label>
-          <%= f.text_field :network, :placeholder => "Show Network", style: "height:38px" %>
+          <%= f.text_field :network, :placeholder => "Show Network", style: "height:38px", required: true %>
         </div>
       </div><br>
 
       <div class="ui form">
         <div class="field">
           <label>START YEAR</label>
-          <%= f.text_field :start_year, :placeholder => "Start Year", style: "height:38px" %>
+          <%= f.text_field :start_year, :placeholder => "Start Year", style: "height:38px", required: true %>
         </div>
       </div><br>
 
       <div class="ui form">
         <div class="field">
           <label>END YEAR</label>
-          <%= f.text_field :end_year, :placeholder => "End Year", style: "height:38px" %>
+          <%= f.text_field :end_year, :placeholder => "End Year", style: "height:38px", required: true %>
         </div>
       </div>
+      
+      <div class="ui form">
+        <div class="field">
+          <label>CASTS</label>
+          <%= f.text_field :casts, :placeholder => "Casts", style: "height:38px", required: true %>
+        </div>
+      </div>
+      
+      <div class="ui form">
+        <div class="field">
+          <label>DIRECTOR</label>
+          <%= f.text_field :director, :placeholder => "Director", style: "height:38px", required: true %>
+        </div>
+      </div>
+      
+      <div class="ui form">
+        <div class="field">
+          <label>RUNTIME PER EPISODE</label>
+          <%= f.text_field :runtime, :placeholder => "Runtime per episode", style: "height:38px", required: true %>
+        </div>
+      </div>
+      
+      <div class="ui form">
+        <div class="field">
+          <label>LANGUAGE</label>
+          <%= f.text_field :language, :placeholder => "Language", style: "height:38px", required: true %>
+        </div>
+      </div>
+      
+      <div class="ui form">
+        <div class="field">
+          <label>SYNOPSIS</label>
+          <%= f.text_area :synopsis, :placeholder => "Synopsis", :cols => "10", :rows => "10", required: true %>
+        </div>
+      </div>
+
+	 <br><label>SHOW COVER</label>
+	 <br><%= f.file_field :attachment %>
+
 
     </div>
   </div>

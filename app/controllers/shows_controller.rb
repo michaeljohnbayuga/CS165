@@ -105,7 +105,7 @@ class ShowsController < ApplicationController
 
   private
     def show_params
-      params.require(:show).permit(:code, :name, :network, :start_year, :end_year)
+      params.require(:show).permit(:code, :name, :network, :start_year, :end_year, :director, :runtime, :language, :synopsis, :casts, :attachment)
     end
     def season_params
       params.require(:season).permit(:season_no, :no_of_episodes, :start_date, :end_date)
