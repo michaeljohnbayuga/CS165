@@ -51,12 +51,14 @@ label.star:before {
     <%= link_to "<i class='edit large icon'></i> Edit".html_safe, {action: "edit", id: @show.id}, style: 'color:#fff;', class: 'ui compact green button float-right' %>
     <%= link_to "<i class='add large icon'></i> Add Season".html_safe, {controller: "seasons", action: "new", show_id: @show.id}, style: 'color:#fff;', class: 'ui compact blue button float-right' %>
   <% end %>
-
-  <% if File.file? "#{Rails.public_path}/logos/#{@show.code}.jpg" %>
-    <img src="/logos/<%= @show.code %>.jpg" class="ui small image" id="show_logo">
+  
+  <% if @show.attachment.present? %>
+  	<img src="<%= @show.attachment %>" class="ui small image" id="show_logo">
   <% else %>
     <img src="/logos/SAMPLE.jpg" class="ui small image" id="show_logo">
   <% end %>
+  
+
   
   
   <h1><%= @show.name %>  &emsp;

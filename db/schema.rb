@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180430033112) do
+ActiveRecord::Schema.define(version: 20180430040642) do
 
   create_table "episodes", force: :cascade do |t|
     t.integer "episode_no"
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 20180430033112) do
     t.string "language"
     t.text "synopsis"
     t.string "casts"
+    t.string "attachment"
   end
 
   create_table "trackers", force: :cascade do |t|
