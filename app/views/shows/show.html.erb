@@ -106,20 +106,30 @@ label.star:before {
 
   <br>
   <% if @show.network.present? %>
-    <%= @show.network %>&emsp;&#8226;&emsp;
+    <br><br><b>TV Network:</b> <%= @show.network %>
   <% end %>
+  
+  <br><br><b>Casts:</b> <%= @show.casts %>
+  
+  <br><br><b>Director:</b> <%= @show.director %>
+  
+  <br><br><b>Synopsis:</b> <%= @show.synopsis %>
+  
+  <br><br><b>Runtime per episode:</b> <%= @show.runtime %>
+  
+  <br><br><b>Language:</b> <%= @show.language %>
 
   <% if @show.start_year.present? %>
-    <%= @show.start_year %>
+    <br><br><b>Years aired: </b><%= @show.start_year %>
 
     <% if @show.end_year.present? && (@show.start_year != @show.end_year) %>
     - <%= @show.end_year %>
     <% end %>
 
-    &emsp;&#8226;&emsp;
+  
   <% end %>
 
-  <%= @seasons.count %>
+  <br><br><b>Season count: </b><%= @seasons.count %>
   <% if @seasons.count == 1 %>
         Season
   <% else %>
