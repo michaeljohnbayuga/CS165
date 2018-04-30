@@ -32,17 +32,6 @@ ActiveRecord::Schema.define(version: 20180430040642) do
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
-  create_table "info", force: :cascade do |t|
-    t.integer "show_id"
-    t.string "director"
-    t.text "casts"
-    t.text "synopsis"
-    t.integer "runtime"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["show_id"], name: "index_info_on_show_id"
-  end
-
   create_table "ratings", force: :cascade do |t|
     t.string "show_id"
     t.string "user_id"
