@@ -1,0 +1,14 @@
+<%= form_for @review do |f| %>
+  
+  <div class="ui grid">
+    <div class="eight wide column">
+      <div class="ui form">
+        <div class="field">
+          <label>Text</label>
+          <%= f.text_field :text, style: "height:38px"%>
+          <br>
+        </div>
+      </div>
+      <button type="submit" class="ui green button submit-button">Submit</button>
+      <br>
+<% end %>

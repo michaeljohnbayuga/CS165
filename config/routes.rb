@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   resources :seasons
   resources :episodes
   resources :favorite_shows, only: [:create, :destroy]
+  resources :reviews
+
+  post 'reviews/new', to: 'reviews#new'
 
   post 'ratings/rate1', to: 'ratings#rate1'
   post 'ratings/rate2', to: 'ratings#rate2'

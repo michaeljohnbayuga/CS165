@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180411115333) do
+ActiveRecord::Schema.define(version: 20180501130233) do
 
   create_table "episodes", force: :cascade do |t|
     t.integer "episode_no"
@@ -51,6 +51,14 @@ ActiveRecord::Schema.define(version: 20180411115333) do
     t.float "rtg"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.string "text"
+    t.integer "show_id"
+    t.integer "user_id"
+    t.index ["show_id"], name: "index_reviews_on_show_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "seasons", force: :cascade do |t|
     t.integer "show_id"
     t.integer "season_no"
@@ -70,6 +78,12 @@ ActiveRecord::Schema.define(version: 20180411115333) do
     t.string "end_year"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "director"
+    t.string "runtime"
+    t.string "language"
+    t.text "synopsis"
+    t.string "casts"
+    t.string "attachment"
   end
 
   create_table "trackers", force: :cascade do |t|
