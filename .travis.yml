@@ -1,6 +1,3 @@
-before_script:
-  - cp config/database.yml.travis config/databse.yml
-
 test:
   adapter: sqlite3
   database: ":memory:"
