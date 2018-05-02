@@ -9,6 +9,7 @@
     <div><i class="edit icon"></i>Edit Profile</div>
   </h1>
   <%= render 'user', form: @user %>
+  <%= render partial: @user.favorite_shows %>
   <br>
   <%= link_to "Delete Account".html_safe, {action: "destroy", id: @user.id}, method: :delete, style: 'color:#fff;', class: 'ui red button' %>
 </div>
