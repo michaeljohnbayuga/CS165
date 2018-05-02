@@ -1,6 +1,6 @@
 <div class="ui top fixed borderless menu" id="header_menu" style="background-color:#353D35;">
   <div class="item" id="header_left">
-    <a id="white_text" href="/"><strong>KDdb 케이디디비</strong></a>
+    <a id="white_text" href="/" style="font-size: 20px"><strong>KDdb 케이디디비</strong></a>
   </div>
   <div class="right menu">
     <%if current_user.present? %>
@@ -13,7 +13,7 @@
         </div>
       <% end %>
       <div class="ui item">
-        <a class="white_text" href="/trackers">TRACKER</a>
+        <a class="white_text" href="/trackers">FAVORITES</a>
       </div>
     <% end %>
     <div class="ui item" id="header_right">
@@ -56,7 +56,7 @@
           <%= password_field_tag :password, nil, placeholder: "Enter password" %>
         </div>
       </div>
-      <center><button type="submit" class="ui button" id = "login_button">LOG IN</button></center>
+      <center><button type="submit" class="ui button" id = "login_button", style="background-color: #64B5F6; color: white">LOG IN</button></center>
     <% end %>
     <a class="ui pointer signup link" id="show_name"><center>Create an account</center></a>
   </div>
@@ -87,7 +87,7 @@
           <%= f.password_field :password_confirmation, placeholder: "Confirm password" %>
         </div>
       </div>
-      <center><button type="submit" class="ui button" id = "login_button">SIGN UP</button></center>
+      <center><button type="submit" class="ui button" id = "login_button", style="background-color: #64B5F6; color: white">SIGN UP</button></center>
     <% end %>
   </div>
 </div>

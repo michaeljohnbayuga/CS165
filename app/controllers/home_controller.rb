@@ -1,53 +1,56 @@
 class HomeController < ApplicationController
   def show
-    if !current_user.present?
-      redirect_to '/shows'
-    end
+    #if !current_user.present?
+    #  redirect_to '/shows'
+    #end
 
-    @tracked = []
-    @show_ids = []
-    @upcoming = []
-    # @dates = []
+    @shows = Show.all.order(start_year: :desc, name: :asc)
+    @codes = params[:codes]
 
-    @airing = 0
-    @soon = 0
-
-    if current_user.present?
-      @tracked = Show.joins(seasons: {episodes: :trackers}).where(trackers: {user_id: current_user.id}).distinct.order(start_year: :asc, name: :asc)
-      @week = Date.today.at_beginning_of_week..Date.today.at_end_of_week
-      # @today = Episode.where(:air_date => Date.today.strftime("%Y-%m-%d"))
-      @today = Episode.joins(season: :show).where(episodes: {air_date: Date.today.strftime("%Y-%m-%d")}).order("shows.start_year asc, shows.name asc, seasons.season_no asc, episodes.episode_no asc")
-
-      @tracked.each do |show|
-        @show_ids.append(show.id)
+    # filter search
+    @filter = $filter
+    @title = $title
+    @network = $network
+    @year = $year
+    @result = $result
+    
+    if $isSearched == 1
+      if $isFiltered == 0 # IF NOT FILTERED
+        @shows = Show.where('name LIKE ? OR network LIKE ? OR start_year LIKE ?', "%#{@keywords}%", "%#{@keywords}%", "%#{@keywords}%")
       end
-
-      @week.map.each do |day|
-        if day > Date.today
-          # @dates.append(day.strftime("%Y-%m-%d"))
-          # @eps = Episode.where(:air_date => day.strftime("%Y-%m-%d"))
-          @eps = Episode.joins(season: :show).where(episodes: {air_date: day.strftime("%Y-%m-%d")}).order("shows.start_year asc, shows.name asc, seasons.season_no asc, episodes.episode_no asc")
-          if @eps.exists?
-            @eps.each do |ep|
-              @upcoming.append(ep)
-            end
-          end
-        end
-      end
-
-      @today.each do |episode|
-        @season = Season.find(episode.season_id)
-        if @show_ids.include?(@season.show_id)
-          @airing = 1
-        end
-      end
-
-      @upcoming.each do |episode|
-        @season = Season.find(episode.season_id)
-        if @show_ids.include?(@season.show_id)
-          @soon = 1
-        end
+      if $isFiltered == 1 # IF FILTERED
+        @shows = Show.where('name LIKE ? AND network LIKE ? AND start_year LIKE ?', "%#{@title}%", "%#{@network}%", "%#{@year}%")
       end
     end
+
+    # filter search
+    $isFiltered = 0
+    $filter = nil
+    $title = nil
+    $network = nil
+    $year = nil
+
+  end
+
+  def filter_search
+    $filter = Array.new
+
+    $title = params[:title_input]
+    $network = params[:network_input] 
+    $year = params[:year_input]
+
+    if $title == "" and $network == "" and $year == "" then
+      $result = ""
+    else
+      $result = "Search results for: " + $title + " " + $network + " " + $year
+    end
+
+    $filter.push($title)
+    $filter.push($network)
+    $filter.push($year)
+
+    $isSearched = 1
+    $isFiltered = 1
+    redirect_back(fallback_location: root_path)
   end
 end

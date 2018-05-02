@@ -12,6 +12,11 @@ Rails.application.routes.draw do
   resources :episodes
   resources :favorite_shows, only: [:create, :destroy]
 
+  post 'shows/regular_search', to: 'shows#regular_search'
+  post 'shows/filter_search', to: 'shows#filter_search'
+
+  post 'home/filter_search', to: 'home#filter_search'
+
   post 'ratings/rate1', to: 'ratings#rate1'
   post 'ratings/rate2', to: 'ratings#rate2'
   post 'ratings/rate3', to: 'ratings#rate3'
@@ -23,6 +28,8 @@ Rails.application.routes.draw do
   post 'seasons/unwatch/', to: 'seasons#unwatch'
   post 'seasons/:id', to: 'seasons#update'
   post 'episodes/:id', to: 'episodes#update'
+
+  #root to: "home#show"
 
   root to: "home#show"
 end
