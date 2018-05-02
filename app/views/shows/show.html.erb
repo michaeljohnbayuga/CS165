@@ -4,7 +4,7 @@
 
 <style type="text/css">
 .checked {
-    color: orange;
+    color: gold;
 }
 
 div.stars {
@@ -59,44 +59,43 @@ label.star:before {
   <% end %>
   
   <% if @show.attachment.present? %>
-  	<img src="<%= @show.attachment %>" class="ui small image" id="show_logo">
+  	<img src="<%= @show.attachment %>" class="ui large image" id="show_logo" style="width:500px; height:500px;object-fit: cover; border: 7px solid #B39DDB">
   <% else %>
-    <img src="/logos/SAMPLE.jpg" class="ui small image" id="show_logo">
+    <img src="/logos/SAMPLE.jpg" class="ui large image" id="show_logo" style="width:500px; height:500px;object-fit: cover; border: 7px solid #B39DDB">
   <% end %>
   
 
   
   
-  <h1><%= @show.name %>  &emsp;
+  <h1><%= @show.name %></h1> 
+  <h1>
 	<span class="fa fa-star checked"></span>
 	<span class="fa fa-star checked"></span>
 	<span class="fa fa-star checked"></span>
 	<span class="fa fa-star checked"></span>
 	<span class="fa fa-star checked"></span>
-  	&emsp;
-  	<h1>Community Average Rating: <%= @ave_rating %>  &emsp; </h1>
-  </h1> 
+  <br>
+  Community Average Rating: <%= @ave_rating %>  &emsp; </h1>
    
 	<% if current_user.present? %> 
 	
 	
+  <br>SHOW ID: <%= @show.id %>
+  <br>USER ID: <%= current_user.id %>
+  
+  <br><br><br><h3>Your Rating: <%= @user_rating %>  &emsp; </h3>	
+	
+  <script type="text/javascript">$(document).ready(function(){$(".rating").rating({initialRating: <%=@user_rating%>,maxrating:5});});</script>
+	<div class=" massive ui star rating">
+  <%= link_to "<i class=''></i>".html_safe, {controller: "ratings", action: "rate1", id: @show.id}, method: :POST, class: "star star-1 icon" %>
+  <%= link_to "<i class=''></i>".html_safe, {controller: "ratings", action: "rate2", id: @show.id}, method: :POST, class: "star star-2 icon" %>
+  <%= link_to "<i class=''></i>".html_safe, {controller: "ratings", action: "rate3", id: @show.id}, method: :POST, class: "star star-3 icon" %>
+  <%= link_to "<i class=''></i>".html_safe, {controller: "ratings", action: "rate4", id: @show.id}, method: :POST, class: "star star-4 icon" %>
+  <%= link_to "<i class=''></i>".html_safe, {controller: "ratings", action: "rate5", id: @show.id}, method: :POST, class: "star star-5 icon" 
+  %>
 	
 	
-	<div class="stars">
-		
-	<br>SHOW ID: <%= @show.id %>
-  	<br>USER ID: <%= current_user.id %>
-	
-	<br><h3>Your Rating: <%= @user_rating %>  &emsp; </h3>
-	
-	<%= link_to "<i class='red minus circle large icon'></i>".html_safe, {controller: "ratings", action: "rate1", id: @show.id}, method: :POST, class: "green plus circle large icon" %>
-	<%= link_to "<i class='red minus circle large icon'></i>".html_safe, {controller: "ratings", action: "rate2", id: @show.id}, method: :POST, class: "green plus circle large icon" %>
-	<%= link_to "<i class='red minus circle large icon'></i>".html_safe, {controller: "ratings", action: "rate3", id: @show.id}, method: :POST, class: "green plus circle large icon" %>
-	<%= link_to "<i class='red minus circle large icon'></i>".html_safe, {controller: "ratings", action: "rate4", id: @show.id}, method: :POST, class: "green plus circle large icon" %>
-	<%= link_to "<i class='red minus circle large icon'></i>".html_safe, {controller: "ratings", action: "rate5", id: @show.id}, method: :POST, class: "green plus circle large icon" %>
-	
-	<!--
-	<form action="">
+	<!--<form action=''>
 		<input class="star star-5" id="star-5" type="radio" name="star"/>
 		<label class="star star-5" for="star-5"></label>
 		<input class="star star-4" id="star-4" type="radio" name="star"/>
@@ -108,8 +107,9 @@ label.star:before {
 		<input class="star star-1" id="star-1" type="radio" name="star"/>
 		<label class="star star-1" for="star-1"></label>
 	  </form>
-	-->
+-->
 	</div>	
+
 	<% end %>
 
   <br>
