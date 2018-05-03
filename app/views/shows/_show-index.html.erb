@@ -1,11 +1,19 @@
-<% @shows.each do |show| %>
-  <div class="column center aligned" style="margin-bottom: 25px">
-    <% if File.file? "#{Rails.public_path}/logos/#{show.code}.jpg" %>
-      <a href="/shows/<%= show.id %>"><img src="/logos/<%= show.code %>.jpg" class="ui medium image" style="width:100%"></a>
-    <% else %>
-      <a href="/shows/<%= show.id %>"><img src="/logos/SAMPLE.jpg" class="ui medium image" style="width:100%"></a>
-    <% end %>
-    <br>
-    <a href="/shows/<%= show.id %>" id="show_name"><%= show.name %></a>
+<%= render :file=> 'app/views/partials/header.html.erb' %>
+
+<div class="ui fixed center aligned container" style="margin-top: -200px">
+  <div id="home_no_shows">
+    <div class="ui four column grid">
+      <% @shows.each do |show| %>
+      <div class="column center aligned" style="margin-bottom: 25px">
+        <% if show.attachment.present? %>
+            <a href="/shows/<%= show.id %>"><img src="<%= show.attachment %>" class="ui medium image" style="width:300px; height:200px; border: 7px solid #BBDEFB"></a>
+          <% else %>
+            <a href="/shows/<%= show.id %>"><img src="/logos/SAMPLE.jpg" class="ui medium image" style="width:300px; height:200px; border: 7px solid #BBDEFB"></a>
+          <% end %>
+        <br>
+        <a href="/shows/<%= show.id %>" id="show_name"><%= show.name %></a> <br> <%= show.network %> <br> <%= show.start_year %>
+      </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
+</div>
