@@ -7,9 +7,7 @@
       <div class="column center aligned" style="margin-bottom: 25px">
         <% if show.attachment.present? %>
             <a href="/shows/<%= show.id %>"><img src="<%= show.attachment %>" class="ui medium image" style="width:300px; height:200px;object-fit: cover; border: 7px solid #B39DDB"></a>
-          <% else %>
-            <a href="/shows/<%= show.id %>"><img src="/logos/SAMPLE.jpg" class="ui medium image" style="width:300px;height:200px;object-fit: cover; border: 7px solid #B39DDB"></a>
-            <a href="/shows/<%= show.id %>"><img src="<%= show.attachment %>" class="ui medium image" style="width:300px; height:200px; border: 7px solid #BBDEFB"></a>
+
           <% else %>
             <a href="/shows/<%= show.id %>"><img src="/logos/SAMPLE.jpg" class="ui medium image" style="width:300px; height:200px; border: 7px solid #BBDEFB"></a>
           <% end %>
