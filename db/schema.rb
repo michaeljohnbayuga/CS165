@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180501130233) do
+ActiveRecord::Schema.define(version: 20180411115333) do
 
   create_table "episodes", force: :cascade do |t|
     t.integer "episode_no"

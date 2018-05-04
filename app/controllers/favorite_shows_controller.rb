@@ -5,7 +5,7 @@ class FavoriteShowsController < ApplicationController
     if Favorite.create(show: @show, user: current_user)
       redirect_to @show, notice: 'show has been favorited'
     else
-      redirect_to @show, alert: 'Something went wrong...*sad panda*'
+      redirect_to @show, alert: 'Something went wrong...'
     end
   end
   

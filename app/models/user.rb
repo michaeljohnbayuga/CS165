@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_many :trackers, :dependent => :destroy
   has_many :favorites
   has_many :favorite_shows, through: :favorites, source: :show
+  has_many :reviews
   validates :name, presence: true
   validates :username, presence: true
   validates :password, presence: true

@@ -188,4 +188,9 @@ label.star:before {
       <% end %>
     </div>
   <% end %>
+  <%= form_for :review, url:{controller: "reviews", action: "create", id: @show.id}, method: :POST do |f| %>
+    <%= f.text_field :text %><br />
+    <%= f.submit "Add a Review"%>
+  <% end %>
+  <%= link_to "<i class='edit large icon'></i> View Reviews".html_safe, {controller: "reviews", action: "create", id: @show.id}, style: 'color:#fff;', class: 'ui compact green button' %>
 </div>
