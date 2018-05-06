@@ -9,10 +9,26 @@
     </tr>
   </thead>
 
+  <%= form_for @review, url:{controller: "reviews", action: "index", id: params[:id]}, method: :POST do |f| %>
+  
+  <div class="ui grid">
+    <div class="eight wide column">
+      <div class="ui form">
+        <div class="field">
+          <label>Text</label>
+          <%= f.text_field :text, style: "height:38px"%>
+          <br>
+        </div>
+      </div>
+      <button type="submit" class="ui green button submit-button">Submit</button>
+      <br>
+<% end %>
+
   <tbody>
-    <% @reviews.each do |review| %>
+    <% @reviews.each_with_index do |review,i| %>
       <tr>
-        <td><%= review.text %> </td>
+        <td>posted by: <%= @users[i].name %> </td>
+        <td>comment: <%= review.text %> </td>
         <td><%= link_to 'Edit', edit_review_path(review) %></td>
         <td><%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -21,5 +37,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Review', new_review_path %>

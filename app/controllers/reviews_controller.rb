@@ -4,7 +4,10 @@ class ReviewsController < ApplicationController
   # GET /reviews
   # GET /reviews.json
   def index
-    @reviews = Review.all
+    @reviews = Review.where("show_id = ?", params[:id])
+    @review = Review.new
+    @shows = Show.all.order(start_year: :desc, name: :asc)
+    @users = User.joins(:reviews)
   end
 
   # GET /reviews/1
@@ -50,10 +53,7 @@ class ReviewsController < ApplicationController
   # DELETE /reviews/1.json
   def destroy
     @review.destroy
-    respond_to do |format|
-      format.html { redirect_to reviews_url, notice: 'Review was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+
   end
 
   private
