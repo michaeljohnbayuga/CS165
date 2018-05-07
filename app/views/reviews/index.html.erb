@@ -1,39 +1,33 @@
-<p id="notice"><%= notice %></p>
+<%= render :file=> 'app/views/partials/header.html.erb' %>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
 
-<h1>Reviews</h1>
+<div class="review-container">
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <div class="review-write">
+        <span>Write your review: </span>
+        <%= form_for @review, url:{controller: "reviews", action: "index", id: params[:id]}, method: :POST do |f| %>
+            <%= f.text_area :text%>
+            <button type="submit">Submit</button>
+        <% end %>
+    </div>
 
-  <%= form_for @review, url:{controller: "reviews", action: "index", id: params[:id]}, method: :POST do |f| %>
-  
-  <div class="ui grid">
-    <div class="eight wide column">
-      <div class="ui form">
-        <div class="field">
-          <label>Text</label>
-          <%= f.text_field :text, style: "height:38px"%>
-          <br>
-        </div>
-      </div>
-      <button type="submit" class="ui green button submit-button">Submit</button>
-      <br>
-<% end %>
+    <div class="reviews">
+        <div class="review-label">Reviews</div>
+        <% @reviews.each_with_index do |review,i| %>
+            <div class="review-individual">
+                <div class="review-name">
+                    <i class="far fa-user-circle"></i>
+                    <%= @users[i].name %>
+                </div>
+                <div>
+                    <%= review.text %>
+                </div>
+                <div class="review-button">
+                    <%= link_to 'Edit', edit_review_path(review),class:"edit" %>
+                    <%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' },class:"delete" %>
+                </div>
+            </div>
+        <% end %>
+    </div>
 
-  <tbody>
-    <% @reviews.each_with_index do |review,i| %>
-      <tr>
-        <td>posted by: <%= @users[i].name %> </td>
-        <td>comment: <%= review.text %> </td>
-        <td><%= link_to 'Edit', edit_review_path(review) %></td>
-        <td><%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+</div>
