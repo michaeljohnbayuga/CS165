@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <robot generated="20180429 21:10:34.965" generator="Robot 3.0.2 (Python 2.7.12 on linux2)">
 <suite source="/home/jcaquino/Desktop/korean-drama-db-team-kddb/robot_tests/valid_login_test/valid_login.robot" id="s1" name="Valid Login">
+=======
+<robot generated="20180413 13:24:59.245" generator="Robot 3.0.2 (Python 2.7.12 on linux2)">
+<suite source="/home/jcaquino/Desktop/korean-drama-db-team-kddb-master/robot_tests/valid_login_test/valid_login.robot" id="s1" name="Valid Login">
+>>>>>>> 4780d5c0ad69ec455dddd7b78534b4aea004bfd7
 <test id="s1-t1" name="Valid Login">
 <kw name="Open Browser To Login Page" library="resource">
 <kw name="Open Browser" library="Selenium2Library">
@@ -9,28 +14,48 @@
 <arg>${LOGIN URL}</arg>
 <arg>${BROWSER}</arg>
 </arguments>
+<<<<<<< HEAD
 <msg timestamp="20180429 21:10:35.182" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
 <status status="PASS" endtime="20180429 21:10:42.859" starttime="20180429 21:10:35.181"></status>
 </kw>
 <kw name="Maximize Browser Window" library="Selenium2Library">
 <doc>Maximizes current browser window.</doc>
 <status status="PASS" endtime="20180429 21:10:42.967" starttime="20180429 21:10:42.859"></status>
+=======
+<msg timestamp="20180413 13:25:00.502" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000/shows'.</msg>
+<status status="PASS" endtime="20180413 13:25:10.086" starttime="20180413 13:25:00.501"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20180413 13:25:10.203" starttime="20180413 13:25:10.087"></status>
+>>>>>>> 4780d5c0ad69ec455dddd7b78534b4aea004bfd7
 </kw>
 <kw name="Set Selenium Speed" library="Selenium2Library">
 <doc>Sets the delay that is waited after each Selenium command.</doc>
 <arguments>
 <arg>${DELAY}</arg>
 </arguments>
+<<<<<<< HEAD
 <status status="PASS" endtime="20180429 21:10:42.969" starttime="20180429 21:10:42.968"></status>
+=======
+<status status="PASS" endtime="20180413 13:25:10.204" starttime="20180413 13:25:10.203"></status>
+>>>>>>> 4780d5c0ad69ec455dddd7b78534b4aea004bfd7
 </kw>
 <kw name="Login Page Should Be Open" library="resource">
 <kw name="Title Should Be" library="Selenium2Library">
 <doc>Verifies that current page title equals ``title``.</doc>
 <arguments>
+<<<<<<< HEAD
 <arg>KDdb</arg>
 </arguments>
 <msg timestamp="20180429 21:10:43.030" level="INFO">Page title is 'KDdb'.</msg>
 <status status="PASS" endtime="20180429 21:10:43.033" starttime="20180429 21:10:42.969"></status>
+=======
+<arg>TV Tracker</arg>
+</arguments>
+<msg timestamp="20180413 13:25:10.242" level="INFO">Page title is 'TV Tracker'.</msg>
+<status status="PASS" endtime="20180413 13:25:10.242" starttime="20180413 13:25:10.206"></status>
+>>>>>>> 4780d5c0ad69ec455dddd7b78534b4aea004bfd7
 </kw>
 <kw name="Go To Login Page" library="resource">
 <kw name="Click Element" library="Selenium2Library">
@@ -38,6 +63,7 @@
 <arguments>
 <arg>xpath://div[@class="ui inverted login button"]</arg>
 </arguments>
+<<<<<<< HEAD
 <msg timestamp="20180429 21:10:43.035" level="INFO">Clicking element 'xpath://div[@class="ui inverted login button"]'.</msg>
 <status status="PASS" endtime="20180429 21:10:43.488" starttime="20180429 21:10:43.034"></status>
 </kw>
@@ -46,6 +72,16 @@
 <status status="PASS" endtime="20180429 21:10:43.489" starttime="20180429 21:10:42.969"></status>
 </kw>
 <status status="PASS" endtime="20180429 21:10:43.489" starttime="20180429 21:10:35.180"></status>
+=======
+<msg timestamp="20180413 13:25:10.244" level="INFO">Clicking element 'xpath://div[@class="ui inverted login button"]'.</msg>
+<status status="PASS" endtime="20180413 13:25:10.691" starttime="20180413 13:25:10.243"></status>
+</kw>
+<status status="PASS" endtime="20180413 13:25:10.691" starttime="20180413 13:25:10.242"></status>
+</kw>
+<status status="PASS" endtime="20180413 13:25:10.691" starttime="20180413 13:25:10.205"></status>
+</kw>
+<status status="PASS" endtime="20180413 13:25:10.692" starttime="20180413 13:25:00.501"></status>
+>>>>>>> 4780d5c0ad69ec455dddd7b78534b4aea004bfd7
 </kw>
 <kw name="Input Username" library="resource">
 <arguments>
@@ -57,10 +93,17 @@
 <arg>username</arg>
 <arg>${usernamee}</arg>
 </arguments>
+<<<<<<< HEAD
 <msg timestamp="20180429 21:10:43.491" level="INFO">Typing text 'usernamee' into text field 'username'.</msg>
 <status status="PASS" endtime="20180429 21:10:44.313" starttime="20180429 21:10:43.490"></status>
 </kw>
 <status status="PASS" endtime="20180429 21:10:44.313" starttime="20180429 21:10:43.490"></status>
+=======
+<msg timestamp="20180413 13:25:10.694" level="INFO">Typing text 'usernamee' into text field 'username'.</msg>
+<status status="PASS" endtime="20180413 13:25:11.103" starttime="20180413 13:25:10.693"></status>
+</kw>
+<status status="PASS" endtime="20180413 13:25:11.103" starttime="20180413 13:25:10.692"></status>
+>>>>>>> 4780d5c0ad69ec455dddd7b78534b4aea004bfd7
 </kw>
 <kw name="Input Password" library="resource">
 <arguments>
@@ -72,10 +115,17 @@
 <arg>password</arg>
 <arg>${password}</arg>
 </arguments>
+<<<<<<< HEAD
 <msg timestamp="20180429 21:10:44.316" level="INFO">Typing text 'password' into text field 'password'.</msg>
 <status status="PASS" endtime="20180429 21:10:44.662" starttime="20180429 21:10:44.316"></status>
 </kw>
 <status status="PASS" endtime="20180429 21:10:44.663" starttime="20180429 21:10:44.315"></status>
+=======
+<msg timestamp="20180413 13:25:11.105" level="INFO">Typing text 'password' into text field 'password'.</msg>
+<status status="PASS" endtime="20180413 13:25:11.466" starttime="20180413 13:25:11.105"></status>
+</kw>
+<status status="PASS" endtime="20180413 13:25:11.467" starttime="20180413 13:25:11.104"></status>
+>>>>>>> 4780d5c0ad69ec455dddd7b78534b4aea004bfd7
 </kw>
 <kw name="Submit Credentials" library="resource">
 <kw name="Click Button" library="Selenium2Library">
@@ -83,23 +133,38 @@
 <arguments>
 <arg>login_button</arg>
 </arguments>
+<<<<<<< HEAD
 <msg timestamp="20180429 21:10:44.665" level="INFO">Clicking button 'login_button'.</msg>
 <status status="PASS" endtime="20180429 21:10:46.158" starttime="20180429 21:10:44.664"></status>
 </kw>
 <status status="PASS" endtime="20180429 21:10:46.158" starttime="20180429 21:10:44.664"></status>
+=======
+<msg timestamp="20180413 13:25:11.469" level="INFO">Clicking button 'login_button'.</msg>
+<status status="PASS" endtime="20180413 13:25:13.064" starttime="20180413 13:25:11.468"></status>
+</kw>
+<status status="PASS" endtime="20180413 13:25:13.065" starttime="20180413 13:25:11.467"></status>
+>>>>>>> 4780d5c0ad69ec455dddd7b78534b4aea004bfd7
 </kw>
 <kw name="Welcome Page Should Be Open" library="resource">
 <kw name="Title Should Be" library="Selenium2Library">
 <doc>Verifies that current page title equals ``title``.</doc>
 <arguments>
+<<<<<<< HEAD
 <arg>KDdb</arg>
 </arguments>
 <msg timestamp="20180429 21:10:46.177" level="INFO">Page title is 'KDdb'.</msg>
 <status status="PASS" endtime="20180429 21:10:46.177" starttime="20180429 21:10:46.163"></status>
+=======
+<arg>TV Tracker</arg>
+</arguments>
+<msg timestamp="20180413 13:25:13.074" level="INFO">Page title is 'TV Tracker'.</msg>
+<status status="PASS" endtime="20180413 13:25:13.074" starttime="20180413 13:25:13.066"></status>
+>>>>>>> 4780d5c0ad69ec455dddd7b78534b4aea004bfd7
 </kw>
 <kw name="Wait Until Page Contains" library="Selenium2Library">
 <doc>Waits until ``text`` appears on current page.</doc>
 <arguments>
+<<<<<<< HEAD
 <arg>Hi</arg>
 </arguments>
 <status status="PASS" endtime="20180429 21:10:46.247" starttime="20180429 21:10:46.177"></status>
@@ -111,12 +176,29 @@
 <status status="PASS" endtime="20180429 21:10:46.335" starttime="20180429 21:10:46.248"></status>
 </kw>
 <status status="PASS" endtime="20180429 21:10:46.335" critical="yes" starttime="20180429 21:10:35.179"></status>
+=======
+<arg>Welcome,</arg>
+</arguments>
+<status status="PASS" endtime="20180413 13:25:13.128" starttime="20180413 13:25:13.074"></status>
+</kw>
+<status status="PASS" endtime="20180413 13:25:13.129" starttime="20180413 13:25:13.065"></status>
+</kw>
+<kw type="teardown" name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20180413 13:25:13.227" starttime="20180413 13:25:13.129"></status>
+</kw>
+<status status="PASS" endtime="20180413 13:25:13.227" critical="yes" starttime="20180413 13:25:00.499"></status>
+>>>>>>> 4780d5c0ad69ec455dddd7b78534b4aea004bfd7
 </test>
 <doc>A test suite with a single test for valid login.
 
 This test has a workflow that is created using keywords in
 the imported resource file.</doc>
+<<<<<<< HEAD
 <status status="PASS" endtime="20180429 21:10:46.336" starttime="20180429 21:10:34.970"></status>
+=======
+<status status="PASS" endtime="20180413 13:25:13.229" starttime="20180413 13:24:59.250"></status>
+>>>>>>> 4780d5c0ad69ec455dddd7b78534b4aea004bfd7
 </suite>
 <statistics>
 <total>

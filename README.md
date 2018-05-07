@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/CS131-RVLC/korean-drama-db-team-kddb.svg?token=pWiDcpBsN1gB9Ymzyimy&branch=master)](https://travis-ci.com/CS131-RVLC/korean-drama-db-team-kddb)
+
 # README
 
 <!-- This README would normally document whatever steps are necessary to get the

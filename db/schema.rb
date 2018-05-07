@@ -10,14 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180420021640) do
-
-  create_table "casts", force: :cascade do |t|
-    t.string "name"
-    t.string "show_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 20180411115333) do
 
   create_table "episodes", force: :cascade do |t|
     t.integer "episode_no"
@@ -41,12 +34,31 @@ ActiveRecord::Schema.define(version: 20180420021640) do
     t.index ["show_id"], name: "index_info_on_show_id"
   end
 
+  create_table "info", force: :cascade do |t|
+    t.integer "show_id"
+    t.string "director"
+    t.text "casts"
+    t.text "synopsis"
+    t.integer "runtime"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["show_id"], name: "index_info_on_show_id"
+  end
+
   create_table "ratings", force: :cascade do |t|
     t.string "show_id"
     t.string "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "rtg"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "text"
+    t.integer "show_id"
+    t.integer "user_id"
+    t.index ["show_id"], name: "index_reviews_on_show_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "seasons", force: :cascade do |t|
@@ -69,6 +81,11 @@ ActiveRecord::Schema.define(version: 20180420021640) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "director"
+    t.string "runtime"
+    t.string "language"
+    t.text "synopsis"
+    t.string "casts"
+    t.string "attachment"
   end
 
   create_table "trackers", force: :cascade do |t|
