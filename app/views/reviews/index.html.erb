@@ -13,7 +13,11 @@
 
     <div class="reviews">
         <div class="review-label">Reviews</div>
-        <% @reviews.each_with_index do |review,i| %>
+        <% if @reviews.empty? %>
+            <div class="review-individual">
+                No Reviews Yet!
+            </div>
+        <% else @reviews.each_with_index do |review,i| %>
             <div class="review-individual">
                 <div class="review-name">
                     <i class="far fa-user-circle"></i>
@@ -27,6 +31,7 @@
                     <%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' },class:"delete" %>
                 </div>
             </div>
+        <% end %>
         <% end %>
     </div>
 
