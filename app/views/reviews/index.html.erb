@@ -4,7 +4,7 @@
 <div class="review-container">
 
     <div class="review-write">
-        <span>Write your review: </span>
+        <span>Write your review</span>
         <%= form_for @review, url:{controller: "reviews", action: "index", id: params[:id]}, method: :POST do |f| %>
             <%= f.text_area :text%>
             <button type="submit">Submit</button>
