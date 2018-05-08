@@ -1,48 +1,54 @@
 <%= render :file=> 'app/views/partials/header.html.erb' %>
 
-<div class="ui one column grid container" style="margin-top:50px;">
-  <% if @tracked.empty? %>
-    <div class="ui fixed center aligned container">
-      <div id="home_no_shows">
-        <div id="tracker_text">No shows found.</div>
-        <div id="tracker_margin">
-          <a href="/shows" id="start_tracking">Start tracking!</a>
-        </div>
-      </div>
+<div class="container-tracker">
+    <div class="tracker">
+
+        <% if @tracked.empty? %>
+            <div class="tracker-card-1">
+                <div class="no-show-text">No shows found.</div>
+                <a href="/shows" class="start-button">Start tracking!</a>
+            </div>
+
+        <% else @tracked.each do |show| %>
+            <div class="tracker-card-2">
+                <% if File.file? "#{Rails.public_path}/logos/#{show.code}.jpg" %>
+                    <a href="/shows/<%= show.id %>">
+                        <img class="tracker-img" src="/logos/<%= show.code %>.jpg" id="show_logo">
+                    </a>
+                <% else %>
+                    <a href="/shows/<%= show.id %>">
+                        <img class="tracker-img" src="/logos/SAMPLE.jpg" id="show_logo">
+                    </a>
+                <% end %>
+
+                <div class="tracker-body">
+                    <a class="tracker-name" href="/shows/<%= show.id %>">
+                        <%= show.name %>
+                    </a>
+
+                    <div class="tracker-info">
+                        <% if show.network.present? %>
+                            <%= show.network %>
+                        <% end %>
+                        &nbsp&#8226;&nbsp
+                        <% if show.start_year.present? %>
+                            <%= show.start_year %>
+                            <% if show.end_year.present? && (show.start_year != show.end_year) %>
+                            - <%= show.end_year %>
+                            <% end %>
+                        <% end %>
+                        &nbsp&#8226;&nbsp
+                        <%= show.seasons.count %>
+                        <% if show.seasons.count == 1 %>
+                            Season
+                        <% else %>
+                            Seasons
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+        <% end %>
+
     </div>
-
-  <% else
-    @tracked.each do |show| %>
-      <div class="column">
-        <% if File.file? "#{Rails.public_path}/logos/#{show.code}.jpg" %>
-          <a href="/shows/<%= show.id %>"><img src="/logos/<%= show.code %>.jpg" class="ui medium image" id="show_logo"></a>
-        <% else %>
-          <a href="/shows/<%= show.id %>"><img src="/logos/SAMPLE.jpg" class="ui medium image" id="show_logo"></a>
-        <% end %>
-
-        <a href="/shows/<%= show.id %>" id="show_name"><h1><%= show.name %></h1></a>
-
-        <% if show.network.present? %>
-          <%= show.network %>&emsp;&#8226;&emsp;
-        <% end %>
-
-        <% if show.start_year.present? %>
-          <%= show.start_year %>
-
-          <% if show.end_year.present? && (show.start_year != show.end_year) %>
-          - <%= show.end_year %>
-          <% end %>
-
-          &emsp;&#8226;&emsp;
-        <% end %>
-
-        <%= show.seasons.count %>
-        <% if show.seasons.count == 1 %>
-              Season
-        <% else %>
-              Seasons
-        <% end %>
-      </div>
-    <% end %>
-  <% end %>
 </div>
