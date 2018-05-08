@@ -47,37 +47,33 @@ label.star:before {
 
 
 <div class="ui container">
+  
+  <h1><%= @show.name %><br>
+  Community Average Rating: <%= @ave_rating %>  &emsp; </h1>
+
+
   <% if current_user.present? && current_user.is_admin? %>
+    <%= link_to "<i class='edit large icon'></i> Edit".html_safe, {action: "edit", id: @show.id}, style: 'color:#fff;', class: 'ui compact light blue button float-right' %>
+    <!-- Checks if the user has already favorited the show then displays the appropriate link  -->
+    <%- unless current_user.favorite_shows.exists?(id: @show.id) -%>
+      <%= link_to 'Add to favorites', favorite_shows_path(show_id: @show), method: :post, style:'color:#fff;',class:'ui compact blue button float-right'%>
+      <%- else -%>
+      <%= link_to 'Remove from favorites', favorite_show_path(@show), method: :delete, style:'color:#fff;',class:'ui compact blue button float-right'%>
+      <%- end -%>
     <%= link_to "<i class='edit large icon'></i> Edit".html_safe, {action: "edit", id: @show.id}, style: 'color:#fff;', class: 'ui compact green button float-right' %>
     <%= link_to "<i class='add large icon'></i> Add Season".html_safe, {controller: "seasons", action: "new", show_id: @show.id}, style: 'color:#fff;', class: 'ui compact blue button float-right' %>
   <% end %>
   
   <% if @show.attachment.present? %>
-  	<img src="<%= @show.attachment %>" class="ui large image" id="show_logo" style="width:500px; height:500px;object-fit: cover; border: 7px solid #B39DDB">
+  	<img src="<%= @show.attachment %>" class="ui large image" id="show_logo" style="width:500px; height:500px;object-fit: contain; border: 7px solid #BBDEFB; background-color:#4f5563 ">
   <% else %>
-    <img src="/logos/SAMPLE.jpg" class="ui large image" id="show_logo" style="width:500px; height:500px;object-fit: cover; border: 7px solid #B39DDB">
+    <img src="/logos/SAMPLE.jpg" class="ui large image" id="show_logo" style="width:500px; height:500px;object-fit: contain; border: 7px solid #BBDEFB; background-color:#4f5563 ">
   <% end %>
   
-
-  
-  
-  <h1><%= @show.name %></h1> 
-  <h1>
-	<span class="fa fa-star checked"></span>
-	<span class="fa fa-star checked"></span>
-	<span class="fa fa-star checked"></span>
-	<span class="fa fa-star checked"></span>
-	<span class="fa fa-star checked"></span>
-  <br>
-  Community Average Rating: <%= @ave_rating %>  &emsp; </h1>
    
 	<% if current_user.present? %> 
 	
-	
-  <br>SHOW ID: <%= @show.id %>
-  <br>USER ID: <%= current_user.id %>
-  
-  <br><br><br><h3>Your Rating: <%= @user_rating %>  &emsp; </h3>	
+	<h3>Your Rating: <%= @user_rating %>  &emsp; </h3>	
 	
   <script type="text/javascript">$(document).ready(function(){$(".rating").rating({initialRating: <%=@user_rating%>,maxrating:5});});</script>
 	<div class=" massive ui star rating">
@@ -88,25 +84,10 @@ label.star:before {
   <%= link_to "<i class=''></i>".html_safe, {controller: "ratings", action: "rate5", id: @show.id}, method: :POST, class: "star star-5 icon" 
   %>
 	
-	
-	<!--<form action=''>
-		<input class="star star-5" id="star-5" type="radio" name="star"/>
-		<label class="star star-5" for="star-5"></label>
-		<input class="star star-4" id="star-4" type="radio" name="star"/>
-		<label class="star star-4" for="star-4"></label>
-		<input class="star star-3" id="star-3" type="radio" name="star"/>
-		<label class="star star-3" for="star-3"></label>
-		<input class="star star-2" id="star-2" type="radio" name="star"/>
-		<label class="star star-2" for="star-2"></label>
-		<input class="star star-1" id="star-1" type="radio" name="star"/>
-		<label class="star star-1" for="star-1"></label>
-	  </form>
--->
 	</div>	
 
 	<% end %>
 
-  <br>
   <% if @show.network.present? %>
     <br><br><b>TV Network:</b> <%= @show.network %>
   <% end %>
@@ -138,7 +119,7 @@ label.star:before {
         Seasons
   <% end %>
 
-  <br><br><br>
+  <br><br><br><br><br><br><br>
 
   <% if @seasons.count > 0 %>
     <div class="ui three stackable special cards">
@@ -189,8 +170,9 @@ label.star:before {
     </div>
   <% end %>
   <%= form_for :review, url:{controller: "reviews", action: "create", id: @show.id}, method: :POST do |f| %>
-    <%= f.text_field :text %><br />
-    <%= f.submit "Add a Review"%>
+    <%= f.text_field :text, style:'height:200px;width:500px'%><br />
+    <%= f.submit "Add a Review",style: 'color:#fff;', class: 'ui compact blue button'%>
   <% end %>
-  <%= link_to "<i class='edit large icon'></i> View Reviews".html_safe, {controller: "reviews", action: "create", id: @show.id}, style: 'color:#fff;', class: 'ui compact green button' %>
+  <br>
+  <%= link_to "<i class='edit large icon'></i> View Reviews".html_safe, {controller: "reviews", action: "create", id: @show.id}, style: 'color:#fff;', class: 'ui compact blue button' %>
 </div>
