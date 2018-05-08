@@ -6,10 +6,10 @@
       <% @shows.each do |show| %>
       <div class="column center aligned" style="margin-bottom: 25px">
         <% if show.attachment.present? %>
-            <a href="/shows/<%= show.id %>"><img src="<%= show.attachment %>" class="ui medium image" style="width:300px; height:200px;object-fit: cover; border: 7px solid #B39DDB"></a>
+            <a href="/shows/<%= show.id %>"><img src="<%= show.attachment %>" class="ui medium image" style="width:300px; height:200px;object-fit: contain; border: 7px solid #BBDEFB; background-color:#4f5563"></a>
 
           <% else %>
-            <a href="/shows/<%= show.id %>"><img src="/logos/SAMPLE.jpg" class="ui medium image" style="width:300px; height:200px; border: 7px solid #BBDEFB"></a>
+            <a href="/shows/<%= show.id %>"><img src="/logos/SAMPLE.jpg" class="ui medium image" style="width:300px; height:200px; border: 7px solid #BBDEFB; background-color:#4f5563"></a>
           <% end %>
         <br>
         <a href="/shows/<%= show.id %>" id="show_name"><%= show.name %></a> <br> <%= show.network %> <br> <%= show.start_year %>
