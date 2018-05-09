@@ -32,7 +32,7 @@ class ReviewsController < ApplicationController
     @review.show_id = params[:id]
     @review.text = params[:review][:text]
     @review.save
-
+    redirect_back(fallback_location: root_path)
   end
 
   # PATCH/PUT /reviews/1
