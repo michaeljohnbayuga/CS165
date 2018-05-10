@@ -1,54 +1,26 @@
 <%= render :file=> 'app/views/partials/header.html.erb' %>
 
-<div class="container-tracker">
-    <div class="tracker">
-
-        <% if @tracked.empty? %>
+<div class="ui fixed center aligned container" style="margin-top: 140px">
+  <div id="home_no_shows">
+    <div class="ui four column grid">
+      <% if @tracked.empty? %>
             <div class="tracker-card-1">
                 <div class="no-show-text">No shows found.</div>
                 <a href="/shows" class="start-button">Start tracking!</a>
             </div>
+      <% else @tracked.each do |show| %>
+      <div class="column center aligned" style="margin-bottom: 25px">
+        <% if show.attachment.present? %>
+            <a href="/shows/<%= show.id %>"><img src="<%= show.attachment %>" class="ui medium image" style="width:300px; height:200px;object-fit: contain; border: 7px solid #BBDEFB; background-color:#4f5563"></a>
 
-        <% else @tracked.each do |show| %>
-            <div class="tracker-card-2">
-                <% if File.file? "#{Rails.public_path}/logos/#{show.code}.jpg" %>
-                    <a href="/shows/<%= show.id %>">
-                        <img class="tracker-img" src="/logos/<%= show.code %>.jpg" id="show_logo">
-                    </a>
-                <% else %>
-                    <a href="/shows/<%= show.id %>">
-                        <img class="tracker-img" src="/logos/SAMPLE.jpg" id="show_logo">
-                    </a>
-                <% end %>
-
-                <div class="tracker-body">
-                    <a class="tracker-name" href="/shows/<%= show.id %>">
-                        <%= show.name %>
-                    </a>
-
-                    <div class="tracker-info">
-                        <% if show.network.present? %>
-                            <%= show.network %>
-                        <% end %>
-                        &nbsp&#8226;&nbsp
-                        <% if show.start_year.present? %>
-                            <%= show.start_year %>
-                            <% if show.end_year.present? && (show.start_year != show.end_year) %>
-                            - <%= show.end_year %>
-                            <% end %>
-                        <% end %>
-                        &nbsp&#8226;&nbsp
-                        <%= show.seasons.count %>
-                        <% if show.seasons.count == 1 %>
-                            Season
-                        <% else %>
-                            Seasons
-                        <% end %>
-                    </div>
-                </div>
-            </div>
-            <% end %>
-        <% end %>
-
+          <% else %>
+            <a href="/shows/<%= show.id %>"><img src="/logos/SAMPLE.jpg" class="ui medium image" style="width:300px; height:200px; border: 7px solid #BBDEFB; background-color:#4f5563"></a>
+          <% end %>
+        <br>
+        <a href="/shows/<%= show.id %>" id="show_name"><%= show.name %></a> <br> <%= show.network %> <br> <%= show.start_year %>
+      </div>
+      <% end %>
     </div>
+    <% end %>
+  </div>
 </div>

@@ -168,12 +168,6 @@ label.star:before {
           </div>
         </div>
       <% end %>
-      <!-- Checks if the user has already favorited the show then displays the appropriate link  -->
-    <%- unless current_user.favorite_shows.exists?(id: @show.id) -%>
-      <%= link_to 'Add to favorites', favorite_shows_path(show_id: @show), method: :post %>
-      <%- else -%>
-      <%= link_to 'Remove from favorites', favorite_show_path(@show), method: :delete %>
-      <%- end -%>
     </div>
   <% end %>
   <%= form_for :review, url:{controller: "reviews", action: "create", id: @show.id}, method: :POST do |f| %>
