@@ -21,14 +21,20 @@
             <div class="review-individual">
                 <div class="review-name">
                     <i class="far fa-user-circle"></i>
-                    <%= @users[i].name %>
+                    <% @users.each do |user| %>
+                        <% if user.id == review.user_id %>
+                            <%= user.name %>
+                        <% end %>
+                    <% end %>
                 </div>
                 <div>
                     <%= review.text %>
                 </div>
                 <div class="review-button">
                     <%= link_to 'Edit', edit_review_path(review),class:"edit" %>
+                    <% if current_user.is_admin? || review.user_id == current_user.id%>
                     <%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' },class:"delete" %>
+                    <% end %>
                 </div>
             </div>
         <% end %>
