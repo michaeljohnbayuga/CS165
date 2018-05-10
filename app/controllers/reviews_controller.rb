@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
     @reviews = Review.where("show_id = ?", params[:id])
     @review = Review.new
     @shows = Show.all.order(start_year: :desc, name: :asc)
-    @users = User.joins(:reviews)
+    @users = User.all
   end
 
   # GET /reviews/1
