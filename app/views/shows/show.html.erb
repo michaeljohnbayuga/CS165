@@ -55,18 +55,15 @@ label.star:before {
   
   	<% if current_user.is_admin? %>
   
-    <%= link_to "<i class='edit large icon'></i> Edit".html_safe, {action: "edit", id: @show.id}, style: 'color:#fff;', class: 'ui compact light blue button float-right' %>
-    
-    <!-- <%= link_to "<i class='edit large icon'></i> Edit".html_safe, {action: "edit", id: @show.id}, style: 'color:#fff;', class: 'ui compact green button float-right' %> -->
-    <%= link_to "<i class='add large icon'></i> Add Season".html_safe, {controller: "seasons", action: "new", show_id: @show.id}, style: 'color:#fff;', class: 'ui compact blue button float-right' %>
+    <%= link_to "<i class='edit large icon'></i> Edit".html_safe, {action: "edit", id: @show.id}, style: 'color:#fff;', class: 'ui blue button float-right' %>
   
     <% end %>
   
   	<!-- Checks if the user has already favorited the show then displays the appropriate link  -->
     <%- unless current_user.favorite_shows.exists?(id: @show.id) -%>
-      <%= link_to 'Add to favorites', favorite_shows_path(show_id: @show), method: :post, style:'color:#fff;',class:'ui compact blue button float-right'%>
+      <%= link_to 'Add to favorites', favorite_shows_path(show_id: @show), method: :post, style:'color:#fff;',class:'ui blue button float-right'%>
       <%- else -%>
-      <%= link_to 'Remove from favorites', favorite_show_path(@show), method: :delete, style:'color:#fff;',class:'ui compact blue button float-right'%>
+      <%= link_to 'Remove from favorites', favorite_show_path(@show), method: :delete, style:'color:#fff;',class:'ui blue button float-right'%>
       <%- end -%>
   
   <% end %>
@@ -119,61 +116,7 @@ label.star:before {
   
   <% end %>
 
-  <br><br><b>Season count: </b><%= @seasons.count %>
-  <% if @seasons.count == 1 %>
-        Season
-  <% else %>
-        Seasons
-  <% end %>
-
   <br><br><br><br><br><br><br>
 
-  <% if @seasons.count > 0 %>
-    <div class="ui three stackable special cards">
-      <% @seasons.each do |season| %>
-        <div class="card blurring dimmable">
-          <div class="content">
-            <div class="header float-right">SEASON <%= season.season_no %></div>
-          </div>
-
-          <div class="content">
-            <div class="meta"><strong>
-              <%= season.episodes.count %>
-              <% if season.episodes.count == 1 %>
-                    EPISODE
-              <% else %>
-                    EPISODES
-              <% end %>
-            </strong></div>
-
-            <% if !season.start_date.nil? %>
-              <strong>PREMIERE DATE: </strong><%= season.try(:start_date).try(:strftime, ("%b %d, %Y")) %>
-            <% end %><br>
-
-            <% if !season.end_date.nil? %>
-              <strong>FINALE DATE: </strong><%= season.try(:end_date).try(:strftime, ("%b %d, %Y")) %>
-            <% end %><br>
-          </div>
-
-          <div class="ui dimmer">
-            <div class="content">
-              <div class="center">
-                <%= link_to "<i class='eye large icon'></i> View".html_safe, {controller: "seasons", action: "show", id: season.id}, style: 'color:#fff;', class: 'ui inverted button' %>
-                <% if current_user.present? && current_user.is_admin? %>
-                  &emsp;&emsp;&emsp;
-                  <%= link_to "<i class='edit large icon'></i> Edit".html_safe, {controller: "seasons", action: "edit", id: season.id}, style: 'color:#fff;', class: 'ui inverted button' %>
-                <% end %>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
-  <%= form_for :review, url:{controller: "reviews", action: "create", id: @show.id}, method: :POST do |f| %>
-    <%= f.text_field :text, style:'height:200px;width:500px'%><br />
-    <%= f.submit "Add a Review",style: 'color:#fff;', class: 'ui compact blue button'%>
-  <% end %>
-  <br>
   <%= link_to "<i class='edit large icon'></i> View Reviews".html_safe, {controller: "reviews", action: "create", id: @show.id}, style: 'color:#fff;', class: 'ui compact blue button' %>
 </div>
