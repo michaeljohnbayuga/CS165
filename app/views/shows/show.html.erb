@@ -11,9 +11,9 @@
     height: 48px;
     width: 60px;
     padding:1px;
-    border: 10px solid #FF8C00;
+    border: 10px solid #FFC300 ;
     text-align: center;
-    background: #FF8C00; /* For browsers that do not support gradients */
+    background: #FFC300; /* For browsers that do not support gradients */
 }
  h1,#grad1{display:inline;}
 div.stars {
@@ -52,33 +52,28 @@ label.star:before {
   font-family: FontAwesome;
 }
 
+p {
+  font-size: 18px;
+}
+
 </style>
 
 
 <div class="ui container">
   <h1><%= @show.name %><br>
- Community Average Rating: <div id="grad1"> <%= @ave_rating  %></div></h1><br><br>
-
-  <% if current_user.present? %>
-  
-  	<% if current_user.is_admin? %>
-  
-    <%= link_to "<i class='edit large icon'></i> Edit".html_safe, {action: "edit", id: @show.id}, style: 'color:#fff;', class: 'ui compact light blue button float-right' %>
-    
-    <!-- <%= link_to "<i class='edit large icon'></i> Edit".html_safe, {action: "edit", id: @show.id}, style: 'color:#fff;', class: 'ui compact green button float-right' %> -->
-    <%= link_to "<i class='add large icon'></i> Add Season".html_safe, {controller: "seasons", action: "new", show_id: @show.id}, style: 'color:#fff;', class: 'ui compact blue button float-right' %>
-  
-    <% end %>
-  
-  	<!-- Checks if the user has already favorited the show then displays the appropriate link  -->
+  Community Average Rating: 
+  <% if @ave_rating.present? %> 
+    <div id="grad1"> <%= @ave_rating  %></div>
+  <% end %>
+  </h1><br><br>
+<br><br>
+  <!-- Checks if the user has already favorited the show then displays the appropriate link  -->
     <%- unless current_user.favorite_shows.exists?(id: @show.id) -%>
       <%= link_to 'Add to favorites', favorite_shows_path(show_id: @show), method: :post, style:'color:#fff;',class:'ui compact blue button float-right'%>
       <%- else -%>
-      <%= link_to 'Remove from favorites', favorite_show_path(@show), method: :delete, style:'color:#fff;',class:'ui compact blue button float-right'%>
+      <%= link_to 'Remove from favorites', favorite_show_path(@show), method: :delete, style:'color:#fff;',class:'ui compact red button float-right'%>
       <%- end -%>
-  
-  <% end %>
-  
+
   <% if @show.attachment.present? %>
   	<img src="<%= @show.attachment %>" class="ui large image" id="show_logo" style="width:500px; height:500px;object-fit: contain; border: 7px solid #BBDEFB; background-color:#4f5563 ">
   <% else %>
@@ -104,80 +99,39 @@ label.star:before {
 	<% end %>
 
   <% if @show.network.present? %>
-    <br><br><b>TV Network:</b> <%= @show.network %>
+    <p style="margin-top: 20px"><b>TV Network:</b> <%= @show.network %></p>
   <% end %>
   
-  <br><br><b>Casts:</b> <%= @show.casts %>
+  <p><b>Casts:</b> <%= @show.casts %></p>
   
-  <br><br><b>Director:</b> <%= @show.director %>
+  <p><b>Director:</b> <%= @show.director %></p>
   
-  <br><br><b>Synopsis:</b> <%= @show.synopsis %>
+  <p><b>Synopsis:</b> <%= @show.synopsis %></p>
   
-  <br><br><b>Runtime per episode:</b> <%= @show.runtime %>
+  <p><b>Runtime per episode:</b> <%= @show.runtime %></p>
   
-  <br><br><b>Language:</b> <%= @show.language %>
+  <p><b>Language:</b> <%= @show.language %></p>
 
   <% if @show.start_year.present? %>
-    <br><br><b>Years aired: </b><%= @show.start_year %>
+    <p><b>Years aired: </b><%= @show.start_year %>
 
     <% if @show.end_year.present? && (@show.start_year != @show.end_year) %>
-    - <%= @show.end_year %>
+    - <%= @show.end_year %></p>
     <% end %>
 
   
   <% end %>
 
-  <br><br><b>Season count: </b><%= @seasons.count %>
-  <% if @seasons.count == 1 %>
-        Season
-  <% else %>
-        Seasons
+  <br><br>
+  <% if current_user.present? %>
+  
+    <% if current_user.is_admin? %>
+  
+    <%= link_to "<i class='edit large icon'></i> Edit".html_safe, {action: "edit", id: @show.id}, style: 'color:#fff;', class: 'ui compact blue button' %>
+  
+    <% end %>
+  
   <% end %>
-
-  <br><br><br><br><br><br><br>
-
-  <% if @seasons.count > 0 %>
-    <div class="ui three stackable special cards">
-      <% @seasons.each do |season| %>
-        <div class="card blurring dimmable">
-          <div class="content">
-            <div class="header float-right">SEASON <%= season.season_no %></div>
-          </div>
-
-          <div class="content">
-            <div class="meta"><strong>
-              <%= season.episodes.count %>
-              <% if season.episodes.count == 1 %>
-                    EPISODE
-              <% else %>
-                    EPISODES
-              <% end %>
-            </strong></div>
-
-            <% if !season.start_date.nil? %>
-              <strong>PREMIERE DATE: </strong><%= season.try(:start_date).try(:strftime, ("%b %d, %Y")) %>
-            <% end %><br>
-
-            <% if !season.end_date.nil? %>
-              <strong>FINALE DATE: </strong><%= season.try(:end_date).try(:strftime, ("%b %d, %Y")) %>
-            <% end %><br>
-          </div>
-
-          <div class="ui dimmer">
-            <div class="content">
-              <div class="center">
-                <%= link_to "<i class='eye large icon'></i> View".html_safe, {controller: "seasons", action: "show", id: season.id}, style: 'color:#fff;', class: 'ui inverted button' %>
-                <% if current_user.present? && current_user.is_admin? %>
-                  &emsp;&emsp;&emsp;
-                  <%= link_to "<i class='edit large icon'></i> Edit".html_safe, {controller: "seasons", action: "edit", id: season.id}, style: 'color:#fff;', class: 'ui inverted button' %>
-                <% end %>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
-
-  <%= link_to "<i class='edit large icon'></i> View Reviews".html_safe, {controller: "reviews", action: "create", id: @show.id}, style: 'color:#fff;', class: 'ui compact blue button' %>
+  <%= link_to "<i class='edit large icon'></i> View Reviews".html_safe, {controller: "reviews", action: "create", id: @show.id}, style: 'color:#fff;', class: 'ui compact teal button' %>
+  
 </div>
