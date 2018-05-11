@@ -31,8 +31,8 @@
                     <p style="font-size: 20px"><%= review.text %></p>
                 </div>
                 <div class="review-button">
-                    <%= link_to 'Edit', edit_review_path(review),class:"ui teal compact button" %>
                     <% if current_user.is_admin? || review.user_id == current_user.id%>
+                    <%= link_to 'Edit', edit_review_path(review),class:"ui teal compact button" %>
                     <%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' },class:"ui red compact button" %>
                     <% end %>
                 </div>
