@@ -12,10 +12,11 @@
     width: 60px;
     padding:1px;
     border: 10px solid #FFC300 ;
+    font-size: 30px;
     text-align: center;
     background: #FFC300; /* For browsers that do not support gradients */
 }
- h1,#grad1{display:inline;}
+#grad1{display:inline;}
 div.stars {
   width: 250px;
   float: top;
@@ -56,83 +57,94 @@ p {
   font-size: 18px;
 }
 
+.ui.large.image {
+  margin-top: 20px; 
+  width:500px; 
+  height:500px;
+  object-fit: contain; 
+  border: 7px solid #BBDEFB; 
+  background-color:#4f5563;
+  margin-bottom: 20px;
+}
+
 </style>
 
 
 <div class="ui container">
   <h1><%= @show.name %></h1>
-  <% if @ave_rating.present? %> 
-  <h3>Community Rating:</h3> 
-    <h1><div id="grad1"> <%= @ave_rating  %></div></h1>
-    from <%= @rater_count %> users
-  <% end %>
-<br><br>
-  <% if current_user.present? %> 
-  <!-- Checks if the user has already favorited the show then displays the appropriate link  -->
-    <%- unless current_user.favorite_shows.exists?(id: @show.id) -%>
-      <%= link_to 'Add to favorites', favorite_shows_path(show_id: @show), method: :post, style:'color:#fff;',class:'ui compact blue button float-right'%>
-      <%- else -%>
-      <%= link_to 'Remove from favorites', favorite_show_path(@show), method: :delete, style:'color:#fff;',class:'ui compact red button float-right'%>
-      <%- end -%>
-  <% end %>
-  <% if @show.attachment.present? %>
-  	<img src="<%= @show.attachment %>" class="ui large image" id="show_logo" style="width:500px; height:500px;object-fit: contain; border: 7px solid #BBDEFB; background-color:#4f5563 ">
-  <% else %>
-    <img src="/logos/SAMPLE.jpg" class="ui large image" id="show_logo" style="width:500px; height:500px;object-fit: contain; border: 7px solid #BBDEFB; background-color:#4f5563 ">
-  <% end %>
-  
-   
-	<% if current_user.present? %> 
-	
-	<h3>Your Rating: <%= @user_rating %>  &emsp; </h3>	
-	
-  <script type="text/javascript">$(document).ready(function(){$(".rating").rating({initialRating: <%=@user_rating%>,maxrating:5});});</script>
-	<div class=" massive ui star rating">
-  <%= link_to "<i class=''></i>".html_safe, {controller: "ratings", action: "rate1", id: @show.id}, method: :POST, class: "star star-1 icon" %>
-  <%= link_to "<i class=''></i>".html_safe, {controller: "ratings", action: "rate2", id: @show.id}, method: :POST, class: "star star-2 icon" %>
-  <%= link_to "<i class=''></i>".html_safe, {controller: "ratings", action: "rate3", id: @show.id}, method: :POST, class: "star star-3 icon" %>
-  <%= link_to "<i class=''></i>".html_safe, {controller: "ratings", action: "rate4", id: @show.id}, method: :POST, class: "star star-4 icon" %>
-  <%= link_to "<i class=''></i>".html_safe, {controller: "ratings", action: "rate5", id: @show.id}, method: :POST, class: "star star-5 icon" 
-  %>
-	
-	</div>	
+  <div class="ui two column grid">
+    <div class="column">
+      <% if @show.attachment.present? %>
+      	<img src="<%= @show.attachment %>" class="ui large image" id="show_logo">
+      <% else %>
+        <img src="/logos/SAMPLE.jpg" class="ui large image" id="show_logo">
+      <% end %>
+      <% if current_user.present? %>
+      
+        <% if current_user.is_admin? %>
+      
+        <%= link_to "<i class='edit large icon'></i> Edit".html_safe, {action: "edit", id: @show.id}, style: 'color:#fff;', class: 'ui compact blue button' %>
+      
+        <% end %>
+      
+      <% end %>
+      <%= link_to "<i class='edit large icon'></i> View Reviews".html_safe, {controller: "reviews", action: "create", id: @show.id}, style: 'color:#fff;', class: 'ui compact teal button' %>
+    </div>
+    <div class="column">
+      <br>
+      <% if @ave_rating.present? %>
+        <h3><div id="grad1"> <%= @ave_rating %></div>
+        &nbsp; stars from <%= @rater_count %> users</h3>
+      <% end %>
+      <br>
+      <% if current_user.present? %> 
+      <!-- Checks if the user has already favorited the show then displays the appropriate link  -->
+        <%- unless current_user.favorite_shows.exists?(id: @show.id) -%>
+          <%= link_to 'Add to favorites', favorite_shows_path(show_id: @show), method: :post, style:'color:#fff;',class:'ui compact blue button'%>
+          <%- else -%>
+          <%= link_to 'Remove from favorites', favorite_show_path(@show), method: :delete, style:'color:#fff;',class:'ui compact red button'%>
+          <%- end -%>
+      <% end %>
+    	<% if current_user.present? %> 
+    	
+    	<h3>Your Rating: <%= @user_rating %>  &emsp; </h3>	
+    	
+      <script type="text/javascript">$(document).ready(function(){$(".rating").rating({initialRating: <%=@user_rating%>,maxrating:5});});</script>
+    	<div class=" massive ui star rating">
+      <%= link_to "<i class=''></i>".html_safe, {controller: "ratings", action: "rate1", id: @show.id}, method: :POST, class: "star star-1 icon" %>
+      <%= link_to "<i class=''></i>".html_safe, {controller: "ratings", action: "rate2", id: @show.id}, method: :POST, class: "star star-2 icon" %>
+      <%= link_to "<i class=''></i>".html_safe, {controller: "ratings", action: "rate3", id: @show.id}, method: :POST, class: "star star-3 icon" %>
+      <%= link_to "<i class=''></i>".html_safe, {controller: "ratings", action: "rate4", id: @show.id}, method: :POST, class: "star star-4 icon" %>
+      <%= link_to "<i class=''></i>".html_safe, {controller: "ratings", action: "rate5", id: @show.id}, method: :POST, class: "star star-5 icon" 
+      %>
+    	
+    	</div>	
 
-	<% end %>
+    	<% end %>
 
-  <% if @show.network.present? %>
-    <p style="margin-top: 20px"><b>TV Network:</b> <%= @show.network %></p>
-  <% end %>
-  
-  <p><b>Casts:</b> <%= @show.casts %></p>
-  
-  <p><b>Director:</b> <%= @show.director %></p>
-  
-  <p><b>Synopsis:</b> <%= @show.synopsis %></p>
-  
-  <p><b>Runtime per episode:</b> <%= @show.runtime %></p>
-  
-  <p><b>Language:</b> <%= @show.language %></p>
+      <% if @show.network.present? %>
+        <p style="margin-top: 20px"><b>TV Network:</b> <%= @show.network %></p>
+      <% end %>
+      
+      <p><b>Casts:</b> <%= @show.casts %></p>
+      
+      <p><b>Director:</b> <%= @show.director %></p>
+      
+      <p><b>Synopsis:</b> <%= @show.synopsis %></p>
+      
+      <p><b>Runtime per episode:</b> <%= @show.runtime %></p>
+      
+      <p><b>Language:</b> <%= @show.language %></p>
 
-  <% if @show.start_year.present? %>
-    <p><b>Years aired: </b><%= @show.start_year %>
+      <% if @show.start_year.present? %>
+        <p><b>Years aired: </b><%= @show.start_year %>
 
-    <% if @show.end_year.present? && (@show.start_year != @show.end_year) %>
-    - <%= @show.end_year %></p>
-    <% end %>
+        <% if @show.end_year.present? && (@show.start_year != @show.end_year) %>
+        - <%= @show.end_year %></p>
+        <% end %>
 
-  
-  <% end %>
-
-  <br><br>
-  <% if current_user.present? %>
-  
-    <% if current_user.is_admin? %>
-  
-    <%= link_to "<i class='edit large icon'></i> Edit".html_safe, {action: "edit", id: @show.id}, style: 'color:#fff;', class: 'ui compact blue button' %>
-  
-    <% end %>
-  
-  <% end %>
-  <%= link_to "<i class='edit large icon'></i> View Reviews".html_safe, {controller: "reviews", action: "create", id: @show.id}, style: 'color:#fff;', class: 'ui compact teal button' %>
-  
+      
+      <% end %>
+    </div>
+  </div>
 </div>
