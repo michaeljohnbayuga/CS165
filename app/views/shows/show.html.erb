@@ -67,13 +67,14 @@ p {
   <% end %>
   </h1><br><br>
 <br><br>
+  <% if current_user.present? %> 
   <!-- Checks if the user has already favorited the show then displays the appropriate link  -->
     <%- unless current_user.favorite_shows.exists?(id: @show.id) -%>
       <%= link_to 'Add to favorites', favorite_shows_path(show_id: @show), method: :post, style:'color:#fff;',class:'ui compact blue button float-right'%>
       <%- else -%>
       <%= link_to 'Remove from favorites', favorite_show_path(@show), method: :delete, style:'color:#fff;',class:'ui compact red button float-right'%>
       <%- end -%>
-
+  <% end %>
   <% if @show.attachment.present? %>
   	<img src="<%= @show.attachment %>" class="ui large image" id="show_logo" style="width:500px; height:500px;object-fit: contain; border: 7px solid #BBDEFB; background-color:#4f5563 ">
   <% else %>
