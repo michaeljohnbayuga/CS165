@@ -46,6 +46,7 @@ class ShowsController < ApplicationController
   def show
     @show = Show.find(params[:id])
     @ave_rating = Rating.where(:show_id => params[:id]).average(:rtg)
+    @rater_count = Rating.where(:show_id => params[:id]).count
 
     if session[:user_id]
       user_id = session[:user_id]

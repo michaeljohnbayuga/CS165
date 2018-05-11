@@ -60,12 +60,12 @@ p {
 
 
 <div class="ui container">
-  <h1><%= @show.name %><br>
-  Community Average Rating: 
+  <h1><%= @show.name %></h1>
   <% if @ave_rating.present? %> 
-    <div id="grad1"> <%= @ave_rating  %></div>
+  <h3>Community Rating:</h3> 
+    <h1><div id="grad1"> <%= @ave_rating  %></div></h1>
+    from <%= @rater_count %> users
   <% end %>
-  </h1><br><br>
 <br><br>
   <% if current_user.present? %> 
   <!-- Checks if the user has already favorited the show then displays the appropriate link  -->
