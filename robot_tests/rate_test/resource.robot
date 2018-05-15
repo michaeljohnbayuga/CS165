@@ -8,7 +8,7 @@ Library           Selenium2Library
 
 *** Variables ***
 ${SERVER}         localhost:3000
-${BROWSER}        firefox
+${BROWSER}        chrome
 ${DELAY}          0
 ${DELAY1}          1
 ${VALID USER}     valid
@@ -30,7 +30,7 @@ Login Page Should Be Open
 
 Go To Login Page
     Set Selenium Speed    ${DELAY1}
-    Click Element    xpath://div[@class="ui inverted login button"]
+    Click Element    //div[@class="ui inverted login button"]
     Set Selenium Speed    ${DELAY}
 
 Input Username
@@ -44,46 +44,20 @@ Input Password
 Submit Credentials
     Click Button    login_button
 
-Add Show
-    Click Element    (//a[@class="white_text"])[2]
-
-Input Code
-    [Arguments]    ${code}
-    Input Text    show_code    ${code}
-
-Input Name
-    [Arguments]    ${name}
-    Input Text    show_name    ${name}
-
-Input Network
-    [Arguments]    ${network}
-    Input Text    show_network    ${network}
-
-Input Start Year
-    [Arguments]    ${startyear}
-    Input Text    show_start_year    ${startyear}
-
-Input End Year
-    [Arguments]    ${endyear}
-    Input Text    show_end_year    ${endyear}
-
-Submit
-    Click Button    (//button[@class="ui green button submit-button"])
-
-Successful Creation
-    Title Should Be    KDdb
-    Wait Until Page Contains   has been created!
-
 Add Rating
-    Click Element    (//i[@class="red minus circle large icon"])[5]
+    Click Element    //a[@href="/shows"]
+    Location Should Be    http://localhost:3000/shows
+    Click Element    //a[@href="/shows/6"]
+    Location Should Be    http://localhost:3000/shows/6
+    Click Element    //a[@class="star star-5 icon"]
 
 Initial Rating
     Title Should Be    KDdb
-    Wait Until Page Contains   Community Average Rating: 5.0
+    Wait Until Page Contains   Your Rating: 5.0
 
 Logout
-    Click Element    (//i[@class="dropdown icon"])
-    Click Element    (//a[@class="item"])[2]
+    Click Element    //i[@class="dropdown icon"]
+    Click Element    //a[@href="/logout"]
 
 Logout Successfully
     Title Should Be    KDdb
@@ -91,7 +65,7 @@ Logout Successfully
 
 Login
     Set Selenium Speed    ${DELAY1}
-    Click Element    xpath://div[@class="ui inverted login button"]
+    Click Element    //div[@class="ui inverted login button"]
     Set Selenium Speed    ${DELAY}
 
 Input Username1
@@ -106,18 +80,18 @@ Submit Credentials1
     Click Button    login_button
 
 Shows
-    Click Element    (//a[@class="white_text"])
-    Wait Until Page Contains    FPJAPFF
-    Select Show
-
-Select Show
-    Click Element    (//a[@href="/shows/4"])
-    Wait Until Page Contains    Community Average Rating
+    Click Element    //a[@href="/shows"]
+    Location Should Be    http://localhost:3000/shows
+    Click Element    //a[@href="/shows/6"]
+    Location Should Be    http://localhost:3000/shows/6
+    Click Element    //a[@class="star star-1 icon"]
     New Rating
 
 New Rating
-    Click Element    (//i[@class="red minus circle large icon"])[1]
-    Wait Until Page Contains    Community Average Rating: 3.0
+    Title Should Be    KDdb
+    Wait Until Page Contains    Your Rating: 1.0    
+    Wait Until Page Contains    3.0
+    Wait Until Page Contains    stars from 2 users
 #robot -t "Valid Login" valid login.robot
 
 

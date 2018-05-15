@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation     A test suite containing tests related to invalid login.
+Documentation     A test suite containing tests related to invalid signup.
 ...
 ...               These tests are data-driven by their nature. They use a single
 ...               keyword, specified with Test Template setting, that is called
