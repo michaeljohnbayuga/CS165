@@ -1,10 +1,14 @@
 <%= render :file=> 'app/views/partials/header.html.erb' %>
 
-<div class="ui basic segment" style="margin: auto; width: 70%;">
-  <h1 class="ui header">
-    <div><i class="edit icon"></i>Edit Show</div>
-  </h1>
-  <%= render 'show', form: @show %>
-  <br>
-  <%= link_to "Delete".html_safe, {action: "destroy", id: @show.id}, method: :delete, style: 'color:#fff;', class: 'ui red button' %>
+<div class="ui fixed center aligned container">
+	<div class="ui basic segment" style="margin: auto; width: 70%;">
+	  	<h1 class="ui header">
+	    	<div><i class="edit icon"></i>Edit Show</div>
+	  	</h1>
+	  	<div class="ui basic segment" style="margin-top: 50px">
+	  		<%= render 'show', form: @show %>
+			<br>
+			<%= link_to "Delete".html_safe, {action: "destroy", id: @show.id}, method: :delete, style: 'color:#fff;', class: 'ui red button' %>
+		</div>
+	</div>
 </div>

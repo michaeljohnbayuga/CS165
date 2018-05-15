@@ -1,8 +1,12 @@
 <%= render :file=> 'app/views/partials/header.html.erb' %>
 
-<div class="ui basic segment" style="margin: auto; width: 70%;">
-  <h1 class="ui header">
-    <div><i class="add circle icon"></i>Add Show</div>
-  </h1>
-  <%= render 'show', form: @show %>
+<div class="ui fixed center aligned container">
+	<div class="ui basic segment" style="margin: auto; width: 70%;">
+	  <h1 class="ui header">
+	    <div><i class="add circle icon"></i>Add Show</div>
+	  </h1>
+	  <div class="ui basic segment" style="margin-top: 50px">
+	  	<%= render 'show', form: @show %>
+	  </div>
+	</div>
 </div>
