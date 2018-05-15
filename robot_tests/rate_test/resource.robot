@@ -8,7 +8,7 @@ Library           Selenium2Library
 
 *** Variables ***
 ${SERVER}         localhost:3000
-${BROWSER}        chrome
+${BROWSER}        firefox
 ${DELAY}          0
 ${DELAY1}          1
 ${VALID USER}     valid
