@@ -47,8 +47,8 @@ Submit Credentials
 Add Rating
     Click Element    //a[@href="/shows"]
     Location Should Be    http://localhost:3000/shows
-    Click Element    //a[@href="/shows/6"]
-    Location Should Be    http://localhost:3000/shows/6
+    Click Element    //a[@href="/shows/18"]
+    Location Should Be    http://localhost:3000/shows/18
     Click Element    //a[@class="star star-5 icon"]
 
 Initial Rating
@@ -82,8 +82,8 @@ Submit Credentials1
 Shows
     Click Element    //a[@href="/shows"]
     Location Should Be    http://localhost:3000/shows
-    Click Element    //a[@href="/shows/6"]
-    Location Should Be    http://localhost:3000/shows/6
+    Click Element    //a[@href="/shows/18"]
+    Location Should Be    http://localhost:3000/shows/18
     Click Element    //a[@class="star star-1 icon"]
     New Rating
 

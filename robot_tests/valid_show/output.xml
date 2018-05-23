@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20180515 22:36:05.829" generator="Robot 3.0.4 (Python 2.7.12 on linux2)">
+<robot generated="20180516 13:45:20.586" generator="Robot 3.0.4 (Python 2.7.12 on linux2)">
 <suite source="/home/julius/Desktop/korean-drama-db-team-kddb/robot_tests/valid_show/valid_show.robot" id="s1" name="Valid Show">
 <test id="s1-t1" name="Valid Addition and Deletion of a Show">
 <kw name="Open Browser To Login Page" library="resource">
@@ -9,19 +9,19 @@
 <arg>${LOGIN URL}</arg>
 <arg>${BROWSER}</arg>
 </arguments>
-<msg timestamp="20180515 22:36:06.295" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'</msg>
-<status status="PASS" endtime="20180515 22:36:12.081" starttime="20180515 22:36:06.294"></status>
+<msg timestamp="20180516 13:45:21.054" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'</msg>
+<status status="PASS" endtime="20180516 13:45:26.492" starttime="20180516 13:45:21.054"></status>
 </kw>
 <kw name="Maximize Browser Window" library="Selenium2Library">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" endtime="20180515 22:36:12.210" starttime="20180515 22:36:12.082"></status>
+<status status="PASS" endtime="20180516 13:45:26.606" starttime="20180516 13:45:26.493"></status>
 </kw>
 <kw name="Set Selenium Speed" library="Selenium2Library">
 <doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
 <arguments>
 <arg>${DELAY}</arg>
 </arguments>
-<status status="PASS" endtime="20180515 22:36:12.212" starttime="20180515 22:36:12.211"></status>
+<status status="PASS" endtime="20180516 13:45:26.609" starttime="20180516 13:45:26.607"></status>
 </kw>
 <kw name="Login Page Should Be Open" library="resource">
 <kw name="Title Should Be" library="Selenium2Library">
@@ -29,8 +29,8 @@
 <arguments>
 <arg>KDdb</arg>
 </arguments>
-<msg timestamp="20180515 22:36:12.277" level="INFO">Page title is 'KDdb'.</msg>
-<status status="PASS" endtime="20180515 22:36:12.277" starttime="20180515 22:36:12.214"></status>
+<msg timestamp="20180516 13:45:26.664" level="INFO">Page title is 'KDdb'.</msg>
+<status status="PASS" endtime="20180516 13:45:26.664" starttime="20180516 13:45:26.610"></status>
 </kw>
 <kw name="Go To Login Page" library="resource">
 <kw name="Click Element" library="Selenium2Library">
@@ -38,14 +38,14 @@
 <arguments>
 <arg>//div[@class="ui inverted login button"]</arg>
 </arguments>
-<msg timestamp="20180515 22:36:12.279" level="INFO">Clicking element '//div[@class="ui inverted login button"]'.</msg>
-<status status="PASS" endtime="20180515 22:36:12.747" starttime="20180515 22:36:12.279"></status>
+<msg timestamp="20180516 13:45:26.667" level="INFO">Clicking element '//div[@class="ui inverted login button"]'.</msg>
+<status status="PASS" endtime="20180516 13:45:27.129" starttime="20180516 13:45:26.666"></status>
 </kw>
-<status status="PASS" endtime="20180515 22:36:12.748" starttime="20180515 22:36:12.278"></status>
+<status status="PASS" endtime="20180516 13:45:27.130" starttime="20180516 13:45:26.665"></status>
 </kw>
-<status status="PASS" endtime="20180515 22:36:12.748" starttime="20180515 22:36:12.213"></status>
+<status status="PASS" endtime="20180516 13:45:27.130" starttime="20180516 13:45:26.609"></status>
 </kw>
-<status status="PASS" endtime="20180515 22:36:12.749" starttime="20180515 22:36:06.293"></status>
+<status status="PASS" endtime="20180516 13:45:27.130" starttime="20180516 13:45:21.052"></status>
 </kw>
 <kw name="Input Username" library="resource">
 <arguments>
@@ -57,10 +57,10 @@
 <arg>username</arg>
 <arg>${usernamee}</arg>
 </arguments>
-<msg timestamp="20180515 22:36:12.754" level="INFO">Typing text 'admin' into text field 'username'</msg>
-<status status="PASS" endtime="20180515 22:36:13.132" starttime="20180515 22:36:12.753"></status>
+<msg timestamp="20180516 13:45:27.135" level="INFO">Typing text 'admin' into text field 'username'</msg>
+<status status="PASS" endtime="20180516 13:45:27.588" starttime="20180516 13:45:27.133"></status>
 </kw>
-<status status="PASS" endtime="20180515 22:36:13.133" starttime="20180515 22:36:12.751"></status>
+<status status="PASS" endtime="20180516 13:45:27.589" starttime="20180516 13:45:27.131"></status>
 </kw>
 <kw name="Input Password" library="resource">
 <arguments>
@@ -72,10 +72,10 @@
 <arg>password</arg>
 <arg>${password}</arg>
 </arguments>
-<msg timestamp="20180515 22:36:13.138" level="INFO">Typing text 'admin' into text field 'password'</msg>
-<status status="PASS" endtime="20180515 22:36:13.518" starttime="20180515 22:36:13.137"></status>
+<msg timestamp="20180516 13:45:27.593" level="INFO">Typing text 'admin' into text field 'password'</msg>
+<status status="PASS" endtime="20180516 13:45:27.998" starttime="20180516 13:45:27.592"></status>
 </kw>
-<status status="PASS" endtime="20180515 22:36:13.519" starttime="20180515 22:36:13.134"></status>
+<status status="PASS" endtime="20180516 13:45:27.998" starttime="20180516 13:45:27.590"></status>
 </kw>
 <kw name="Submit Credentials" library="resource">
 <kw name="Click Button" library="Selenium2Library">
@@ -83,10 +83,10 @@
 <arguments>
 <arg>login_button</arg>
 </arguments>
-<msg timestamp="20180515 22:36:13.524" level="INFO">Clicking button 'login_button'.</msg>
-<status status="PASS" endtime="20180515 22:36:17.358" starttime="20180515 22:36:13.523"></status>
+<msg timestamp="20180516 13:45:28.000" level="INFO">Clicking button 'login_button'.</msg>
+<status status="PASS" endtime="20180516 13:45:29.253" starttime="20180516 13:45:28.000"></status>
 </kw>
-<status status="PASS" endtime="20180515 22:36:17.358" starttime="20180515 22:36:13.520"></status>
+<status status="PASS" endtime="20180516 13:45:29.254" starttime="20180516 13:45:27.999"></status>
 </kw>
 <kw name="Welcome Page Should Be Open" library="resource">
 <kw name="Title Should Be" library="Selenium2Library">
@@ -94,17 +94,17 @@
 <arguments>
 <arg>KDdb</arg>
 </arguments>
-<msg timestamp="20180515 22:36:17.382" level="INFO">Page title is 'KDdb'.</msg>
-<status status="PASS" endtime="20180515 22:36:17.382" starttime="20180515 22:36:17.360"></status>
+<msg timestamp="20180516 13:45:29.297" level="INFO">Page title is 'KDdb'.</msg>
+<status status="PASS" endtime="20180516 13:45:29.298" starttime="20180516 13:45:29.255"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="Selenium2Library">
 <doc>Waits until `text` appears on current page.</doc>
 <arguments>
 <arg>Hi</arg>
 </arguments>
-<status status="PASS" endtime="20180515 22:36:17.448" starttime="20180515 22:36:17.383"></status>
+<status status="PASS" endtime="20180516 13:45:29.365" starttime="20180516 13:45:29.299"></status>
 </kw>
-<status status="PASS" endtime="20180515 22:36:17.448" starttime="20180515 22:36:17.359"></status>
+<status status="PASS" endtime="20180516 13:45:29.366" starttime="20180516 13:45:29.254"></status>
 </kw>
 <kw name="Add Show" library="resource">
 <kw name="Click Element" library="Selenium2Library">
@@ -112,25 +112,25 @@
 <arguments>
 <arg>//a[@href="/shows/new"]</arg>
 </arguments>
-<msg timestamp="20180515 22:36:17.455" level="INFO">Clicking element '//a[@href="/shows/new"]'.</msg>
-<status status="PASS" endtime="20180515 22:36:19.681" starttime="20180515 22:36:17.454"></status>
+<msg timestamp="20180516 13:45:29.368" level="INFO">Clicking element '//a[@href="/shows/new"]'.</msg>
+<status status="PASS" endtime="20180516 13:45:30.394" starttime="20180516 13:45:29.367"></status>
 </kw>
 <kw name="Location Should Be" library="Selenium2Library">
 <doc>Verifies that current URL is exactly `url`.</doc>
 <arguments>
 <arg>http://localhost:3000/shows/new</arg>
 </arguments>
-<msg timestamp="20180515 22:36:19.706" level="INFO">Current location is 'http://localhost:3000/shows/new'.</msg>
-<status status="PASS" endtime="20180515 22:36:19.707" starttime="20180515 22:36:19.682"></status>
+<msg timestamp="20180516 13:45:30.443" level="INFO">Current location is 'http://localhost:3000/shows/new'.</msg>
+<status status="PASS" endtime="20180516 13:45:30.444" starttime="20180516 13:45:30.395"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="Selenium2Library">
 <doc>Waits until `text` appears on current page.</doc>
 <arguments>
 <arg>Add Show</arg>
 </arguments>
-<status status="PASS" endtime="20180515 22:36:19.768" starttime="20180515 22:36:19.707"></status>
+<status status="PASS" endtime="20180516 13:45:30.492" starttime="20180516 13:45:30.444"></status>
 </kw>
-<status status="PASS" endtime="20180515 22:36:19.768" starttime="20180515 22:36:17.450"></status>
+<status status="PASS" endtime="20180516 13:45:30.492" starttime="20180516 13:45:29.366"></status>
 </kw>
 <kw name="Input Code" library="resource">
 <arguments>
@@ -142,10 +142,10 @@
 <arg>show_code</arg>
 <arg>${code}</arg>
 </arguments>
-<msg timestamp="20180515 22:36:19.771" level="INFO">Typing text 'TestCode' into text field 'show_code'</msg>
-<status status="PASS" endtime="20180515 22:36:20.149" starttime="20180515 22:36:19.770"></status>
+<msg timestamp="20180516 13:45:30.495" level="INFO">Typing text 'TestCode' into text field 'show_code'</msg>
+<status status="PASS" endtime="20180516 13:45:30.889" starttime="20180516 13:45:30.494"></status>
 </kw>
-<status status="PASS" endtime="20180515 22:36:20.149" starttime="20180515 22:36:19.769"></status>
+<status status="PASS" endtime="20180516 13:45:30.890" starttime="20180516 13:45:30.493"></status>
 </kw>
 <kw name="Input Network" library="resource">
 <arguments>
@@ -157,10 +157,10 @@
 <arg>show_network</arg>
 <arg>${network}</arg>
 </arguments>
-<msg timestamp="20180515 22:36:20.156" level="INFO">Typing text 'TestNetwork' into text field 'show_network'</msg>
-<status status="PASS" endtime="20180515 22:36:20.543" starttime="20180515 22:36:20.155"></status>
+<msg timestamp="20180516 13:45:30.894" level="INFO">Typing text 'TestNetwork' into text field 'show_network'</msg>
+<status status="PASS" endtime="20180516 13:45:31.324" starttime="20180516 13:45:30.893"></status>
 </kw>
-<status status="PASS" endtime="20180515 22:36:20.544" starttime="20180515 22:36:20.150"></status>
+<status status="PASS" endtime="20180516 13:45:31.324" starttime="20180516 13:45:30.891"></status>
 </kw>
 <kw name="Input Name" library="resource">
 <arguments>
@@ -172,10 +172,10 @@
 <arg>show_name</arg>
 <arg>${name}</arg>
 </arguments>
-<msg timestamp="20180515 22:36:20.546" level="INFO">Typing text 'TestName' into text field 'show_name'</msg>
-<status status="PASS" endtime="20180515 22:36:20.936" starttime="20180515 22:36:20.546"></status>
+<msg timestamp="20180516 13:45:31.331" level="INFO">Typing text 'TestName' into text field 'show_name'</msg>
+<status status="PASS" endtime="20180516 13:45:31.719" starttime="20180516 13:45:31.330"></status>
 </kw>
-<status status="PASS" endtime="20180515 22:36:20.936" starttime="20180515 22:36:20.544"></status>
+<status status="PASS" endtime="20180516 13:45:31.720" starttime="20180516 13:45:31.326"></status>
 </kw>
 <kw name="Input Start Year" library="resource">
 <arguments>
@@ -187,10 +187,10 @@
 <arg>show_start_year</arg>
 <arg>${start}</arg>
 </arguments>
-<msg timestamp="20180515 22:36:20.940" level="INFO">Typing text '2016' into text field 'show_start_year'</msg>
-<status status="PASS" endtime="20180515 22:36:21.245" starttime="20180515 22:36:20.939"></status>
+<msg timestamp="20180516 13:45:31.722" level="INFO">Typing text '2016' into text field 'show_start_year'</msg>
+<status status="PASS" endtime="20180516 13:45:32.010" starttime="20180516 13:45:31.722"></status>
 </kw>
-<status status="PASS" endtime="20180515 22:36:21.245" starttime="20180515 22:36:20.937"></status>
+<status status="PASS" endtime="20180516 13:45:32.011" starttime="20180516 13:45:31.721"></status>
 </kw>
 <kw name="Input End Year" library="resource">
 <arguments>
@@ -202,10 +202,10 @@
 <arg>show_end_year</arg>
 <arg>${end}</arg>
 </arguments>
-<msg timestamp="20180515 22:36:21.248" level="INFO">Typing text '2016' into text field 'show_end_year'</msg>
-<status status="PASS" endtime="20180515 22:36:21.545" starttime="20180515 22:36:21.247"></status>
+<msg timestamp="20180516 13:45:32.014" level="INFO">Typing text '2016' into text field 'show_end_year'</msg>
+<status status="PASS" endtime="20180516 13:45:32.300" starttime="20180516 13:45:32.013"></status>
 </kw>
-<status status="PASS" endtime="20180515 22:36:21.545" starttime="20180515 22:36:21.246"></status>
+<status status="PASS" endtime="20180516 13:45:32.301" starttime="20180516 13:45:32.011"></status>
 </kw>
 <kw name="Input Casts" library="resource">
 <arguments>
@@ -217,10 +217,10 @@
 <arg>show_casts</arg>
 <arg>${casts}</arg>
 </arguments>
-<msg timestamp="20180515 22:36:21.548" level="INFO">Typing text 'TestCasts' into text field 'show_casts'</msg>
-<status status="PASS" endtime="20180515 22:36:21.919" starttime="20180515 22:36:21.547"></status>
+<msg timestamp="20180516 13:45:32.305" level="INFO">Typing text 'TestCasts' into text field 'show_casts'</msg>
+<status status="PASS" endtime="20180516 13:45:32.650" starttime="20180516 13:45:32.304"></status>
 </kw>
-<status status="PASS" endtime="20180515 22:36:21.920" starttime="20180515 22:36:21.546"></status>
+<status status="PASS" endtime="20180516 13:45:32.650" starttime="20180516 13:45:32.302"></status>
 </kw>
 <kw name="Input Director" library="resource">
 <arguments>
@@ -232,10 +232,10 @@
 <arg>show_director</arg>
 <arg>${director}</arg>
 </arguments>
-<msg timestamp="20180515 22:36:21.924" level="INFO">Typing text 'TestDirector' into text field 'show_director'</msg>
-<status status="PASS" endtime="20180515 22:36:22.337" starttime="20180515 22:36:21.922"></status>
+<msg timestamp="20180516 13:45:32.653" level="INFO">Typing text 'TestDirector' into text field 'show_director'</msg>
+<status status="PASS" endtime="20180516 13:45:33.119" starttime="20180516 13:45:32.653"></status>
 </kw>
-<status status="PASS" endtime="20180515 22:36:22.338" starttime="20180515 22:36:21.920"></status>
+<status status="PASS" endtime="20180516 13:45:33.120" starttime="20180516 13:45:32.651"></status>
 </kw>
 <kw name="Input Language" library="resource">
 <arguments>
@@ -247,10 +247,10 @@
 <arg>show_language</arg>
 <arg>${lang}</arg>
 </arguments>
-<msg timestamp="20180515 22:36:22.342" level="INFO">Typing text 'Korean' into text field 'show_language'</msg>
-<status status="PASS" endtime="20180515 22:36:22.656" starttime="20180515 22:36:22.341"></status>
+<msg timestamp="20180516 13:45:33.123" level="INFO">Typing text 'Korean' into text field 'show_language'</msg>
+<status status="PASS" endtime="20180516 13:45:33.455" starttime="20180516 13:45:33.122"></status>
 </kw>
-<status status="PASS" endtime="20180515 22:36:22.656" starttime="20180515 22:36:22.339"></status>
+<status status="PASS" endtime="20180516 13:45:33.456" starttime="20180516 13:45:33.121"></status>
 </kw>
 <kw name="Input Runtime" library="resource">
 <arguments>
@@ -262,10 +262,10 @@
 <arg>show_runtime</arg>
 <arg>${runtime}</arg>
 </arguments>
-<msg timestamp="20180515 22:36:22.659" level="INFO">Typing text '60 mins' into text field 'show_runtime'</msg>
-<status status="PASS" endtime="20180515 22:36:23.010" starttime="20180515 22:36:22.658"></status>
+<msg timestamp="20180516 13:45:33.459" level="INFO">Typing text '60 mins' into text field 'show_runtime'</msg>
+<status status="PASS" endtime="20180516 13:45:33.884" starttime="20180516 13:45:33.458"></status>
 </kw>
-<status status="PASS" endtime="20180515 22:36:23.011" starttime="20180515 22:36:22.657"></status>
+<status status="PASS" endtime="20180516 13:45:33.884" starttime="20180516 13:45:33.457"></status>
 </kw>
 <kw name="Input Synopsis" library="resource">
 <arguments>
@@ -277,10 +277,10 @@
 <arg>show_synopsis</arg>
 <arg>${synopsis}</arg>
 </arguments>
-<msg timestamp="20180515 22:36:23.014" level="INFO">Typing text 'TestSynopsis' into text field 'show_synopsis'</msg>
-<status status="PASS" endtime="20180515 22:36:23.386" starttime="20180515 22:36:23.013"></status>
+<msg timestamp="20180516 13:45:33.887" level="INFO">Typing text 'TestSynopsis' into text field 'show_synopsis'</msg>
+<status status="PASS" endtime="20180516 13:45:34.389" starttime="20180516 13:45:33.886"></status>
 </kw>
-<status status="PASS" endtime="20180515 22:36:23.387" starttime="20180515 22:36:23.012"></status>
+<status status="PASS" endtime="20180516 13:45:34.390" starttime="20180516 13:45:33.885"></status>
 </kw>
 <kw name="Submit" library="resource">
 <kw name="Click Element" library="Selenium2Library">
@@ -288,17 +288,17 @@
 <arguments>
 <arg>//button[@class="ui blue button submit-button"]</arg>
 </arguments>
-<msg timestamp="20180515 22:36:23.390" level="INFO">Clicking element '//button[@class="ui blue button submit-button"]'.</msg>
-<status status="PASS" endtime="20180515 22:36:26.309" starttime="20180515 22:36:23.389"></status>
+<msg timestamp="20180516 13:45:34.392" level="INFO">Clicking element '//button[@class="ui blue button submit-button"]'.</msg>
+<status status="PASS" endtime="20180516 13:45:36.555" starttime="20180516 13:45:34.391"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="Selenium2Library">
 <doc>Waits until `text` appears on current page.</doc>
 <arguments>
 <arg>has been created!</arg>
 </arguments>
-<status status="PASS" endtime="20180515 22:36:26.377" starttime="20180515 22:36:26.310"></status>
+<status status="PASS" endtime="20180516 13:45:36.932" starttime="20180516 13:45:36.555"></status>
 </kw>
-<status status="PASS" endtime="20180515 22:36:26.378" starttime="20180515 22:36:23.388"></status>
+<status status="PASS" endtime="20180516 13:45:36.933" starttime="20180516 13:45:34.390"></status>
 </kw>
 <kw name="Show Confirmation" library="resource">
 <kw name="Set Selenium Timeout" library="Selenium2Library">
@@ -306,9 +306,9 @@
 <arguments>
 <arg>3</arg>
 </arguments>
-<status status="PASS" endtime="20180515 22:36:26.385" starttime="20180515 22:36:26.380"></status>
+<status status="PASS" endtime="20180516 13:45:36.938" starttime="20180516 13:45:36.935"></status>
 </kw>
-<status status="PASS" endtime="20180515 22:36:26.386" starttime="20180515 22:36:26.379"></status>
+<status status="PASS" endtime="20180516 13:45:36.938" starttime="20180516 13:45:36.933"></status>
 </kw>
 <kw name="Delete Show" library="resource">
 <kw name="Click Element" library="Selenium2Library">
@@ -316,37 +316,37 @@
 <arguments>
 <arg>//a[@class="ui compact blue button"]</arg>
 </arguments>
-<msg timestamp="20180515 22:36:26.389" level="INFO">Clicking element '//a[@class="ui compact blue button"]'.</msg>
-<status status="PASS" endtime="20180515 22:36:29.377" starttime="20180515 22:36:26.388"></status>
+<msg timestamp="20180516 13:45:36.941" level="INFO">Clicking element '//a[@class="ui compact blue button"]'.</msg>
+<status status="PASS" endtime="20180516 13:45:37.877" starttime="20180516 13:45:36.940"></status>
 </kw>
 <kw name="Click Element" library="Selenium2Library">
 <doc>Click element identified by `locator`.</doc>
 <arguments>
 <arg>//a[@class="ui red button"]</arg>
 </arguments>
-<msg timestamp="20180515 22:36:29.379" level="INFO">Clicking element '//a[@class="ui red button"]'.</msg>
-<status status="PASS" endtime="20180515 22:36:31.867" starttime="20180515 22:36:29.378"></status>
+<msg timestamp="20180516 13:45:37.879" level="INFO">Clicking element '//a[@class="ui red button"]'.</msg>
+<status status="PASS" endtime="20180516 13:45:39.123" starttime="20180516 13:45:37.878"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="Selenium2Library">
 <doc>Waits until `text` appears on current page.</doc>
 <arguments>
 <arg>has been deleted.</arg>
 </arguments>
-<status status="PASS" endtime="20180515 22:36:31.918" starttime="20180515 22:36:31.868"></status>
+<status status="PASS" endtime="20180516 13:45:39.182" starttime="20180516 13:45:39.124"></status>
 </kw>
-<status status="PASS" endtime="20180515 22:36:31.918" starttime="20180515 22:36:26.387"></status>
+<status status="PASS" endtime="20180516 13:45:39.183" starttime="20180516 13:45:36.939"></status>
 </kw>
 <kw type="teardown" name="Close Browser" library="Selenium2Library">
 <doc>Closes the current browser.</doc>
-<status status="PASS" endtime="20180515 22:36:32.007" starttime="20180515 22:36:31.920"></status>
+<status status="PASS" endtime="20180516 13:45:39.273" starttime="20180516 13:45:39.185"></status>
 </kw>
-<status status="PASS" endtime="20180515 22:36:32.007" critical="yes" starttime="20180515 22:36:06.290"></status>
+<status status="PASS" endtime="20180516 13:45:39.273" critical="yes" starttime="20180516 13:45:21.050"></status>
 </test>
 <doc>A test suite with a single test for valid addition and deletion of a show.
 
 This test has a workflow that is created using keywords in
 the imported resource file.</doc>
-<status status="PASS" endtime="20180515 22:36:32.011" starttime="20180515 22:36:05.833"></status>
+<status status="PASS" endtime="20180516 13:45:39.277" starttime="20180516 13:45:20.590"></status>
 </suite>
 <statistics>
 <total>

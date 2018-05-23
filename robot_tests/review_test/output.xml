@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20180515 22:35:38.330" generator="Robot 3.0.4 (Python 2.7.12 on linux2)">
+<robot generated="20180516 13:45:01.486" generator="Robot 3.0.4 (Python 2.7.12 on linux2)">
 <suite source="/home/julius/Desktop/korean-drama-db-team-kddb/robot_tests/review_test/review.robot" id="s1" name="Review">
 <test id="s1-t1" name="Review Test">
 <kw name="Open Browser To Login Page" library="resource">
@@ -9,19 +9,19 @@
 <arg>${LOGIN URL}</arg>
 <arg>${BROWSER}</arg>
 </arguments>
-<msg timestamp="20180515 22:35:38.760" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'</msg>
-<status status="PASS" endtime="20180515 22:35:44.208" starttime="20180515 22:35:38.759"></status>
+<msg timestamp="20180516 13:45:01.951" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'</msg>
+<status status="PASS" endtime="20180516 13:45:08.105" starttime="20180516 13:45:01.950"></status>
 </kw>
 <kw name="Maximize Browser Window" library="Selenium2Library">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" endtime="20180515 22:35:44.321" starttime="20180515 22:35:44.210"></status>
+<status status="PASS" endtime="20180516 13:45:08.234" starttime="20180516 13:45:08.106"></status>
 </kw>
 <kw name="Set Selenium Speed" library="Selenium2Library">
 <doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
 <arguments>
 <arg>${DELAY}</arg>
 </arguments>
-<status status="PASS" endtime="20180515 22:35:44.323" starttime="20180515 22:35:44.321"></status>
+<status status="PASS" endtime="20180516 13:45:08.236" starttime="20180516 13:45:08.234"></status>
 </kw>
 <kw name="Login Page Should Be Open" library="resource">
 <kw name="Title Should Be" library="Selenium2Library">
@@ -29,8 +29,8 @@
 <arguments>
 <arg>KDdb</arg>
 </arguments>
-<msg timestamp="20180515 22:35:44.378" level="INFO">Page title is 'KDdb'.</msg>
-<status status="PASS" endtime="20180515 22:35:44.378" starttime="20180515 22:35:44.325"></status>
+<msg timestamp="20180516 13:45:08.332" level="INFO">Page title is 'KDdb'.</msg>
+<status status="PASS" endtime="20180516 13:45:08.333" starttime="20180516 13:45:08.239"></status>
 </kw>
 <kw name="Go To Login Page" library="resource">
 <kw name="Click Element" library="Selenium2Library">
@@ -38,14 +38,14 @@
 <arguments>
 <arg>//div[@class="ui inverted login button"]</arg>
 </arguments>
-<msg timestamp="20180515 22:35:44.381" level="INFO">Clicking element '//div[@class="ui inverted login button"]'.</msg>
-<status status="PASS" endtime="20180515 22:35:44.851" starttime="20180515 22:35:44.380"></status>
+<msg timestamp="20180516 13:45:08.335" level="INFO">Clicking element '//div[@class="ui inverted login button"]'.</msg>
+<status status="PASS" endtime="20180516 13:45:08.754" starttime="20180516 13:45:08.335"></status>
 </kw>
-<status status="PASS" endtime="20180515 22:35:44.852" starttime="20180515 22:35:44.379"></status>
+<status status="PASS" endtime="20180516 13:45:08.755" starttime="20180516 13:45:08.333"></status>
 </kw>
-<status status="PASS" endtime="20180515 22:35:44.853" starttime="20180515 22:35:44.324"></status>
+<status status="PASS" endtime="20180516 13:45:08.755" starttime="20180516 13:45:08.237"></status>
 </kw>
-<status status="PASS" endtime="20180515 22:35:44.853" starttime="20180515 22:35:38.757"></status>
+<status status="PASS" endtime="20180516 13:45:08.756" starttime="20180516 13:45:01.949"></status>
 </kw>
 <kw name="Input Username" library="resource">
 <arguments>
@@ -57,10 +57,10 @@
 <arg>username</arg>
 <arg>${usernamee}</arg>
 </arguments>
-<msg timestamp="20180515 22:35:44.858" level="INFO">Typing text 'user' into text field 'username'</msg>
-<status status="PASS" endtime="20180515 22:35:45.209" starttime="20180515 22:35:44.856"></status>
+<msg timestamp="20180516 13:45:08.760" level="INFO">Typing text 'user' into text field 'username'</msg>
+<status status="PASS" endtime="20180516 13:45:09.273" starttime="20180516 13:45:08.758"></status>
 </kw>
-<status status="PASS" endtime="20180515 22:35:45.209" starttime="20180515 22:35:44.854"></status>
+<status status="PASS" endtime="20180516 13:45:09.274" starttime="20180516 13:45:08.756"></status>
 </kw>
 <kw name="Input Password" library="resource">
 <arguments>
@@ -72,10 +72,10 @@
 <arg>password</arg>
 <arg>${password}</arg>
 </arguments>
-<msg timestamp="20180515 22:35:45.213" level="INFO">Typing text 'password' into text field 'password'</msg>
-<status status="PASS" endtime="20180515 22:35:45.654" starttime="20180515 22:35:45.212"></status>
+<msg timestamp="20180516 13:45:09.276" level="INFO">Typing text 'password' into text field 'password'</msg>
+<status status="PASS" endtime="20180516 13:45:09.697" starttime="20180516 13:45:09.275"></status>
 </kw>
-<status status="PASS" endtime="20180515 22:35:45.654" starttime="20180515 22:35:45.210"></status>
+<status status="PASS" endtime="20180516 13:45:09.698" starttime="20180516 13:45:09.274"></status>
 </kw>
 <kw name="Submit Credentials" library="resource">
 <kw name="Click Button" library="Selenium2Library">
@@ -83,10 +83,10 @@
 <arguments>
 <arg>login_button</arg>
 </arguments>
-<msg timestamp="20180515 22:35:45.658" level="INFO">Clicking button 'login_button'.</msg>
-<status status="PASS" endtime="20180515 22:35:47.569" starttime="20180515 22:35:45.657"></status>
+<msg timestamp="20180516 13:45:09.706" level="INFO">Clicking button 'login_button'.</msg>
+<status status="PASS" endtime="20180516 13:45:10.947" starttime="20180516 13:45:09.703"></status>
 </kw>
-<status status="PASS" endtime="20180515 22:35:47.571" starttime="20180515 22:35:45.655"></status>
+<status status="PASS" endtime="20180516 13:45:10.947" starttime="20180516 13:45:09.699"></status>
 </kw>
 <kw name="Welcome Page Should Be Open" library="resource">
 <kw name="Title Should Be" library="Selenium2Library">
@@ -94,17 +94,17 @@
 <arguments>
 <arg>KDdb</arg>
 </arguments>
-<msg timestamp="20180515 22:35:47.610" level="INFO">Page title is 'KDdb'.</msg>
-<status status="PASS" endtime="20180515 22:35:47.611" starttime="20180515 22:35:47.573"></status>
+<msg timestamp="20180516 13:45:10.979" level="INFO">Page title is 'KDdb'.</msg>
+<status status="PASS" endtime="20180516 13:45:10.980" starttime="20180516 13:45:10.949"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="Selenium2Library">
 <doc>Waits until `text` appears on current page.</doc>
 <arguments>
 <arg>Hi</arg>
 </arguments>
-<status status="PASS" endtime="20180515 22:35:47.666" starttime="20180515 22:35:47.611"></status>
+<status status="PASS" endtime="20180516 13:45:11.044" starttime="20180516 13:45:10.980"></status>
 </kw>
-<status status="PASS" endtime="20180515 22:35:47.667" starttime="20180515 22:35:47.572"></status>
+<status status="PASS" endtime="20180516 13:45:11.045" starttime="20180516 13:45:10.948"></status>
 </kw>
 <kw name="Pre-Review" library="resource">
 <kw name="Click Element" library="Selenium2Library">
@@ -112,63 +112,63 @@
 <arguments>
 <arg>//a[@href="/shows"]</arg>
 </arguments>
-<msg timestamp="20180515 22:35:47.670" level="INFO">Clicking element '//a[@href="/shows"]'.</msg>
-<status status="PASS" endtime="20180515 22:35:49.026" starttime="20180515 22:35:47.669"></status>
+<msg timestamp="20180516 13:45:11.047" level="INFO">Clicking element '//a[@href="/shows"]'.</msg>
+<status status="PASS" endtime="20180516 13:45:12.243" starttime="20180516 13:45:11.047"></status>
 </kw>
 <kw name="Location Should Be" library="Selenium2Library">
 <doc>Verifies that current URL is exactly `url`.</doc>
 <arguments>
 <arg>http://localhost:3000/shows</arg>
 </arguments>
-<msg timestamp="20180515 22:35:49.051" level="INFO">Current location is 'http://localhost:3000/shows'.</msg>
-<status status="PASS" endtime="20180515 22:35:49.051" starttime="20180515 22:35:49.031"></status>
+<msg timestamp="20180516 13:45:12.341" level="INFO">Current location is 'http://localhost:3000/shows'.</msg>
+<status status="PASS" endtime="20180516 13:45:12.341" starttime="20180516 13:45:12.244"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="Selenium2Library">
 <doc>Waits until `text` appears on current page.</doc>
 <arguments>
 <arg>Full House</arg>
 </arguments>
-<status status="PASS" endtime="20180515 22:35:49.103" starttime="20180515 22:35:49.052"></status>
+<status status="PASS" endtime="20180516 13:45:12.408" starttime="20180516 13:45:12.342"></status>
 </kw>
 <kw name="Click Element" library="Selenium2Library">
 <doc>Click element identified by `locator`.</doc>
 <arguments>
 <arg>//a[@href="/shows/5"]</arg>
 </arguments>
-<msg timestamp="20180515 22:35:49.104" level="INFO">Clicking element '//a[@href="/shows/5"]'.</msg>
-<status status="PASS" endtime="20180515 22:35:51.380" starttime="20180515 22:35:49.104"></status>
+<msg timestamp="20180516 13:45:12.409" level="INFO">Clicking element '//a[@href="/shows/5"]'.</msg>
+<status status="PASS" endtime="20180516 13:45:13.588" starttime="20180516 13:45:12.409"></status>
 </kw>
 <kw name="Location Should Be" library="Selenium2Library">
 <doc>Verifies that current URL is exactly `url`.</doc>
 <arguments>
 <arg>http://localhost:3000/shows/5</arg>
 </arguments>
-<msg timestamp="20180515 22:35:51.401" level="INFO">Current location is 'http://localhost:3000/shows/5'.</msg>
-<status status="PASS" endtime="20180515 22:35:51.402" starttime="20180515 22:35:51.381"></status>
+<msg timestamp="20180516 13:45:13.612" level="INFO">Current location is 'http://localhost:3000/shows/5'.</msg>
+<status status="PASS" endtime="20180516 13:45:13.612" starttime="20180516 13:45:13.589"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="Selenium2Library">
 <doc>Waits until `text` appears on current page.</doc>
 <arguments>
 <arg>View Reviews</arg>
 </arguments>
-<status status="PASS" endtime="20180515 22:35:51.462" starttime="20180515 22:35:51.402"></status>
+<status status="PASS" endtime="20180516 13:45:13.662" starttime="20180516 13:45:13.613"></status>
 </kw>
 <kw name="Click Element" library="Selenium2Library">
 <doc>Click element identified by `locator`.</doc>
 <arguments>
 <arg>//a[@href="/reviews?id=5"]</arg>
 </arguments>
-<msg timestamp="20180515 22:35:51.464" level="INFO">Clicking element '//a[@href="/reviews?id=5"]'.</msg>
-<status status="PASS" endtime="20180515 22:35:56.214" starttime="20180515 22:35:51.463"></status>
+<msg timestamp="20180516 13:45:13.663" level="INFO">Clicking element '//a[@href="/reviews?id=5"]'.</msg>
+<status status="PASS" endtime="20180516 13:45:15.204" starttime="20180516 13:45:13.662"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="Selenium2Library">
 <doc>Waits until `text` appears on current page.</doc>
 <arguments>
 <arg>No Reviews Yet!</arg>
 </arguments>
-<status status="PASS" endtime="20180515 22:35:56.261" starttime="20180515 22:35:56.214"></status>
+<status status="PASS" endtime="20180516 13:45:15.273" starttime="20180516 13:45:15.205"></status>
 </kw>
-<status status="PASS" endtime="20180515 22:35:56.262" starttime="20180515 22:35:47.668"></status>
+<status status="PASS" endtime="20180516 13:45:15.275" starttime="20180516 13:45:11.046"></status>
 </kw>
 <kw name="Input Review" library="resource">
 <arguments>
@@ -180,8 +180,8 @@
 <arg>review_text</arg>
 <arg>${review}</arg>
 </arguments>
-<msg timestamp="20180515 22:35:56.266" level="INFO">Typing text 'This is a test review.' into text field 'review_text'</msg>
-<status status="PASS" endtime="20180515 22:35:56.801" starttime="20180515 22:35:56.264"></status>
+<msg timestamp="20180516 13:45:15.279" level="INFO">Typing text 'This is a test review.' into text field 'review_text'</msg>
+<status status="PASS" endtime="20180516 13:45:15.825" starttime="20180516 13:45:15.278"></status>
 </kw>
 <kw name="Submit Review" library="resource">
 <kw name="Click Element" library="Selenium2Library">
@@ -189,38 +189,38 @@
 <arguments>
 <arg>//button[@class="ui teal compact button"]</arg>
 </arguments>
-<msg timestamp="20180515 22:35:56.804" level="INFO">Clicking element '//button[@class="ui teal compact button"]'.</msg>
-<status status="PASS" endtime="20180515 22:35:59.401" starttime="20180515 22:35:56.803"></status>
+<msg timestamp="20180516 13:45:15.829" level="INFO">Clicking element '//button[@class="ui teal compact button"]'.</msg>
+<status status="PASS" endtime="20180516 13:45:17.099" starttime="20180516 13:45:15.828"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="Selenium2Library">
 <doc>Waits until `text` appears on current page.</doc>
 <arguments>
 <arg>Destroy</arg>
 </arguments>
-<status status="PASS" endtime="20180515 22:35:59.456" starttime="20180515 22:35:59.401"></status>
+<status status="PASS" endtime="20180516 13:45:17.150" starttime="20180516 13:45:17.100"></status>
 </kw>
-<status status="PASS" endtime="20180515 22:35:59.457" starttime="20180515 22:35:56.802"></status>
+<status status="PASS" endtime="20180516 13:45:17.151" starttime="20180516 13:45:15.827"></status>
 </kw>
-<status status="PASS" endtime="20180515 22:35:59.457" starttime="20180515 22:35:56.263"></status>
+<status status="PASS" endtime="20180516 13:45:17.151" starttime="20180516 13:45:15.276"></status>
 </kw>
 <kw name="Remove Review" library="resource">
 <kw name="Choose Ok On Next Confirmation" library="Selenium2Library">
 <doc>Undo the effect of using keywords `Choose Cancel On Next Confirmation`. Note</doc>
-<status status="PASS" endtime="20180515 22:35:59.460" starttime="20180515 22:35:59.459"></status>
+<status status="PASS" endtime="20180516 13:45:17.154" starttime="20180516 13:45:17.153"></status>
 </kw>
 <kw name="Click Element" library="Selenium2Library">
 <doc>Click element identified by `locator`.</doc>
 <arguments>
 <arg>//a[@class="ui red compact button"]</arg>
 </arguments>
-<msg timestamp="20180515 22:35:59.461" level="INFO">Clicking element '//a[@class="ui red compact button"]'.</msg>
-<status status="PASS" endtime="20180515 22:35:59.819" starttime="20180515 22:35:59.461"></status>
+<msg timestamp="20180516 13:45:17.155" level="INFO">Clicking element '//a[@class="ui red compact button"]'.</msg>
+<status status="PASS" endtime="20180516 13:45:17.477" starttime="20180516 13:45:17.155"></status>
 </kw>
 <kw name="Confirm Action" library="Selenium2Library">
 <doc>Dismisses currently shown confirmation dialog and returns it's message.</doc>
-<status status="PASS" endtime="20180515 22:35:59.858" starttime="20180515 22:35:59.820"></status>
+<status status="PASS" endtime="20180516 13:45:17.514" starttime="20180516 13:45:17.478"></status>
 </kw>
-<status status="PASS" endtime="20180515 22:35:59.859" starttime="20180515 22:35:59.458"></status>
+<status status="PASS" endtime="20180516 13:45:17.514" starttime="20180516 13:45:17.152"></status>
 </kw>
 <kw name="Check Review" library="resource">
 <kw name="Go To" library="Selenium2Library">
@@ -228,29 +228,29 @@
 <arguments>
 <arg>http://localhost:3000/reviews?id=5</arg>
 </arguments>
-<msg timestamp="20180515 22:35:59.863" level="INFO">Opening url 'http://localhost:3000/reviews?id=5'</msg>
-<status status="PASS" endtime="20180515 22:36:03.708" starttime="20180515 22:35:59.862"></status>
+<msg timestamp="20180516 13:45:17.517" level="INFO">Opening url 'http://localhost:3000/reviews?id=5'</msg>
+<status status="PASS" endtime="20180516 13:45:18.446" starttime="20180516 13:45:17.516"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="Selenium2Library">
 <doc>Waits until `text` appears on current page.</doc>
 <arguments>
 <arg>No Reviews Yet!</arg>
 </arguments>
-<status status="PASS" endtime="20180515 22:36:03.745" starttime="20180515 22:36:03.708"></status>
+<status status="PASS" endtime="20180516 13:45:18.476" starttime="20180516 13:45:18.446"></status>
 </kw>
-<status status="PASS" endtime="20180515 22:36:03.746" starttime="20180515 22:35:59.860"></status>
+<status status="PASS" endtime="20180516 13:45:18.476" starttime="20180516 13:45:17.515"></status>
 </kw>
 <kw type="teardown" name="Close Browser" library="Selenium2Library">
 <doc>Closes the current browser.</doc>
-<status status="PASS" endtime="20180515 22:36:03.835" starttime="20180515 22:36:03.748"></status>
+<status status="PASS" endtime="20180516 13:45:18.573" starttime="20180516 13:45:18.478"></status>
 </kw>
-<status status="PASS" endtime="20180515 22:36:03.835" critical="yes" starttime="20180515 22:35:38.755"></status>
+<status status="PASS" endtime="20180516 13:45:18.573" critical="yes" starttime="20180516 13:45:01.947"></status>
 </test>
 <doc>A test suite with a single test for the Review feature.
 
 This test has a workflow that is created using keywords in
 the imported resource file.</doc>
-<status status="PASS" endtime="20180515 22:36:03.838" starttime="20180515 22:35:38.334"></status>
+<status status="PASS" endtime="20180516 13:45:18.576" starttime="20180516 13:45:01.489"></status>
 </suite>
 <statistics>
 <total>
