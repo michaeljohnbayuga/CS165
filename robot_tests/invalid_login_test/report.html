@@ -5,8 +5,8 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="-1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta content="Robot Framework 3.0.2 (Python 2.7.12 on linux2)" name="Generator">
-<link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAAAIAAAAAAAAAAAAAEAAAAAAAAAAAAAAAJEBoACtnfgA5cYYAERsiAEx2lAAbKkQAcazBACZCVwAcM1cAK0ucAAMDBQAnQncASG+FABkoVQAyWmgA6f8SgvH/Ij99+GLyIinyJfn/Yi//KSLzUy9iZogpIld3/4JVVTkid7vyUjNVNVJEAGOZ6Z7pXwAABpmZkRiLAAAGiJZpmGAAAEEt3SXdxAAATC7o/u3EAAC8MRZpjasAAAY1VVVTYAAABKqqqqpAAAAADKqq4AAAAAAAv4sAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMADAADgAwAA4AcAAOAHAADgBwAAwAcAAOAHAADgDwAA8A8AAPg/AAD+fwAA">
+<meta content="Robot Framework 3.0.4 (Python 2.7.12 on linux2)" name="Generator">
+<link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKcAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAAqAAAAAAAAAAAAAAAAAAAALIAAAD/AAAA4AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA4AAAAP8AAACxAAAAAAAAAKYAAAD/AAAAuwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC/AAAA/wAAAKkAAAD6AAAAzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN8AAAD/AAAA+gAAAMMAAAAAAAAAAgAAAGsAAABrAAAAawAAAGsAAABrAAAAawAAAGsAAABrAAAADAAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAAIsAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAANEAAAAAAAAA2gAAAP8AAAD6AAAAwwAAAAAAAAAAAAAAMgAAADIAAAAyAAAAMgAAADIAAAAyAAAAMgAAADIAAAAFAAAAAAAAANoAAAD/AAAA+gAAAMMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAADwAAAB8AAAAAAAAAGAAAABcAAAAAAAAAH8AAABKAAAAAAAAAAAAAAAAAAAA2gAAAP8AAAD6AAAAwwAAAAAAAADCAAAA/wAAACkAAADqAAAA4QAAAAAAAAD7AAAA/wAAALAAAAAGAAAAAAAAANoAAAD/AAAA+gAAAMMAAAAAAAAAIwAAAP4AAAD/AAAA/wAAAGAAAAAAAAAAAAAAAMkAAAD/AAAAigAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAAAAAAAAIAAAAcAAAABkAAAAAAAAAAAAAAAAAAAAAAAAAEgAAAAAAAAAAAAAA2gAAAP8AAAD7AAAAywAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN4AAAD/AAAAqwAAAP8AAACvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALIAAAD/AAAAsgAAAAAAAAC5AAAA/wAAAMoAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMkAAAD/AAAAvAAAAAAAAAAAAAAAAAAAAKwAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAArQAAAAAAAAAAwAMAAIABAAAf+AAAP/wAAD/8AAAgBAAAP/wAAD/8AAA//AAAJIwAADHEAAA//AAAP/wAAB/4AACAAQAAwAMAAA==">
 <style media="all" type="text/css">
 /* Generic and misc styles */
 body {
@@ -27,6 +27,11 @@ th, td {
 }
 br {
     mso-data-placement: same-cell; /* maintain line breaks in Excel */
+}
+hr {
+    background: #ccc;
+    height: 1px;
+    border: 0;
 }
 a, a:link, a:visited {
     text-decoration: none;
@@ -1545,20 +1550,30 @@ function stopPropagation(event) {
 <script type="text/javascript">
 storage = function () {
     var prefix = 'robot-framework-';
+    var storage;
     function init(user) {
         prefix += user + '-';
+        storage = getStorage();
+    }
+    function getStorage() {
+        // Use localStorage if it's accessible, normal object otherwise.
+        // Inspired by https://stackoverflow.com/questions/11214404
+        try {
+            localStorage.setItem(prefix, prefix);
+            localStorage.removeItem(prefix);
+            return localStorage;
+        } catch (exception) {
+            return {};
+        }
     }
     function get(name, defaultValue) {
-        if (!localStorage)
-            return defaultValue;
-        var value = localStorage[prefix + name];
+        var value = storage[prefix + name];
         if (typeof value === 'undefined')
             return defaultValue;
         return value;
     }
     function set(name, value) {
-        if (localStorage)
-            localStorage[prefix + name] = value;
+        storage[prefix + name] = value;
     }
     return {init: init, get: get, set: set};
 }();
@@ -1567,22 +1582,22 @@ storage = function () {
 window.output = {};
 </script>
 <script type="text/javascript">
-window.output["suite"] = [1,2,3,4,[],[1,0,26685],[],[[5,0,1,0,[],[1,14342,2938],[]],[6,0,1,0,[],[1,17281,2026],[]],[7,0,1,0,[],[1,19308,1959],[]],[8,0,1,0,[],[1,21268,1672],[]],[9,0,1,0,[],[1,22942,2010],[]],[10,0,1,0,[],[1,24953,1579],[]]],[],[6,6,6,6]];
+window.output["suite"] = [1,2,3,4,[],[1,0,25155],[],[[5,0,1,0,[],[1,11676,2895],[]],[6,0,1,0,[],[1,14574,2093],[]],[7,0,1,0,[],[1,16671,2374],[]],[8,0,1,0,[],[1,19047,1997],[]],[9,0,1,0,[],[1,21046,2101],[]],[10,0,1,0,[],[1,23150,1913],[]]],[],[6,6,6,6]];
 </script>
 <script type="text/javascript">
 window.output["strings"] = [];
 </script>
 <script type="text/javascript">
-window.output["strings"] = window.output["strings"].concat(["*","*Invalid Login","*/home/jcaquino/Desktop/korean-drama-db-team-kddb-master/robot_tests/invalid_login_test/invalid_login.robot","*invalid_login.robot","eNpNkNFthEAMRP9ThQu4XBpASOmBBhx2ACuLd7U2ILqPySUSf5Y9mjeervaf5DAn28RBY1FnUdH5d2vUkNmRyAuJ7pwlUS6z6LP7qP1bV/thgeFPzA2U2Pk9Ndmh9HWSL5BGyr41PCnEJ22hZ7JgZNA3zqO09CCrGGWSQB3iCw1XpgFrvfBkcA/9I+zYSYxGzvlfmmSa0KAe/HlbY7Ar7lh2tNvRRig3KXaLHk6vvzlboYS1qHkLokXKq4QAbzUe02gA3FI51KKIm23Gjvzy/AHCPHl2","*Invalid Username","*Invalid Password","*Invalid Username And Password","*Empty Username","*Empty Password","*Empty Username And Password"]);
+window.output["strings"] = window.output["strings"].concat(["*","*Invalid Login","*/home/julius/Desktop/korean-drama-db-team-kddb/robot_tests/invalid_login_test/invalid_login.robot","*invalid_login.robot","eNpNkNFthEAMRP9ThQu4XBpASOmBBhx2ACuLd7U2ILqPySUSf5Y9mjeervaf5DAn28RBY1FnUdH5d2vUkNmRyAuJ7pwlUS6z6LP7qP1bV/thgeFPzA2U2Pk9Ndmh9HWSL5BGyr41PCnEJ22hZ7JgZNA3zqO09CCrGGWSQB3iCw1XpgFrvfBkcA/9I+zYSYxGzvlfmmSa0KAe/HlbY7Ar7lh2tNvRRig3KXaLHk6vvzlboYS1qHkLokXKq4QAbzUe02gA3FI51KKIm23Gjvzy/AHCPHl2","*Invalid Username","*Invalid Password","*Invalid Username And Password","*Empty Username","*Empty Password","*Empty Username And Password"]);
 </script>
 <script type="text/javascript">
-window.output["stats"] = [[{"elapsed":"00:00:12","fail":0,"label":"Critical Tests","pass":6},{"elapsed":"00:00:12","fail":0,"label":"All Tests","pass":6}],[],[{"elapsed":"00:00:27","fail":0,"id":"s1","label":"Invalid Login","name":"Invalid Login","pass":6}]];
+window.output["stats"] = [[{"elapsed":"00:00:13","fail":0,"label":"Critical Tests","pass":6},{"elapsed":"00:00:13","fail":0,"label":"All Tests","pass":6}],[],[{"elapsed":"00:00:25","fail":0,"id":"s1","label":"Invalid Login","name":"Invalid Login","pass":6}]];
 </script>
 <script type="text/javascript">
-window.output["baseMillis"] = 1523424308076;
+window.output["baseMillis"] = 1526449369180;
 </script>
 <script type="text/javascript">
-window.output["generated"] = 26756;
+window.output["generated"] = 25253;
 </script>
 <script type="text/javascript">
 window.settings = {"background":{"fail":"#f66","nonCriticalFail":"#9e9","pass":"#9e9"},"logURL":"log.html","title":""};

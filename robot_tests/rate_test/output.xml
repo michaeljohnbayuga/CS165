@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180516 13:44:06.583" generator="Robot 3.0.4 (Python 2.7.12 on linux2)">
+<suite source="/home/julius/Desktop/korean-drama-db-team-kddb/robot_tests/rate_test/rate.robot" id="s1" name="Rate">
+<test id="s1-t1" name="Rate Test">
+<kw name="Open Browser To Login Page" library="resource">
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${LOGIN URL}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20180516 13:44:07.082" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'</msg>
+<status status="PASS" endtime="20180516 13:44:13.759" starttime="20180516 13:44:07.081"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20180516 13:44:13.878" starttime="20180516 13:44:13.760"></status>
+</kw>
+<kw name="Set Selenium Speed" library="Selenium2Library">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${DELAY}</arg>
+</arguments>
+<status status="PASS" endtime="20180516 13:44:13.880" starttime="20180516 13:44:13.879"></status>
+</kw>
+<kw name="Login Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="Selenium2Library">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>KDdb</arg>
+</arguments>
+<msg timestamp="20180516 13:44:13.941" level="INFO">Page title is 'KDdb'.</msg>
+<status status="PASS" endtime="20180516 13:44:13.941" starttime="20180516 13:44:13.891"></status>
+</kw>
+<kw name="Go To Login Page" library="resource">
+<kw name="Set Selenium Speed" library="Selenium2Library">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${DELAY1}</arg>
+</arguments>
+<status status="PASS" endtime="20180516 13:44:13.960" starttime="20180516 13:44:13.943"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//div[@class="ui inverted login button"]</arg>
+</arguments>
+<msg timestamp="20180516 13:44:13.962" level="INFO">Clicking element '//div[@class="ui inverted login button"]'.</msg>
+<status status="PASS" endtime="20180516 13:44:16.357" starttime="20180516 13:44:13.961"></status>
+</kw>
+<kw name="Set Selenium Speed" library="Selenium2Library">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${DELAY}</arg>
+</arguments>
+<status status="PASS" endtime="20180516 13:44:16.359" starttime="20180516 13:44:16.358"></status>
+</kw>
+<status status="PASS" endtime="20180516 13:44:16.359" starttime="20180516 13:44:13.942"></status>
+</kw>
+<status status="PASS" endtime="20180516 13:44:16.359" starttime="20180516 13:44:13.889"></status>
+</kw>
+<status status="PASS" endtime="20180516 13:44:16.360" starttime="20180516 13:44:07.080"></status>
+</kw>
+<kw name="Input Username" library="resource">
+<arguments>
+<arg>admin</arg>
+</arguments>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>username</arg>
+<arg>${usernamee}</arg>
+</arguments>
+<msg timestamp="20180516 13:44:16.362" level="INFO">Typing text 'admin' into text field 'username'</msg>
+<status status="PASS" endtime="20180516 13:44:16.665" starttime="20180516 13:44:16.362"></status>
+</kw>
+<status status="PASS" endtime="20180516 13:44:16.665" starttime="20180516 13:44:16.360"></status>
+</kw>
+<kw name="Input Password" library="resource">
+<arguments>
+<arg>admin</arg>
+</arguments>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>password</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20180516 13:44:16.669" level="INFO">Typing text 'admin' into text field 'password'</msg>
+<status status="PASS" endtime="20180516 13:44:16.990" starttime="20180516 13:44:16.667"></status>
+</kw>
+<status status="PASS" endtime="20180516 13:44:16.992" starttime="20180516 13:44:16.666"></status>
+</kw>
+<kw name="Submit Credentials" library="resource">
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>login_button</arg>
+</arguments>
+<msg timestamp="20180516 13:44:16.995" level="INFO">Clicking button 'login_button'.</msg>
+<status status="PASS" endtime="20180516 13:44:18.267" starttime="20180516 13:44:16.994"></status>
+</kw>
+<status status="PASS" endtime="20180516 13:44:18.268" starttime="20180516 13:44:16.992"></status>
+</kw>
+<kw name="Add Rating" library="resource">
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//a[@href="/shows"]</arg>
+</arguments>
+<msg timestamp="20180516 13:44:18.271" level="INFO">Clicking element '//a[@href="/shows"]'.</msg>
+<status status="PASS" endtime="20180516 13:44:19.592" starttime="20180516 13:44:18.270"></status>
+</kw>
+<kw name="Location Should Be" library="Selenium2Library">
+<doc>Verifies that current URL is exactly `url`.</doc>
+<arguments>
+<arg>http://localhost:3000/shows</arg>
+</arguments>
+<msg timestamp="20180516 13:44:19.620" level="INFO">Current location is 'http://localhost:3000/shows'.</msg>
+<status status="PASS" endtime="20180516 13:44:19.620" starttime="20180516 13:44:19.592"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//a[@href="/shows/18"]</arg>
+</arguments>
+<msg timestamp="20180516 13:44:19.621" level="INFO">Clicking element '//a[@href="/shows/18"]'.</msg>
+<status status="PASS" endtime="20180516 13:44:24.729" starttime="20180516 13:44:19.621"></status>
+</kw>
+<kw name="Location Should Be" library="Selenium2Library">
+<doc>Verifies that current URL is exactly `url`.</doc>
+<arguments>
+<arg>http://localhost:3000/shows/18</arg>
+</arguments>
+<msg timestamp="20180516 13:44:25.052" level="INFO">Current location is 'http://localhost:3000/shows/18'.</msg>
+<status status="PASS" endtime="20180516 13:44:25.053" starttime="20180516 13:44:24.729"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//a[@class="star star-5 icon"]</arg>
+</arguments>
+<msg timestamp="20180516 13:44:25.054" level="INFO">Clicking element '//a[@class="star star-5 icon"]'.</msg>
+<status status="PASS" endtime="20180516 13:44:27.262" starttime="20180516 13:44:25.053"></status>
+</kw>
+<status status="PASS" endtime="20180516 13:44:27.262" starttime="20180516 13:44:18.269"></status>
+</kw>
+<kw name="Initial Rating" library="resource">
+<kw name="Title Should Be" library="Selenium2Library">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>KDdb</arg>
+</arguments>
+<msg timestamp="20180516 13:44:27.280" level="INFO">Page title is 'KDdb'.</msg>
+<status status="PASS" endtime="20180516 13:44:27.286" starttime="20180516 13:44:27.265"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="Selenium2Library">
+<doc>Waits until `text` appears on current page.</doc>
+<arguments>
+<arg>Your Rating: 5.0</arg>
+</arguments>
+<status status="PASS" endtime="20180516 13:44:27.348" starttime="20180516 13:44:27.288"></status>
+</kw>
+<status status="PASS" endtime="20180516 13:44:27.349" starttime="20180516 13:44:27.263"></status>
+</kw>
+<kw name="Logout" library="resource">
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//i[@class="dropdown icon"]</arg>
+</arguments>
+<msg timestamp="20180516 13:44:27.354" level="INFO">Clicking element '//i[@class="dropdown icon"]'.</msg>
+<status status="PASS" endtime="20180516 13:44:27.689" starttime="20180516 13:44:27.353"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//a[@href="/logout"]</arg>
+</arguments>
+<msg timestamp="20180516 13:44:27.690" level="INFO">Clicking element '//a[@href="/logout"]'.</msg>
+<status status="PASS" endtime="20180516 13:44:28.582" starttime="20180516 13:44:27.690"></status>
+</kw>
+<status status="PASS" endtime="20180516 13:44:28.594" starttime="20180516 13:44:27.351"></status>
+</kw>
+<kw name="Logout Successfully" library="resource">
+<kw name="Title Should Be" library="Selenium2Library">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>KDdb</arg>
+</arguments>
+<msg timestamp="20180516 13:44:28.612" level="INFO">Page title is 'KDdb'.</msg>
+<status status="PASS" endtime="20180516 13:44:28.613" starttime="20180516 13:44:28.596"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="Selenium2Library">
+<doc>Waits until `text` appears on current page.</doc>
+<arguments>
+<arg>Log In</arg>
+</arguments>
+<status status="PASS" endtime="20180516 13:44:28.671" starttime="20180516 13:44:28.613"></status>
+</kw>
+<status status="PASS" endtime="20180516 13:44:28.672" starttime="20180516 13:44:28.595"></status>
+</kw>
+<kw name="Login" library="resource">
+<kw name="Set Selenium Speed" library="Selenium2Library">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${DELAY1}</arg>
+</arguments>
+<status status="PASS" endtime="20180516 13:44:28.674" starttime="20180516 13:44:28.674"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//div[@class="ui inverted login button"]</arg>
+</arguments>
+<msg timestamp="20180516 13:44:28.675" level="INFO">Clicking element '//div[@class="ui inverted login button"]'.</msg>
+<status status="PASS" endtime="20180516 13:44:31.023" starttime="20180516 13:44:28.675"></status>
+</kw>
+<kw name="Set Selenium Speed" library="Selenium2Library">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${DELAY}</arg>
+</arguments>
+<status status="PASS" endtime="20180516 13:44:31.028" starttime="20180516 13:44:31.025"></status>
+</kw>
+<status status="PASS" endtime="20180516 13:44:31.030" starttime="20180516 13:44:28.672"></status>
+</kw>
+<kw name="Input Username1" library="resource">
+<arguments>
+<arg>user</arg>
+</arguments>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>username</arg>
+<arg>${usernamee1}</arg>
+</arguments>
+<msg timestamp="20180516 13:44:31.037" level="INFO">Typing text 'user' into text field 'username'</msg>
+<status status="PASS" endtime="20180516 13:44:31.377" starttime="20180516 13:44:31.036"></status>
+</kw>
+<status status="PASS" endtime="20180516 13:44:31.378" starttime="20180516 13:44:31.032"></status>
+</kw>
+<kw name="Input Password1" library="resource">
+<arguments>
+<arg>password</arg>
+</arguments>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>password</arg>
+<arg>${password1}</arg>
+</arguments>
+<msg timestamp="20180516 13:44:31.382" level="INFO">Typing text 'password' into text field 'password'</msg>
+<status status="PASS" endtime="20180516 13:44:31.742" starttime="20180516 13:44:31.380"></status>
+</kw>
+<status status="PASS" endtime="20180516 13:44:31.743" starttime="20180516 13:44:31.379"></status>
+</kw>
+<kw name="Submit Credentials1" library="resource">
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>login_button</arg>
+</arguments>
+<msg timestamp="20180516 13:44:31.746" level="INFO">Clicking button 'login_button'.</msg>
+<status status="PASS" endtime="20180516 13:44:32.898" starttime="20180516 13:44:31.745"></status>
+</kw>
+<status status="PASS" endtime="20180516 13:44:32.899" starttime="20180516 13:44:31.744"></status>
+</kw>
+<kw name="Shows" library="resource">
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//a[@href="/shows"]</arg>
+</arguments>
+<msg timestamp="20180516 13:44:32.902" level="INFO">Clicking element '//a[@href="/shows"]'.</msg>
+<status status="PASS" endtime="20180516 13:44:33.958" starttime="20180516 13:44:32.901"></status>
+</kw>
+<kw name="Location Should Be" library="Selenium2Library">
+<doc>Verifies that current URL is exactly `url`.</doc>
+<arguments>
+<arg>http://localhost:3000/shows</arg>
+</arguments>
+<msg timestamp="20180516 13:44:33.976" level="INFO">Current location is 'http://localhost:3000/shows'.</msg>
+<status status="PASS" endtime="20180516 13:44:33.977" starttime="20180516 13:44:33.959"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//a[@href="/shows/18"]</arg>
+</arguments>
+<msg timestamp="20180516 13:44:33.978" level="INFO">Clicking element '//a[@href="/shows/18"]'.</msg>
+<status status="PASS" endtime="20180516 13:44:35.286" starttime="20180516 13:44:33.977"></status>
+</kw>
+<kw name="Location Should Be" library="Selenium2Library">
+<doc>Verifies that current URL is exactly `url`.</doc>
+<arguments>
+<arg>http://localhost:3000/shows/18</arg>
+</arguments>
+<msg timestamp="20180516 13:44:35.302" level="INFO">Current location is 'http://localhost:3000/shows/18'.</msg>
+<status status="PASS" endtime="20180516 13:44:35.302" starttime="20180516 13:44:35.287"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//a[@class="star star-1 icon"]</arg>
+</arguments>
+<msg timestamp="20180516 13:44:35.303" level="INFO">Clicking element '//a[@class="star star-1 icon"]'.</msg>
+<status status="PASS" endtime="20180516 13:44:36.671" starttime="20180516 13:44:35.303"></status>
+</kw>
+<kw name="New Rating" library="resource">
+<kw name="Title Should Be" library="Selenium2Library">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>KDdb</arg>
+</arguments>
+<msg timestamp="20180516 13:44:36.693" level="INFO">Page title is 'KDdb'.</msg>
+<status status="PASS" endtime="20180516 13:44:36.693" starttime="20180516 13:44:36.673"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="Selenium2Library">
+<doc>Waits until `text` appears on current page.</doc>
+<arguments>
+<arg>Your Rating: 1.0</arg>
+</arguments>
+<status status="PASS" endtime="20180516 13:44:36.747" starttime="20180516 13:44:36.694"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="Selenium2Library">
+<doc>Waits until `text` appears on current page.</doc>
+<arguments>
+<arg>3.0</arg>
+</arguments>
+<status status="PASS" endtime="20180516 13:44:36.796" starttime="20180516 13:44:36.747"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="Selenium2Library">
+<doc>Waits until `text` appears on current page.</doc>
+<arguments>
+<arg>stars from 2 users</arg>
+</arguments>
+<status status="PASS" endtime="20180516 13:44:36.846" starttime="20180516 13:44:36.796"></status>
+</kw>
+<status status="PASS" endtime="20180516 13:44:36.846" starttime="20180516 13:44:36.672"></status>
+</kw>
+<status status="PASS" endtime="20180516 13:44:36.847" starttime="20180516 13:44:32.900"></status>
+</kw>
+<kw type="teardown" name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20180516 13:44:36.955" starttime="20180516 13:44:36.848"></status>
+</kw>
+<status status="PASS" endtime="20180516 13:44:36.956" critical="yes" starttime="20180516 13:44:07.078"></status>
+</test>
+<doc>A test suite with a single test for the Rate feature.
+
+This test has a workflow that is created using keywords in
+the imported resource file.</doc>
+<status status="PASS" endtime="20180516 13:44:36.959" starttime="20180516 13:44:06.587"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Rate" pass="1">Rate</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

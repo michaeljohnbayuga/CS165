@@ -8,7 +8,7 @@ Resource          resource.robot
 *** Test Cases ***
 Valid Login
     Open Browser To Login Page
-    Input Username    usernamee
+    Input Username    user
     Input Password    password
     Submit Credentials
     Welcome Page Should Be Open

@@ -13,10 +13,10 @@ ${DELAY}          0
 ${DELAY1}         0.5
 ${VALID USER}     valid
 ${VALID PASSWORD}    valid
-${LOGIN URL}      http://${SERVER}/shows
-${WELCOME URL}    http://${SERVER}/shows
-${ERROR URL}      http://${SERVER}/shows
-${SIGNUP}    http://${SERVER}/users/sign_up
+${LOGIN URL}      http://${SERVER}/
+${WELCOME URL}    http://${SERVER}/
+${ERROR URL}      http://${SERVER}/
+${SIGNUP}    http://${SERVER}
 
 *** Keywords ***
 Open Browser To Login Page
@@ -26,15 +26,15 @@ Open Browser To Login Page
     Login Page Should Be Open
 
 Login Page Should Be Open
-    Title Should Be    TV Tracker
+    Title Should Be    KDdb
     Sign Up
 
 Sign Up
-    Click Element    xpath://div[@class="ui inverted login button"]
+    Click Element    //div[@class="ui inverted login button"]
     Set Selenium Speed    ${DELAY1}
 
 Sign Up Page Should Be Open
-    Click Element    xpath://a[@class="ui pointer signup link"]
+    Click Element    //a[@class="ui pointer signup link"]
     Set Selenium Speed    ${DELAY}
 
 Input Name
@@ -54,10 +54,10 @@ Input Password Confirmation
     Input Text    user_password_confirmation    ${confirmpass}
 
 Submit Credentials
-    Click Button    xpath://button[.//text() = 'SIGN UP']
+    Click Button    //button[.//text() = 'SIGN UP']
 
 Welcome Page Should Be Open
     Location Should Be    ${WELCOME URL}shows
-    Title Should Be    TV Tracker
+    Title Should Be    KDdb
 
 #robot -t "Valid Login" valid login.robot

@@ -8,13 +8,13 @@ Library           Selenium2Library
 
 *** Variables ***
 ${SERVER}         localhost:3000
-${BROWSER}        Chrome
+${BROWSER}        chrome
 ${DELAY}          0
 ${VALID USER}     valid
 ${VALID PASSWORD}    valid
-${LOGIN URL}      http://${SERVER}/shows
-${WELCOME URL}    http://${SERVER}/shows
-${ERROR URL}      http://${SERVER}/shows
+${LOGIN URL}      http://${SERVER}/
+${WELCOME URL}    http://${SERVER}/
+${ERROR URL}      http://${SERVER}/
 
 *** Keywords ***
 Open Browser To Login Page
@@ -24,10 +24,10 @@ Open Browser To Login Page
     Login Page Should Be Open
 
 Login Page Should Be Open
-    Title Should Be    TV Tracker
+    Title Should Be    KDdb
 
 Go To Login Page
-    Click Element    xpath://div[@class="ui inverted login button"]
+    Click Element    //div[@class="ui inverted login button"]
 
 Input Username
     [Arguments]    ${usernamee}
@@ -41,5 +41,5 @@ Submit Credentials
     Click Button    login_button
 
 Welcome Page Should Be Open
-    Title Should Be    TV Tracker
-    Wait Until Page Contains   Welcome,
+    Title Should Be    KDdb
+    Wait Until Page Contains   Hi
