@@ -46,6 +46,12 @@ class ShowsController < ApplicationController
   def show
     @show = Show.find(params[:id])
     @ave_rating = Rating.where(:show_id => params[:id]).average(:rtg)
+    if @ave_rating.blank?
+      # do nothing
+    else 
+      @ave_rating = @ave_rating.round(2)
+    end
+
     @rater_count = Rating.where(:show_id => params[:id]).count
 
     if session[:user_id]
