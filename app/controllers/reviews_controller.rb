@@ -22,6 +22,7 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/1/edit
   def edit
+    session[:return_to] ||= request.referer
   end
 
   # POST /reviews
@@ -38,14 +39,8 @@ class ReviewsController < ApplicationController
   # PATCH/PUT /reviews/1
   # PATCH/PUT /reviews/1.json
   def update
-    respond_to do |format|
-      if @review.update(review_params)
-        format.html { redirect_to @review, notice: 'Review was successfully updated.' }
-        format.json { render :show, status: :ok, location: @review }
-      else
-        format.html { render :edit }
-        format.json { render json: @review.errors, status: :unprocessable_entity }
-      end
+    if @review.update(review_params)
+      redirect_to session.delete(:return_to)
     end
   end
 
@@ -53,7 +48,7 @@ class ReviewsController < ApplicationController
   # DELETE /reviews/1.json
   def destroy
     @review.destroy
-
+    redirect_back(fallback_location: root_path)
   end
 
   private
