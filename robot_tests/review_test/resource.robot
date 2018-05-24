@@ -50,11 +50,11 @@ Welcome Page Should Be Open
 Pre-Review
     Click Element    //a[@href="/shows"]
     Location Should Be    http://localhost:3000/shows
-    Wait Until Page Contains    Full House
-    Click Element    //a[@href="/shows/5"]
-    Location Should Be    http://localhost:3000/shows/5
+    Wait Until Page Contains    My Mister
+    Click Element    //a[@href="/shows/21"]
+    Location Should Be    http://localhost:3000/shows/21
     Wait Until Page Contains    View Reviews
-    Click Element    //a[@href="/reviews?id=5"]
+    Click Element    //a[@href="/reviews?id=21"]
     Wait Until Page Contains    No Reviews Yet!
 
 Input Review
@@ -72,7 +72,7 @@ Remove Review
     Confirm Action
 
 Check Review
-    Go To    http://localhost:3000/reviews?id=5
+    Go To    http://localhost:3000/reviews?id=21
     Wait Until Page Contains    No Reviews Yet!
 
 #robot -t "Valid Login" valid login.robot

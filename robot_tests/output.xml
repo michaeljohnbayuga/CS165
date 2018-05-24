@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180524 00:43:55.454" generator="Robot 3.0.4 (Python 2.7.12 on linux2)">
+<suite source="/home/julius/Desktop/korean-drama-db-team-kddb/robot_tests/ahehe.robot" id="s1" name="Ahehe">
+<kw type="setup" name="Open Browser To Login Page" library="ahe">
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${LOGIN URL}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20180524 00:43:55.872" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000/'</msg>
+<status status="PASS" endtime="20180524 00:44:01.362" starttime="20180524 00:43:55.871"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20180524 00:44:01.470" starttime="20180524 00:44:01.363"></status>
+</kw>
+<kw name="Set Selenium Speed" library="Selenium2Library">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${DELAY}</arg>
+</arguments>
+<status status="PASS" endtime="20180524 00:44:01.471" starttime="20180524 00:44:01.470"></status>
+</kw>
+<kw name="Login Page Should Be Open" library="ahe">
+<kw name="Title Should Be" library="Selenium2Library">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>KDdb</arg>
+</arguments>
+<msg timestamp="20180524 00:44:01.510" level="INFO">Page title is 'KDdb'.</msg>
+<status status="PASS" endtime="20180524 00:44:01.511" starttime="20180524 00:44:01.473"></status>
+</kw>
+<kw name="Sign Up" library="ahe">
+<kw name="Go To" library="Selenium2Library">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>localhost:3000</arg>
+</arguments>
+<msg timestamp="20180524 00:44:01.515" level="INFO">Opening url 'localhost:3000'</msg>
+<status status="PASS" endtime="20180524 00:44:02.160" starttime="20180524 00:44:01.513"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//div[@class="ui inverted login button"]</arg>
+</arguments>
+<msg timestamp="20180524 00:44:02.162" level="INFO">Clicking element '//div[@class="ui inverted login button"]'.</msg>
+<status status="PASS" endtime="20180524 00:44:02.623" starttime="20180524 00:44:02.161"></status>
+</kw>
+<kw name="Set Selenium Speed" library="Selenium2Library">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${DELAY1}</arg>
+</arguments>
+<status status="PASS" endtime="20180524 00:44:02.627" starttime="20180524 00:44:02.625"></status>
+</kw>
+<status status="PASS" endtime="20180524 00:44:02.628" starttime="20180524 00:44:01.511"></status>
+</kw>
+<status status="PASS" endtime="20180524 00:44:02.628" starttime="20180524 00:44:01.472"></status>
+</kw>
+<status status="PASS" endtime="20180524 00:44:02.629" starttime="20180524 00:43:55.870"></status>
+</kw>
+<test id="s1-t1" name="5">
+<kw type="setup" name="Sign Up" library="ahe">
+<kw name="Go To" library="Selenium2Library">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>localhost:3000</arg>
+</arguments>
+<msg timestamp="20180524 00:44:02.635" level="INFO">Opening url 'localhost:3000'</msg>
+<status status="PASS" endtime="20180524 00:44:03.910" starttime="20180524 00:44:02.634"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//div[@class="ui inverted login button"]</arg>
+</arguments>
+<msg timestamp="20180524 00:44:03.914" level="INFO">Clicking element '//div[@class="ui inverted login button"]'.</msg>
+<status status="PASS" endtime="20180524 00:44:05.185" starttime="20180524 00:44:03.912"></status>
+</kw>
+<kw name="Set Selenium Speed" library="Selenium2Library">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${DELAY1}</arg>
+</arguments>
+<status status="PASS" endtime="20180524 00:44:05.188" starttime="20180524 00:44:05.186"></status>
+</kw>
+<status status="PASS" endtime="20180524 00:44:05.188" starttime="20180524 00:44:02.633"></status>
+</kw>
+<kw name="Login With Invalid Credentials Should Fail">
+<arguments>
+<arg>Jim</arg>
+<arg>password</arg>
+<arg>I would give it 12 out of 10 if possible. It was a shock to find a Korean TV series on Netflix. Haven't lived in Korea since 1967. Not like the people I recall, but it's easy to become attached to these characters. Plots are like the Snake River: 6" deep and a mile wide. The acting is often stilted and a major stretch, but at times the crew just bust out some great acting chops. Even though they all look like kids. It's cool hearing all the Korean and trying to catch words I understand. Too bad more scenes weren't shot in Korea to see what it looks like today. But the shots around Greece are beeeeeeutiful! Hard to keep up with acting and plot while reading text. Some characters are more like caricatures, especially the Captain. We have two Romeos and two Juliettes with a bunch of capable actors filling out the crew. Right down to the injured plant manager advising the doc to save the man with a forklift tine through his chest. Excellent cinematography, color, and site selections. They display the soldiers like the "hard ROK troops" I knew. But these have hearts and obvious feelings. Right down to the funny doc asking a nurse to delete his porn file on his laptop if he dies...which causes a middle age nurse to come unglued because files are dirty. Yes, a stretch. But the Korean mentality is unlike our American mentality in many ways. Must admit I love the Korean people (in general) today as much as I did when I lived there and served with the military. Too bad the North and South can't get along. This is one pretty series! My wife doesn't understand my attachment to the country, people, and my desire to see Korea again, but this series brings it all back. So well made. "Power in Unity!"</arg>
+</arguments>
+<kw name="Input Username" library="ahe">
+<arguments>
+<arg>${username}</arg>
+</arguments>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>user_username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20180524 00:44:05.193" level="INFO">Typing text 'Jim' into text field 'user_username'</msg>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20180524 00:44:06.584" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180524 00:44:06.586" starttime="20180524 00:44:05.845"></status>
+</kw>
+<msg timestamp="20180524 00:44:06.689" level="FAIL">InvalidElementStateException: Message: invalid element state: Element is not currently interactable and may not be manipulated
+  (Session info: chrome=66.0.3359.170)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Linux 4.13.0-41-generic x86_64)
+</msg>
+<status status="FAIL" endtime="20180524 00:44:06.690" starttime="20180524 00:44:05.192"></status>
+</kw>
+<status status="FAIL" endtime="20180524 00:44:06.691" starttime="20180524 00:44:05.190"></status>
+</kw>
+<status status="FAIL" endtime="20180524 00:44:06.692" starttime="20180524 00:44:05.189"></status>
+</kw>
+<status status="FAIL" endtime="20180524 00:44:06.693" critical="yes" starttime="20180524 00:44:02.629">InvalidElementStateException: Message: invalid element state: Element is not currently interactable and may not be manipulated
+  (Session info: chrome=66.0.3359.170)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Linux 4.13.0-41-generic x86_64)
+</status>
+</test>
+<test id="s1-t2" name="6">
+<kw type="setup" name="Sign Up" library="ahe">
+<kw name="Go To" library="Selenium2Library">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>localhost:3000</arg>
+</arguments>
+<msg timestamp="20180524 00:44:06.700" level="INFO">Opening url 'localhost:3000'</msg>
+<status status="PASS" endtime="20180524 00:44:07.954" starttime="20180524 00:44:06.699"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//div[@class="ui inverted login button"]</arg>
+</arguments>
+<msg timestamp="20180524 00:44:07.958" level="INFO">Clicking element '//div[@class="ui inverted login button"]'.</msg>
+<status status="PASS" endtime="20180524 00:44:09.268" starttime="20180524 00:44:07.956"></status>
+</kw>
+<kw name="Set Selenium Speed" library="Selenium2Library">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${DELAY1}</arg>
+</arguments>
+<status status="PASS" endtime="20180524 00:44:09.271" starttime="20180524 00:44:09.268"></status>
+</kw>
+<status status="PASS" endtime="20180524 00:44:09.271" starttime="20180524 00:44:06.698"></status>
+</kw>
+<kw name="Login With Invalid Credentials Should Fail">
+<arguments>
+<arg>Pasek</arg>
+<arg>password</arg>
+<arg>Descendants of the Sun is one of those epic series that pretty much has it all: action, comedy, dire moments, touching moments, heart- breaking moments, suspense, intrigue, romance, and some dynamite plot- twists to satisfy most viewers.</arg>
+</arguments>
+<kw name="Input Username" library="ahe">
+<arguments>
+<arg>${username}</arg>
+</arguments>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>user_username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20180524 00:44:09.279" level="INFO">Typing text 'Pasek' into text field 'user_username'</msg>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20180524 00:44:10.644" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180524 00:44:10.645" starttime="20180524 00:44:09.891"></status>
+</kw>
+<msg timestamp="20180524 00:44:10.649" level="FAIL">InvalidElementStateException: Message: invalid element state: Element is not currently interactable and may not be manipulated
+  (Session info: chrome=66.0.3359.170)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Linux 4.13.0-41-generic x86_64)
+</msg>
+<status status="FAIL" endtime="20180524 00:44:10.649" starttime="20180524 00:44:09.278"></status>
+</kw>
+<status status="FAIL" endtime="20180524 00:44:10.651" starttime="20180524 00:44:09.274"></status>
+</kw>
+<status status="FAIL" endtime="20180524 00:44:10.652" starttime="20180524 00:44:09.272"></status>
+</kw>
+<status status="FAIL" endtime="20180524 00:44:10.653" critical="yes" starttime="20180524 00:44:06.695">InvalidElementStateException: Message: invalid element state: Element is not currently interactable and may not be manipulated
+  (Session info: chrome=66.0.3359.170)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Linux 4.13.0-41-generic x86_64)
+</status>
+</test>
+<test id="s1-t3" name="7">
+<kw type="setup" name="Sign Up" library="ahe">
+<kw name="Go To" library="Selenium2Library">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>localhost:3000</arg>
+</arguments>
+<msg timestamp="20180524 00:44:10.657" level="INFO">Opening url 'localhost:3000'</msg>
+<status status="PASS" endtime="20180524 00:44:11.829" starttime="20180524 00:44:10.657"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//div[@class="ui inverted login button"]</arg>
+</arguments>
+<msg timestamp="20180524 00:44:11.832" level="INFO">Clicking element '//div[@class="ui inverted login button"]'.</msg>
+<status status="PASS" endtime="20180524 00:44:13.148" starttime="20180524 00:44:11.830"></status>
+</kw>
+<kw name="Set Selenium Speed" library="Selenium2Library">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${DELAY1}</arg>
+</arguments>
+<status status="PASS" endtime="20180524 00:44:13.151" starttime="20180524 00:44:13.149"></status>
+</kw>
+<status status="PASS" endtime="20180524 00:44:13.152" starttime="20180524 00:44:10.656"></status>
+</kw>
+<kw name="Login With Invalid Credentials Should Fail">
+<arguments>
+<arg>Prathnat</arg>
+<arg>password</arg>
+<arg>This is an excellent series. It has a great story line and good actors. The action sequences and the humour interlaced in the plot, keeps it interesting. The main characters leave a lasting impression. I'm not really fond of kdramas, but watched this one based on the amazing reviews it had. I thoroughly enjoyed this one, totally worth watching even with the subtitles.</arg>
+</arguments>
+<kw name="Input Username" library="ahe">
+<arguments>
+<arg>${username}</arg>
+</arguments>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>user_username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20180524 00:44:13.158" level="INFO">Typing text 'Prathnat' into text field 'user_username'</msg>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20180524 00:44:14.543" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180524 00:44:14.545" starttime="20180524 00:44:13.791"></status>
+</kw>
+<msg timestamp="20180524 00:44:14.549" level="FAIL">InvalidElementStateException: Message: invalid element state: Element is not currently interactable and may not be manipulated
+  (Session info: chrome=66.0.3359.170)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Linux 4.13.0-41-generic x86_64)
+</msg>
+<status status="FAIL" endtime="20180524 00:44:14.550" starttime="20180524 00:44:13.156"></status>
+</kw>
+<status status="FAIL" endtime="20180524 00:44:14.550" starttime="20180524 00:44:13.154"></status>
+</kw>
+<status status="FAIL" endtime="20180524 00:44:14.551" starttime="20180524 00:44:13.153"></status>
+</kw>
+<status status="FAIL" endtime="20180524 00:44:14.552" critical="yes" starttime="20180524 00:44:10.654">InvalidElementStateException: Message: invalid element state: Element is not currently interactable and may not be manipulated
+  (Session info: chrome=66.0.3359.170)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Linux 4.13.0-41-generic x86_64)
+</status>
+</test>
+<test id="s1-t4" name="8">
+<kw type="setup" name="Sign Up" library="ahe">
+<kw name="Go To" library="Selenium2Library">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>localhost:3000</arg>
+</arguments>
+<msg timestamp="20180524 00:44:14.556" level="INFO">Opening url 'localhost:3000'</msg>
+<status status="PASS" endtime="20180524 00:44:15.723" starttime="20180524 00:44:14.556"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//div[@class="ui inverted login button"]</arg>
+</arguments>
+<msg timestamp="20180524 00:44:15.727" level="INFO">Clicking element '//div[@class="ui inverted login button"]'.</msg>
+<status status="PASS" endtime="20180524 00:44:17.071" starttime="20180524 00:44:15.725"></status>
+</kw>
+<kw name="Set Selenium Speed" library="Selenium2Library">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${DELAY1}</arg>
+</arguments>
+<status status="PASS" endtime="20180524 00:44:17.075" starttime="20180524 00:44:17.073"></status>
+</kw>
+<status status="PASS" endtime="20180524 00:44:17.075" starttime="20180524 00:44:14.555">
