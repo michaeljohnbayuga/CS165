@@ -14,9 +14,9 @@ Test Template     Login With Invalid Credentials Should Fail
 Resource          resource.robot
 
 *** Test Cases ***               USER NAME        			  PASSWORD
-Invalid Username                 invalid@example.com          ${VALID PASSWORD}
+Invalid Username                 ~!@#!@#a9uj~          ${VALID PASSWORD}
 Invalid Password                 ${VALID USER}    			  invalid
-Invalid Username And Password    invalid@example.com          whatever
+Invalid Username And Password    ~!@#!@#a9uj~          whatever
 Empty Username                   ${EMPTY}         			  ${VALID PASSWORD}
 Empty Password                   ${VALID USER}    			  ${EMPTY}
 Empty Username And Password      ${EMPTY}                     ${EMPTY}
