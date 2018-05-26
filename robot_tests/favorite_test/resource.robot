@@ -54,23 +54,23 @@ Pre-Favorites
 Add Favorites
     Click Element    //a[@href="/shows"]
     Location Should Be    http://localhost:3000/shows
-    Wait Until Page Contains    A Korean Oddysey
-    Click Element    //a[@href="/shows/5"]
-    Location Should Be    http://localhost:3000/shows/5
+    Wait Until Page Contains    Live
+    Click Element    //a[@href="/shows/27"]
+    Location Should Be    http://localhost:3000/shows/27
     Wait Until Page Contains    Add to favorites
-    Click Element    //a[@href="/favorite_shows?show_id=5"]
+    Click Element    //a[@href="/favorite_shows?show_id=27"]
     Wait Until Page Contains    Remove from favorites
 
 Post-Favorites
     Click Element    //a[@href="/trackers"]
     Location Should Be    http://localhost:3000/trackers
-    Wait Until Page Contains    Full House
+    Wait Until Page Contains    Live
 
 Remove Favorites
-    Click Element    //a[@href="/shows/5"]
-    Location Should Be    http://localhost:3000/shows/5
+    Click Element    //a[@href="/shows/27"]
+    Location Should Be    http://localhost:3000/shows/27
     Wait Until Page Contains    Remove from favorites
-    Click Element    //a[@href="/favorite_shows/5"]
+    Click Element    //a[@href="/favorite_shows/27"]
     Wait Until Page Contains    Add to favorites
 
 Check Favorites
