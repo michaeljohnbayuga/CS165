@@ -1,0 +1,22 @@
+<%= render :file=> 'app/views/partials/header.html.erb' %>
+<%if current_user.present? %>
+<div class="ui fixed center aligned container" style="margin-top: -200px">
+  <div id="home_no_shows">
+    <h1><%=DateTime.now%></h1>
+    <div class="ui ten column grid">
+      <% @bedchecks.each do |show| %>
+      <div class="column center aligned" style="margin-bottom: 25px">
+      <h2><a href="/dormers/<%= show.id %>" id="show_name"><%=show.name%></a></h2>
+      <p><%= show.room_number %></p>  
+      <div class="ui container">
+         <%= link_to "Delete".html_safe, {action:"destroy", id:show.bedcheck_id},style: 'color:#fff;', class: 'ui compact red button' %>
+      </div>
+      </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>
+<%else%>
+<h1>PLEASE LOG-IN FOR ACCESS</h1>
+<%end%>

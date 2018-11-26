@@ -1,0 +1,28 @@
+<%= render :file=> 'app/views/partials/header.html.erb' %>
+<%if current_user.present? %>
+    <table class="ui selectable inverted table">
+      <thead>
+      <tr><th>Name</th>
+      <th>Room Number</th>
+      <th>Time</th>
+      <th>Status</th>
+      </tr>
+      </thead>
+      
+      <tbody>
+      <% @dailyreports.each do |show| %>
+      <tr class="dailyreports">
+       <td class="student number"><%=show.name%></td>
+       <td class="student number"><%=show.room_number%></td>
+       <td class="time in"><%=show.created_at%></td>
+       <td class="status"><%=show.status%></td>
+       <br>
+      </tr>   
+      <% end %>
+     </tbody>
+    </table> 
+    
+</div>
+<%else%>
+<h1>PLEASE LOG-IN FOR ACCESS</h1>
+<%end%>

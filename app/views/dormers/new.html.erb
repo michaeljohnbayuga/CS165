@@ -1,0 +1,15 @@
+<%= render :file=> 'app/views/partials/header.html.erb' %>
+<%if current_user.present? %>
+<div class="ui fixed center aligned container">
+	<div class="ui basic segment" style="margin: auto; width: 70%;">
+	  <h1 class="ui header">
+	    <div><i class="add circle icon"></i>Add Student</div>
+	  </h1>
+	  <div class="ui basic segment" style="margin-top: 50px">
+	  	<%= render 'show', form: @bedcheck %>
+	  </div>
+	</div>
+</div>
+<%else%>
+<h1>PLEASE LOG-IN FOR ACCESS</h1>
+<% end %>

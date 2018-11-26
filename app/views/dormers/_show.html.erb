@@ -1,0 +1,53 @@
+<%= form_for @dormer, html: { multipart: true } do |f| %>
+  <div class="ui form">
+    <div class="two fields">
+      <div class="field">
+        <label>Student Number</label>
+        <%= f.text_field :student_number, placeholder: "Student Number", style: "height:38px", required: true %>
+        <br>
+      </div>
+      <div class="field">
+        <label>Room Number</label>
+        <%= f.text_field :room_number, :placeholder => "Room #", style: "height:38px", required: true %>
+        <br>
+      </div>
+    </div>
+  </div><br>
+
+  <div class="ui form">
+    <div class="field">
+      <label>Full Name(First,MI,Surname)</label>
+      <%= f.text_field :name, placeholder: "Full Name", style: "height:38px", required: true %>
+      <br>
+    </div>
+  </div><br>
+
+  <div class="ui form">
+    <div class="two fields">
+      <div class="field">
+        <label>Sex</label>
+        <%= f.text_field :sex, :placeholder => "Sex", style: "height:38px", required: true %>
+        <br>
+      </div>
+      <div class="field">
+        <label>Course and Year</label>
+        <%= f.text_field :course_year, :placeholder => "Course and Year", style: "height:38px", required: true %>
+        <br>
+      </div>
+    </div>
+  </div><br>
+      
+  
+
+  <br><label><strong>Dormer Picture</strong></label>
+  <br><%= f.file_field :attachment %>
+
+  <br>
+  <br>
+  <button type="submit" class="ui blue button submit-button">Submit</button>
+  <% if @dormer.id != nil %>
+    <%= link_to "Back", dormer_path(@dormer), style: 'color:#fff;', class: 'ui grey button' %>
+  <% else %>
+    <%= link_to "Back", dormers_path, style: 'color:#fff;', class: 'ui grey button' %>
+  <% end %>
+<%end%>

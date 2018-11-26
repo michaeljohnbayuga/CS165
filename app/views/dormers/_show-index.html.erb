@@ -1,0 +1,23 @@
+<%= render :file=> 'app/views/partials/header.html.erb' %>
+<%if current_user.present? %>
+<div class="ui fixed center aligned container" style="margin-top: -200px">
+  <div id="home_no_shows">
+    <div class="ui four column grid">
+      <% @dormers.each do |show| %>
+      <div class="column center aligned" style="margin-bottom: 25px">
+        <% if show.attachment.present? %>
+            <a href="/dormers/<%= show.id %>"><img src="<%= show.attachment %>" class="ui medium image" style="width:300px; height:179px; border: 7px solid #BBDEFB; background-color:#4f5563"></a>
+
+          <% else %>
+            <a href="/dormers/<%= show.id %>"><img src="/logos/SAMPLE.jpg" class="ui medium image" style="width:300px; height:179px; border: 7px solid #BBDEFB; background-color:#4f5563"></a>
+          <% end %>
+        <br>
+        <a href="/dormers/<%= show.id %>" id="show_name"><%= show.name %></a> <br> <%= show.room_number %> 
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<%else%>
+<h1>PLEASE LOG-IN FOR ACCESS</h1>
+<% end %>

@@ -1,0 +1,28 @@
+<%= form_for @bedcheck, html: { multipart: true } do |f| %>
+  <div class="ui form">
+    <div class="three fields">
+      <div class="field">
+        <label>Student Number</label>
+        <%= f.text_field :student_number, placeholder: "Student Number", style: "height:38px", required: true %>
+        <br>
+      </div>
+      <div class="field">
+        <label>SA_NAME</label>
+        <%= f.select :sa_name,options_from_collection_for_select(Studentassistant.all, :name, :name), style: "height:38px", required: true %>
+        <br>
+      </div>
+      <div class="field">
+        <label>Guard Name</label>
+        <%= f.select :guard_name,options_from_collection_for_select(Guard.all, :name, :name), style: "height:38px", required: true %>
+      <br>
+     </div>
+    </div>
+  </div><br>
+
+  <button type="submit" class="ui blue button submit-button">Submit</button>
+  <% if @bedcheck.id != nil %>
+    <%= link_to "Back", root_path(@dormer), style: 'color:#fff;', class: 'ui grey button' %>
+  <% else %>
+    <%= link_to "Back", root_path, style: 'color:#fff;', class: 'ui grey button' %>
+  <% end %>
+<% end %>

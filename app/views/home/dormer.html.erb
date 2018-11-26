@@ -1,0 +1,63 @@
+<style type="text/css">
+
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+fieldset, label { margin: 0; padding: 0; }
+body{ margin: 20px; background-color: #E8EAF6}
+h1 { font-size: 1.5em; margin: 10px; } 
+</style>
+
+<script>
+function myFunction() {
+    var x = document.getElementById("ad-search");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+</script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    setTimeout(function(){
+    $('.grid').fadeOut();
+    }, 2000);
+  })
+</script>
+<%= render :file=> 'app/views/partials/header.html.erb' %>
+
+<div class="ui fixed center aligned container" style="margin-top: 100px">
+  <div id="home_no_dormers">
+    <% if @filter.present? %>
+    <div class="ui four column grid" style="margin-top: 20px">
+      <% @dormers.each do |dormer| %>
+        <div class="column center aligned" style="margin-bottom: 25px">    
+          <% if dormer.attachment.present? %>
+            <a href="/dormers/<%= dormer.id %>"><img src="<%= dormer.attachment %>" class="ui medium image" style="width:300px; height:200px;object-fit: contain; border: 7px 			solid #BBDEFB; background-color:#4f5563"></a>
+          <% else %>
+            <a href="/dormers/<%= dormer.id %>"><img src="/logos/SAMPLE.jpg" class="ui medium image" style="width:300px; height:200px;object-fit: contain; border: 7px solid 				#BBDEFB; background-color:#4f5563"></a>
+          <% end %>
+          <br>
+          <%= dormer.name %></a> <br> Time <%=dormer.status%>: <%= dormer.created_at %> <br>		
+        </div>
+      <% end %>
+    </div>
+
+ 	<% end %>
+
+    <div id="ad-search">
+    <%= form_tag({:controller=>"home", :action=>"filter_search"}, method: :post, class: "ui big form") do %>
+      
+      <div class="three fields">
+        <div class="field">
+          <label>Student Number</label>
+          <%= search_field_tag :title_input, nil, placeholder: '20XX-XXXX', :autofocus => true, :autocomplete =>false%> 
+		  <label></label>
+		  <br>
+     	  <%= submit_tag 'Enter', name: nil, class: "ui blue button"%>         
+		</div>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>
