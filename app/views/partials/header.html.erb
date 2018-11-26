@@ -1,23 +1,38 @@
 <div class="ui top fixed borderless menu" id="header_menu" style="background-color:#353D35;">
   <div class="item" id="header_left">
-    <a id="white_text" href="/" style="font-size: 20px"><strong>KDdb 케이디디비</strong></a>
+    <a id="white_text" href="/" style="font-size: 15px"><strong>Dormitory ID Scanner</strong></a>
   </div>
   <div class="right menu">
     <%if current_user.present? %>
-      <div class="ui item">
-        <a class="white_text" href="/shows">SHOWS</a>
-      </div>
       <% if current_user.is_admin? %>
-        <div class="ui item">
-          <a class="white_text" href="/shows/new">ADD A SHOW</a>
-        </div>
-      <% end %>
-      <div class="ui item">
-        <a class="white_text" href="/trackers">FAVORITES</a>
-      </div>
-    <% end %>
-    <div class="ui item" id="header_right">
-      <% if current_user.present? %>
+         <div class="ui item">
+           <a class="white_text" href="/dailyreports">DAILY REPORT</a>
+         </div>
+ 
+       <div class="ui item" id="header_right">
+         <div class="ui dropdown" id="white_text">
+           <div class="text">
+              STUDENTS
+           <i class="dropdown icon"></i>
+           </div>
+           <div class="menu" id="dropdown_menu">
+             <a class="item" href="/dormers">DORMERS</a>
+             <a class="item" href="/dormers/new">ADD A STUDENT</a>
+           </div>
+         </div>
+         <div class="ui dropdown" id="white_text">
+           <div class="text">
+              BEDCHECK
+           <i class="dropdown icon"></i>
+           </div>
+
+          <div class="menu" id="dropdown_menu">
+            <a class="item" href="/bedchecks/new">NEW BEDCHECK</a>
+            <a class="item" href="/bedchecks">ENDORSEMENT LIST</a>
+          </div>
+     
+         </div>
+
         <div class="ui dropdown" id="white_text">
             <div class="text">
               Hi, <%= current_user.name %>!
@@ -27,10 +42,14 @@
             <a class="item" href="/logout">Log Out</a>
           </div>
         </div>
-      <% else %>
-        <div class="ui inverted login button">Log In</div>
+      </div>
       <% end %>
+    
+    <% else %>
+    <div class="ui item" id="header_right">
+        <div class="ui inverted login button">Admin Log In</div>
     </div>
+    <% end %>
   </div>
 </div>
 
@@ -57,7 +76,6 @@
       </div>
       <center><button type="submit" class="ui button" id = "login_button", style="background-color: #64B5F6; color: white">LOG IN</button></center>
     <% end %>
-    <a class="ui pointer signup link" id="show_name"><center>Create an account</center></a>
   </div>
 </div>
 

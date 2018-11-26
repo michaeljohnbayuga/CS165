@@ -10,89 +10,61 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180501130233) do
+ActiveRecord::Schema.define(version: 20180222104326) do
 
-  create_table "episodes", force: :cascade do |t|
-    t.integer "episode_no"
-    t.integer "showep_no"
-    t.string "title"
-    t.date "air_date"
-    t.integer "season_id"
+  create_table "bedchecks", force: :cascade do |t|
+    t.string "student_number"
+    t.string "sa_name"
+    t.string "guard_name"
+    t.string "date"
+    t.integer "dormer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["season_id"], name: "index_episodes_on_season_id"
+    t.index ["dormer_id"], name: "index_bedchecks_on_dormer_id"
   end
 
-  create_table "favorites", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "show_id"
+  create_table "bedchecks_dormers", id: false, force: :cascade do |t|
+    t.integer "dormer_id", null: false
+    t.integer "bedcheck_id", null: false
+  end
+
+  create_table "dailyreports", force: :cascade do |t|
+    t.string "report_id"
+    t.string "student_number"
+    t.string "status", default: "in"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["show_id"], name: "index_favorites_on_show_id"
-    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
-  create_table "info", force: :cascade do |t|
-    t.integer "show_id"
-    t.string "director"
-    t.text "casts"
-    t.text "synopsis"
-    t.integer "runtime"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["show_id"], name: "index_info_on_show_id"
-  end
-
-  create_table "ratings", force: :cascade do |t|
-    t.string "show_id"
-    t.string "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.float "rtg"
-  end
-
-  create_table "reviews", force: :cascade do |t|
-    t.string "text"
-    t.integer "show_id"
-    t.integer "user_id"
-    t.index ["show_id"], name: "index_reviews_on_show_id"
-    t.index ["user_id"], name: "index_reviews_on_user_id"
-  end
-
-  create_table "seasons", force: :cascade do |t|
-    t.integer "show_id"
-    t.integer "season_no"
-    t.integer "no_of_episodes"
-    t.date "start_date"
-    t.date "end_date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["show_id"], name: "index_seasons_on_show_id"
-  end
-
-  create_table "shows", force: :cascade do |t|
-    t.string "code"
+  create_table "dormers", force: :cascade do |t|
+    t.string "student_number"
     t.string "name"
-    t.string "network"
-    t.string "start_year"
-    t.string "end_year"
+    t.integer "room_number"
+    t.string "sex"
+    t.string "course_year"
+    t.string "attachment"
+    t.boolean "is_sa", default: false
+    t.string "status", default: "in"
+    t.integer "bedcheck_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "director"
-    t.string "runtime"
-    t.string "language"
-    t.text "synopsis"
-    t.string "casts"
-    t.string "attachment"
+    t.index ["bedcheck_id"], name: "index_dormers_on_bedcheck_id"
   end
 
-  create_table "trackers", force: :cascade do |t|
-    t.integer "episode_id"
+  create_table "guards", force: :cascade do |t|
+    t.string "name"
+    t.string "schedule"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.index ["episode_id"], name: "index_trackers_on_episode_id"
-    t.index ["user_id"], name: "index_trackers_on_user_id"
+  end
+
+  create_table "studentassistants", force: :cascade do |t|
+    t.string "sa_id"
+    t.string "student_number"
+    t.string "name"
+    t.string "schedule"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -101,6 +73,15 @@ ActiveRecord::Schema.define(version: 20180501130233) do
     t.boolean "is_admin", default: false
     t.string "password"
     t.string "salt"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "violations", force: :cascade do |t|
+    t.string "student_number"
+    t.string "admin_name"
+    t.integer "major", default: 0
+    t.integer "minor", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

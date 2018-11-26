@@ -1,5 +1,5 @@
 <% if not @messages_rendered -%>
-  <% if flash[:error_header] and flash[:error_body] -%>
+  <% if flash[:error_header] or flash[:error_body] -%>
   <div class="ui error message closeable">
     <i class="close icon"></i>
     <div class="header">
@@ -8,7 +8,7 @@
     <p><%=h flash[:error_body] %></p>
   </div>
   <% end %>
-  <% if flash[:success_header] and flash[:success_body] -%>
+  <% if flash[:success_header] or flash[:success_body] -%>
   <div class="ui success message closeable">
     <i class="close icon"></i>
     <div class="header">

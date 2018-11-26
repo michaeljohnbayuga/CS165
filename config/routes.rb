@@ -1,39 +1,20 @@
 Rails.application.routes.draw do
-  get 'home/show'
+  get 'home/dormer'
 
   get 'logout', to: 'sessions#destroy', as: 'logout'
   get 'profile', to: 'users#index', as: 'profile'
 
   resources :sessions, only: [:create, :destroy]
   resources :users
-  resources :shows
-  resources :trackers
-  resources :seasons
-  resources :episodes
-  resources :favorite_shows, only: [:create, :destroy]
-  resources :reviews
-
-  post 'reviews/new', to: 'reviews#new'
-  post 'reviews/create', to: 'reviews#create'
-
-  post 'shows/regular_search', to: 'shows#regular_search'
-  post 'shows/filter_search', to: 'shows#filter_search'
-
+  resources :dormers
+  resources :studentassistants, only:[:create, :destroy] 
+  resources :bedchecks
+  resources :violations, only:[:create,:destroy]
+  resources :dailyreports
+  post 'dormers/regular_search', to: 'dormers#regular_search'
+  post 'dormers/filter_search', to: 'dormers#filter_search'
+  post 'bedchecks/destroy', to: 'bedchecks#destroy'
   post 'home/filter_search', to: 'home#filter_search'
 
-  post 'ratings/rate1', to: 'ratings#rate1'
-  post 'ratings/rate2', to: 'ratings#rate2'
-  post 'ratings/rate3', to: 'ratings#rate3'
-  post 'ratings/rate4', to: 'ratings#rate4'
-  post 'ratings/rate5', to: 'ratings#rate5'
-
-  post 'sessions/create', to: 'sessions#create'
-  post 'seasons/watch/', to: 'seasons#watch'
-  post 'seasons/unwatch/', to: 'seasons#unwatch'
-  post 'seasons/:id', to: 'seasons#update'
-  post 'episodes/:id', to: 'episodes#update'
-
-  #root to: "home#show"
-
-  root to: "home#show"
+  root to: "home#dormer"
 end
